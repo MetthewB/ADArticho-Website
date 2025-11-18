@@ -6,8 +6,8 @@ highlighter: rouge
 permalink: pretty
 
 # Setup
-title: 'Charting a path to cinematic success'
-tagline: 'Charting a path to cinematic success' # For the tab title
+title: 'ADArticho'
+tagline: 'ADArticho' # For the tab title
 description: 'Applied Data Analysis Project - EPFL '
 url: http://hyde.getpoole.com # FIXME - Change this, but what does it do ?
 baseurl: /
@@ -19,8 +19,8 @@ defaults:
       image: true
 
 author:
-  name: 'The Armada Of Badass Empanadas'
-  url: https://github.com/epfl-ada/ada-2023-project-thearmadaofbadassempanadas
+  name: 'ADArticho'
+  url: https://github.com/epfl-ada/ada-2025-project-adarticho
 
 paginate: 100
 
@@ -28,4 +28,4 @@ paginate: 100
 # version: 2.1.0
 
 github:
-  repo: https://github.com/epfl-ada/ada-2023-project-thearmadaofbadassempanadas
+  repo: https://github.com/epfl-ada/ada-2025-project-adarticho
