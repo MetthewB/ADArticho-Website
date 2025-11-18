@@ -1,0 +1,20 @@
+---
+layout: default
+title: Home
+---
+
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <!-- Only write the title if it's not empty -->
+    {% if post.title %}
+    <h1 class="post-title" id="{{ post.title }}">
+      <div class="highlight">
+        {{ post.title }}
+      </div>
+    </h1>
+    {% endif %}
+    {{ post.content }}
+  </div>
+  {% endfor %}
+</div>
