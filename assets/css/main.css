@@ -46,9 +46,9 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #2f3f29;
+    background-color: #33432d;
     border-radius: 5px;
-	color: rgb(88, 198, 88);
+	color: white;
 }
 
 /* Brand Styling */
