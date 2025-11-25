@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Models & Methods | ADArticho</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+
+        <!-- Navigation Bar -->
+        <div class="navbar">
+			<div class="navbar-left">
+				<span class="brand">ADArticho</span>
+			</div>
+            <div class="navbar-right">
+                <a href="index.html">Home</a>
+                <a href="datasets.html">Datasets</a>
+                <a href="models-methods.html">Models & Methods</a>
+                <a href="team.html">Team</a>
+                <a href="sources.html">Sources</a>
+                <a href="https://github.com/epfl-ada/ada-2025-project-adarticho" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <!-- Wrapper -->
+        <div id="wrapper" class="divided">
+
+            <!-- Banner -->
+            <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+                <div class="content">
+                    <h1>Models & Methods</h1>
+                    <p class="major">Discover the methodologies and models used to analyze humor in our datasets.</p>
+                </div>
+                <div class="image">
+                    <img src="images/models-methods-banner.jpg" alt="Models and Methods Overview" />
+                </div>
+            </section>
+
+            <!-- Section 1: Data Integration and Preprocessing -->
+            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+                <div class="content">
+                    <h2>1. Data Integration and Preprocessing</h2>
+                    <p><strong>Goal:</strong> Create harmonized, comparable datasets for linguistic and semantic analysis.</p>
+                    <ul>
+                        <li>Data loading and standardization: Align OHIC to match the NYCC schema (shared columns: <code>caption</code>, <code>funniness_score</code>, <code>year</code>).</li>
+                        <li>Text Cleaning & Tokenization: Prepare a cleaned version of each caption while preserving the original text (lowercase, remove punctuation and stopwords).</li>
+                        <li>Linguistic and stylometric analysis:
+                            <ul>
+                                <li>Word count and character count</li>
+                                <li>Type-Token Ratio (TTR) for lexical diversity</li>
+                                <li>Formality score: ratio of nouns/adjectives to pronouns/verbs</li>
+                                <li>Sentiment score using NLTK, TextBlob, or VADER</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="image">
+                    <img src="images/data-integration.jpg" alt="Data Integration and Preprocessing" />
+                </div>
+            </section>
+
+            <!-- Section 2: Thematic NLP and Semantic Modeling -->
+            <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+                <div class="content">
+                    <h2>2. Thematic NLP and Semantic Modeling</h2>
+                    <p><strong>Goal 1:</strong> Identify recurring humor types with zero-shot classification.</p>
+                    <ul>
+                        <li>Define humor categories (awkward, sarcastic, dark, etc.) by describing them and providing examples.</li>
+                        <li>Generate Transformer-based embeddings for each caption and each humor category description.</li>
+                        <li>Compare each caption to the humor categories embeddings (with cosine similarity).</li>
+                        <li>Classify each caption into its closest humor category.</li>
+                    </ul>
+                    <p><strong>Goal 2:</strong> Identify topic themes with zero-shot classification.</p>
+                    <ul>
+                        <li>Repeat the same method as for humor types, by defining topic themes (politics, love, food, work, school, etc.).</li>
+                    </ul>
+                </div>
+                <div class="image">
+                    <img src="images/thematic-nlp.jpg" alt="Thematic NLP and Semantic Modeling" />
+                </div>
+            </section>
+
+            <!-- Section 3: Comparative Statistical and Stylistic Analysis -->
+            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+                <div class="content">
+                    <h2>3. Comparative Statistical and Stylistic Analysis</h2>
+                    <p><strong>Goal:</strong> Quantify differences between humor contexts.</p>
+                    <ul>
+                        <li><strong>Thematic Comparison:</strong> Use Chi²/ANOVA tests to compare theme frequencies.</li>
+                        <li><strong>Stylistic Comparison:</strong> Conduct t-tests on linguistic features (TTR, formality, sentiment).</li>
+                        <li><strong>Bubble Classification:</strong> Train a logistic regression model predicting a caption’s origin (<em>NYCC</em> vs. <em>OHIC</em>). Interpret coefficients to identify features that define the “New Yorker bubble.”</li>
+                    </ul>
+                </div>
+                <div class="image">
+                    <img src="images/statistical-analysis.jpg" alt="Comparative Statistical and Stylistic Analysis" />
+                </div>
+            </section>
+
+            <!-- Section 4: Temporal and Cultural Trend Analysis -->
+            <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+                <div class="content">
+                    <h2>4. Temporal and Cultural Trend Analysis</h2>
+                    <p><strong>Goal:</strong> Track how humor evolves across time.</p>
+                    <ul>
+                        <li>Group captions by year and compute theme proportions.</li>
+                        <li>Detect major shifts in humor trends.</li>
+                        <li>Correlate with sociopolitical events using contextual data.</li>
+                        <li>Visualize using stacked bar charts or rolling averages.</li>
+                    </ul>
+                </div>
+                <div class="image">
+                    <img src="images/temporal-trends.jpg" alt="Temporal and Cultural Trend Analysis" />
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
