@@ -30,6 +30,7 @@ body {
     align-items: center;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.4s ease-in-out;
 }
 
 .navbar-right {
@@ -40,7 +41,7 @@ body {
 .navbar a {
     color: white;
     text-decoration: none;
-    font-size: 26px;
+    font-size: 30px;
     padding: 10px 20px;
     transition: background-color 0.3s ease;
 }
@@ -53,18 +54,87 @@ body {
 
 /* Brand Styling */
 .brand {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     display: inline-block;
-    background: linear-gradient(to right, green, white); /* Gradient effect */
-    -webkit-background-clip: text; /* Clip gradient to text */
-    -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
-    text-fill-color: transparent; /* Fallback for other browsers */
-    margin-left: 20px; /* Move the brand slightly to the right */
+    background: linear-gradient(to right, rgb(1, 83, 1), white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    margin-left: 20px;
+}
+
+.scrolled-nav {
+    padding: 5px 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scrolled-nav .navbar-right {
+    gap: 30px;
+}
+
+/* Change link color to contrast with the new light background */
+.scrolled-nav a {
+    color: #203023;
+    font-size: 26px;
+    padding: 5px 15px;
+}
+
+/* Change link hover color when scrolled */
+.scrolled-nav a:hover {
+    background-color: #e0e0e0;
+    color: #203023;
+}
+
+/* Shrink the brand size and change the gradient to contrast with the light background */
+.scrolled-nav .brand {
+    font-size: 35px;
+    background: linear-gradient(to right, #33432d, #5a7d5c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
 }
 
 #wrapper {
-    padding-top: 47px;
+    padding-top: 80px;
+}
+
+.metrics-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 2em 0;
+    text-align: center;
+    margin-bottom: 2em;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.metric-box {
+    flex-basis: 30%;
+}
+
+.metric-box .counter {
+    font-size: 4em;
+    font-weight: bold;
+    color: #33432d; /* Use your dark green brand color */
+    display: block;
+}
+
+.metric-box .suffix {
+    font-size: 2em;
+    font-weight: bold;
+    color: #33432d;
+    display: inline-block;
+    margin-left: -10px; /* Overlap slightly with the number */
+}
+
+.metric-box p {
+    font-size: 1em;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #666;
+    margin-top: 0.5em;
 }
 
 /* Banner Section */
@@ -72,8 +142,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px;
+    padding: 0px;
     background-color: #eaeaea;
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .banner .content {
@@ -81,13 +152,17 @@ body {
 }
 
 .banner .content h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 3.5em;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+	-webkit-text-fill-color: #355436;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 .banner .content p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.5em;
+    margin-top: 20px;
+    line-height: 1.8;
 }
 
 .banner .image img {
@@ -96,13 +171,45 @@ body {
     border-radius: 10px;
 }
 
+.banner .actions .button {
+    font-size: 1.1em; /* Slightly larger font size */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+#research-questions {padding: 0rem 1rem;}
+#research-questions .content {padding: 1rem; max-width: 100%;}
+
+#exploratory-data-analysis {padding: 0rem 0rem 0rem 1rem;}
+#exploratory-data-analysis .content {padding: 1rem; max-width: 100%;}
+
+#humor-classification {padding: 0rem 1rem 0rem 0rem;}
+#humor-classification .content {padding: 1rem; max-width: 100%;}
+
+#call-to-action {padding: 0rem 0rem 0rem 0rem;}
+#call-to-action .content {padding: 0rem; max-width: 100%;}
+
+#nycc {padding: 0rem 1rem 0rem 0rem;}
+#nycc .content {padding: 0.5rem; max-width: 100%;}
+
+#ohic {padding: 0rem 0rem 0rem 1rem;}
+#ohic .content {padding: 0.5rem; max-width: 100%;}
+
 /* Spotlight Section */
 .spotlight {
     display: flex;
     align-items: center;
-    padding: 50px;
+	padding: 0px;
     background-color: #fff;
-    margin-bottom: 20px;
 }
 
 .spotlight.orient-left .content {
@@ -347,6 +454,9 @@ input, select, textarea {
 
 	h2 {
 		font-size: 2.25rem;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 350;
+		-webkit-text-fill-color: #355436;
 	}
 
 	h3 {
@@ -2203,7 +2313,7 @@ input, select, textarea {
 	.box {
 		border-radius: 4px;
 		border: solid 1px;
-		margin-bottom: 2rem;
+		margin-bottom: 0rem;
 		padding: 1.5rem;
 	}
 

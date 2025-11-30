@@ -10,36 +10,36 @@
     <body class="is-preload">
 
         <!-- Navigation Bar -->
-        <div class="navbar">
-            <div class="navbar-left">
-                <span class="brand">ADArticho</span>
-            </div>
-            <div class="navbar-right">
-                <a href="index.html">Home</a>
+		<div id="main-navbar" class="navbar">
+			<div class="navbar-left">
+				<span class="brand">ADArticho</span>
+			</div>
+			<div class="navbar-right">
+				<a href="index.html">Home</a>
                 <a href="datasets.html">Datasets</a>
                 <a href="models-methods.html">Models & Methods</a>
                 <a href="team.html">Team</a>
                 <a href="sources.html">Sources</a>
                 <a href="https://github.com/epfl-ada/ada-2025-project-adarticho" target="_blank">GitHub</a>
-            </div>
-        </div>
+				</div>
+		</div>
 
         <!-- Wrapper -->
         <div id="wrapper" class="divided">
 
             <!-- Banner -->
-            <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+            <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right" id="datasets">
                 <div class="content">
                     <h1>Datasets</h1>
                     <p class="major">Explore the datasets used in our analysis, including their structure, sources, and key features.</p>
                 </div>
                 <div class="image">
-                    <img src="images/datasets-banner.jpg" alt="Datasets Overview" />
+                    <img src="images/data_analysis.jpg" alt="Datasets Overview" />
                 </div>
             </section>
 
             <!-- Dataset 1: New Yorker Caption Contest -->
-            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="nycc">
                 <div class="content">
                     <h2>New Yorker Caption Contest (NYCC)</h2>
                     <p>The New Yorker Caption Contest dataset contains captions submitted to the weekly contest, along with their funniness scores and metadata.</p>
@@ -68,12 +68,12 @@
                     <p>For more references, see <a href="sources.html#references">[2]</a> and <a href="sources.html#references">[3]</a>.</p>
                 </div>
                 <div class="image">
-                    <img src="images/nycc-dataset.jpg" alt="New Yorker Caption Contest Dataset" />
+                    <img src="images/nycc.png" alt="New Yorker Caption Contest Dataset" />
                 </div>
             </section>
 
                 <!-- Dataset 2: Oxford Humor in Context -->
-                <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+                <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="ohic">
                     <div class="content">
                         <h2>Oxford Humor in Context (OHIC)</h2>
                         <p>The Oxford Humor in Context dataset contains humorous image-text pairs with linguistic and social annotations.</p>
@@ -101,12 +101,12 @@
                         </ol>
                     </div>
                     <div class="image">
-                        <img src="images/ohic-dataset.jpg" alt="Oxford Humor in Context Dataset" />
+                        <img src="images/ohic.png" alt="Oxford Humor in Context Dataset" />
                     </div>
                 </section>
 
 			<!-- Call-to-Action -->
-			<section class="wrapper style1 align-center">
+			<section class="wrapper style1 align-center" id="call-to-action">
 				<div class="inner">
 					<h2>Explore More</h2>
 					<p>Dive deeper into our models, methods, and findings:</p>

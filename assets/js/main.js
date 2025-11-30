@@ -95,6 +95,35 @@
 
 				})();
 
+    // Sticky Navigation Bar
+    (function() {
+        // 1. Get the navigation bar element
+        var nav = $('#main-navbar');
+        
+        // 2. Define the scroll threshold (e.g., 100 pixels)
+        var scrollThreshold = 100;
+
+        // 3. Define the function to check scroll position
+        function checkScroll() {
+            var scrollPos = $window.scrollTop(); // Use $window defined at the top
+            
+            // If scroll position is past the threshold
+            if (scrollPos > scrollThreshold) {
+                nav.addClass('scrolled-nav');
+            } 
+            // If scroll position is at the top
+            else {
+                nav.removeClass('scrolled-nav');
+            }
+        }
+
+        // 4. Bind the function to the scroll event
+        $window.on('scroll', checkScroll);
+
+        // 5. Run the check once on page load (important for page refreshes)
+        checkScroll();
+    })();
+
 	// Smooth scroll.
 		$('.smooth-scroll').scrolly();
 		$('.smooth-scroll-middle').scrolly({ anchor: 'middle' });

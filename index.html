@@ -10,25 +10,25 @@
     <body class="is-preload">
 
         <!-- Navigation Bar -->
-        <div class="navbar">
-            <div class="navbar-left">
-                <span class="brand">ADArticho</span>
-            </div>
-            <div class="navbar-right">
-                <a href="index.html">Home</a>
+		<div id="main-navbar" class="navbar">
+			<div class="navbar-left">
+				<span class="brand">ADArticho</span>
+			</div>
+			<div class="navbar-right">
+				<a href="index.html">Home</a>
                 <a href="datasets.html">Datasets</a>
                 <a href="models-methods.html">Models & Methods</a>
                 <a href="team.html">Team</a>
                 <a href="sources.html">Sources</a>
                 <a href="https://github.com/epfl-ada/ada-2025-project-adarticho" target="_blank">GitHub</a>
-            </div>
-        </div>
+				</div>
+		</div>
 
         <!-- Wrapper -->
         <div id="wrapper" class="divided">
 
             <!-- Banner -->
-            <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+            <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right" id="title">
                 <div class="content">
                     <h1>The Laughter Lens</h1>
                     <p class="major">A data-driven exploration of humor across institutional (The New Yorker) and general (Oxford) contexts.</p>
@@ -54,7 +54,7 @@
             </section>
 
             <!-- Exploratory Data Analysis -->
-            <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+            <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="exploratory-data-analysis">
                 <div class="content">
                     <h2>Exploratory Data Analysis</h2>
                     <p>Our analysis revealed key insights into humor distribution and voting patterns:</p>
@@ -66,12 +66,12 @@
                     <p>These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
                 </div>
                 <div class="image">
-                    <img src="images/eda-summary.jpg" alt="EDA Summary" />
+                    <img src="images/gazelle.jpg" alt="EDA Summary" />
                 </div>
             </section>
 
             <!-- Humor Classification -->
-            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="humor-classification">
                 <div class="content">
                     <h2>Humor Classification</h2>
                     <p>We classified captions into humor types using two approaches:</p>
@@ -82,12 +82,12 @@
                     <p>These methods provide complementary insights into the thematic and stylistic dimensions of humor.</p>
                 </div>
                 <div class="image">
-                    <img src="images/humor-classification.jpg" alt="Humor Classification" />
+                    <img src="images/gazelle.jpg" alt="Humor Classification" />
                 </div>
             </section>
 
 			<!-- Call-to-Action -->
-			<section class="wrapper style1 align-center">
+			<section class="wrapper style1 align-center" id="call-to-action">
 				<div class="inner">
 					<h2>Explore More</h2>
 					<p>Dive deeper into our datasets, methods, and findings:</p>
