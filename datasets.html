@@ -11,9 +11,9 @@
 
         <!-- Navigation Bar -->
         <div class="navbar">
-			<div class="navbar-left">
-				<span class="brand">ADArticho</span>
-			</div>
+            <div class="navbar-left">
+                <span class="brand">ADArticho</span>
+            </div>
             <div class="navbar-right">
                 <a href="index.html">Home</a>
                 <a href="datasets.html">Datasets</a>
@@ -43,81 +43,78 @@
                 <div class="content">
                     <h2>New Yorker Caption Contest (NYCC)</h2>
                     <p>The New Yorker Caption Contest dataset contains captions submitted to the weekly contest, along with their funniness scores and metadata.</p>
+                    <h3>Why NYCC?</h3>
+                    <p>The NYCC dataset provides a unique institutional perspective on humor. It allows us to analyze humor in a structured, community-driven environment where captions are explicitly rated for funniness. This dataset is particularly useful for:</p>
                     <ul>
-                        <li><strong>Size:</strong> Approximately 500,000 captions</li>
-                        <li><strong>Features:</strong> Caption text, funniness score, year, and contest ID</li>
-                        <li><strong>Source:</strong> The New Yorker archives</li>
+                        <li>Understanding the thematic and stylistic preferences of a specific audience.</li>
+                        <li>Tracking the evolution of humor over time in a controlled setting.</li>
+                        <li>Exploring the relationship between caption content and funniness scores.</li>
                     </ul>
+                    <h3>Key Insights</h3>
+                    <p>The dataset spans from contest #510 (22nd February 2016) to contest #895 (6th May 2024), with weekly updates. Captions are rated by crowdsourced users, and the final winner is decided by The New Yorker editorial staff. Key insights include:</p>
+                    <ul>
+                        <li>How many responses are gathered per contest?</li>
+                        <li>How do ratings behave after users have seen many captions?</li>
+                        <li>How well can natural language processing (NLP) tools find similar captions?</li>
+                    </ul>
+                    <p>More details can be found at <a href="sources.html#references">[1]</a>.</p>
+                    <h3>Preprocessing Steps</h3>
+                    <ol>
+                        <li>Loaded the dataset and removed unnecessary columns.</li>
+                        <li>Standardized column formats (e.g., lowercase text, consistent date formats).</li>
+                        <li>Filtered captions with missing or invalid funniness scores.</li>
+                        <li>Tokenized and cleaned the text (e.g., removed punctuation and stopwords).</li>
+                    </ol>
+                    <p>For more references, see <a href="sources.html#references">[2]</a> and <a href="sources.html#references">[3]</a>.</p>
                 </div>
                 <div class="image">
                     <img src="images/nycc-dataset.jpg" alt="New Yorker Caption Contest Dataset" />
                 </div>
             </section>
 
-            <!-- Dataset 2: Oxford Humor in Context -->
-            <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-                <div class="content">
-                    <h2>Oxford Humor in Context (OHIC)</h2>
-                    <p>The Oxford Humor in Context dataset contains humorous image-text pairs with linguistic and social annotations.</p>
-                    <ul>
-                        <li><strong>Size:</strong> Approximately 2.9 million image-text pairs</li>
-                        <li><strong>Features:</strong> Caption text, humor score, linguistic annotations, and image metadata</li>
-                        <li><strong>Source:</strong> Oxford University Research Archive</li>
-                    </ul>
-                    <p><a href="https://ora.ox.ac.uk/objects/uuid:9dd623fd-d3ce-43ee-905d-47a7f1f4defa" target="_blank">Learn more about OHIC →</a></p>
-                </div>
-                <div class="image">
-                    <img src="images/ohic-dataset.jpg" alt="Oxford Humor in Context Dataset" />
-                </div>
-            </section>
+                <!-- Dataset 2: Oxford Humor in Context -->
+                <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+                    <div class="content">
+                        <h2>Oxford Humor in Context (OHIC)</h2>
+                        <p>The Oxford Humor in Context dataset contains humorous image-text pairs with linguistic and social annotations.</p>
+                        <h3>Why OHIC?</h3>
+                        <p>The OHIC dataset provides a broader, general-audience perspective on humor. It includes a diverse range of humor types and contexts, making it ideal for:</p>
+                        <ul>
+                            <li>Analyzing humor across different cultural and social contexts.</li>
+                            <li>Exploring the relationship between image and text in humor.</li>
+                            <li>Studying humor in a less formal, more organic setting.</li>
+                        </ul>
+                        <h3>Key Insights</h3>
+                        <p>OxfordTVG-HIC offers approximately 2.9M image-text pairs with humor scores, curated to avoid offensive content. The dataset is particularly useful for:</p>
+                        <ul>
+                            <li>Training humor captioning models with diverse emotional and semantic content.</li>
+                            <li>Evaluating humor generation and understanding in deep learning models.</li>
+                            <li>Exploring visual and linguistic cues aligned with the benign violation theory of humor.</li>
+                        </ul>
+                        <p>For more details, visit the <a href="sources.html#references">References</a> section in the Sources page and see <a href="sources.html#references">[5]</a> and <a href="sources.html#references">[6]</a>.</p>
+                        <h3>Preprocessing Steps</h3>
+                        <ol>
+                            <li>Loaded the dataset and filtered out non-humorous entries.</li>
+                            <li>Aligned the schema with the NYCC dataset (e.g., shared columns: caption, year).</li>
+                            <li>Cleaned and tokenized the text data.</li>
+                            <li>Extracted linguistic features (e.g., sentiment, lexical diversity).</li>
+                        </ol>
+                    </div>
+                    <div class="image">
+                        <img src="images/ohic-dataset.jpg" alt="Oxford Humor in Context Dataset" />
+                    </div>
+                </section>
 
-            <!-- Dataset Comparison -->
-            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-                <div class="content">
-                    <h2>Dataset Comparison</h2>
-                    <p>Both datasets provide unique insights into humor, but they differ in scope, structure, and context. Here's a quick comparison:</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Feature</th>
-                                <th>NYCC</th>
-                                <th>OHIC</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Size</td>
-                                <td>500,000 captions</td>
-                                <td>2.9 million image-text pairs</td>
-                            </tr>
-                            <tr>
-                                <td>Context</td>
-                                <td>Institutional (The New Yorker)</td>
-                                <td>General (Oxford Humor in Context)</td>
-                            </tr>
-                            <tr>
-                                <td>Features</td>
-                                <td>Caption text, funniness score, year</td>
-                                <td>Caption text, humor score, linguistic annotations</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="image">
-                    <img src="images/dataset-comparison.jpg" alt="Dataset Comparison" />
-                </div>
-            </section>
-
-        <!-- Call-to-Action -->
+			<!-- Call-to-Action -->
 			<section class="wrapper style1 align-center">
 				<div class="inner">
 					<h2>Explore More</h2>
-					<p>Dive deeper into our pipeline, methods, and findings:</p>
+					<p>Dive deeper into our models, methods, and findings:</p>
 					<ul class="actions">
 						<li><a href="index.html" class="button big wide">Home</a></li>
 						<li><a href="models-methods.html" class="button big wide">Models & Methods</a></li>
 						<li><a href="team.html" class="button big wide">Team</a></li>
-						<li><a href="sources.html" class="button big wide">Sources</a></li>
+                        <li><a href="sources.html" class="button big wide">Sources</a></li>
 					</ul>
 				</div>
 			</section>
