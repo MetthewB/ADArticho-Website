@@ -186,6 +186,69 @@ body {
     }
 }
 
+.team-grid {
+    text-align: center;
+    padding: 2em 1em;
+}
+
+.team-grid .team-images {
+    display: flex;
+    justify-content: center;
+    gap: 2em; /* Adds space between the images */
+}
+
+.team-grid .team-images img {
+    max-width: 250px; /* Adjust the size of the images */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.team-grid .content {
+    margin-bottom: 2em;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    justify-items: center;
+}
+
+.team-member {
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.team-member .image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+}
+
+.team-member .info {
+    padding: 1em;
+}
+
+.team-member h3 {
+    margin: 0.5em 0;
+    font-size: 1.25em;
+}
+
+.team-member p {
+    margin: 0.5em 0;
+    font-size: 0.95em;
+    color: #555;
+}
+
 #research-questions {padding: 0rem 1rem;}
 #research-questions .content {padding: 1rem; max-width: 100%;}
 
@@ -203,6 +266,18 @@ body {
 
 #ohic {padding: 0rem 0rem 0rem 1rem;}
 #ohic .content {padding: 0.5rem; max-width: 100%;}
+
+#preprocessing {padding: 0rem 0rem 0rem 0rem;}
+#preprocessing .content {padding: 0.5rem; max-width: 100%;}
+
+#NLP {padding: 0rem 0rem 0rem 1rem;}
+#NLP .content {padding: 0.5rem; max-width: 100%;}
+
+#statistical-analysis {padding: 0rem 0rem 0rem 0rem;}
+#statistical-analysis .content {padding: 0.5rem; max-width: 100%;}
+
+#temporal-trends {padding: 0rem 0rem 0rem 1rem;}
+#temporal-trends .content {padding: 0.5rem; max-width: 100%;}
 
 /* Spotlight Section */
 .spotlight {
