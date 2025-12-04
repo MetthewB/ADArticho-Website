@@ -1,15 +1,14 @@
+/* ---------------------------------
+   Imports
+---------------------------------- */
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
 
-/*
-	Story by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-/* General Reset */
+/* ---------------------------------
+   General Reset
+---------------------------------- */
 body {
-	overflow: auto;
+    overflow: auto;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -18,7 +17,18 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Sticky Navigation Bar */
+/* ---------------------------------
+   General Content Styling
+---------------------------------- */
+.content {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+}
+
+/* ---------------------------------
+   Navigation Bar
+---------------------------------- */
 .navbar {
     position: fixed;
     top: 0;
@@ -30,7 +40,7 @@ body {
     align-items: center;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-	transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .navbar-right {
@@ -49,10 +59,34 @@ body {
 .navbar a:hover {
     background-color: #33432d;
     border-radius: 5px;
-	color: white;
+    color: white;
 }
 
-/* Brand Styling */
+/* Scrolled Navigation Bar */
+.scrolled-nav {
+    padding: 5px 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scrolled-nav .navbar-right {
+    gap: 30px;
+}
+
+.scrolled-nav a {
+    color: #203023;
+    font-size: 26px;
+    padding: 5px 15px;
+}
+
+.scrolled-nav a:hover {
+    background-color: #e0e0e0;
+    color: #203023;
+}
+
+/* ---------------------------------
+   Brand Styling
+---------------------------------- */
 .brand {
     font-size: 40px;
     font-weight: bold;
@@ -64,30 +98,6 @@ body {
     margin-left: 20px;
 }
 
-.scrolled-nav {
-    padding: 5px 20px;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.scrolled-nav .navbar-right {
-    gap: 30px;
-}
-
-/* Change link color to contrast with the new light background */
-.scrolled-nav a {
-    color: #203023;
-    font-size: 26px;
-    padding: 5px 15px;
-}
-
-/* Change link hover color when scrolled */
-.scrolled-nav a:hover {
-    background-color: #e0e0e0;
-    color: #203023;
-}
-
-/* Shrink the brand size and change the gradient to contrast with the light background */
 .scrolled-nav .brand {
     font-size: 35px;
     background: linear-gradient(to right, #33432d, #5a7d5c);
@@ -96,10 +106,16 @@ body {
     text-fill-color: transparent;
 }
 
+/* ---------------------------------
+   Wrapper
+---------------------------------- */
 #wrapper {
     padding-top: 88px;
 }
 
+/* ---------------------------------
+   Metrics Section
+---------------------------------- */
 .metrics-container {
     display: flex;
     justify-content: space-around;
@@ -117,7 +133,7 @@ body {
 .metric-box .counter {
     font-size: 4em;
     font-weight: bold;
-    color: #33432d; /* Use your dark green brand color */
+    color: #33432d;
     display: block;
 }
 
@@ -126,7 +142,7 @@ body {
     font-weight: bold;
     color: #33432d;
     display: inline-block;
-    margin-left: -10px; /* Overlap slightly with the number */
+    margin-left: -10px;
 }
 
 .metric-box p {
@@ -137,13 +153,9 @@ body {
     margin-top: 0.5em;
 }
 
-.content {
-    width: 100%;
-    max-width: none;
-    padding: 0;
-}
-
-/* Banner Section */
+/* ---------------------------------
+   Banner Section
+---------------------------------- */
 .banner {
     display: flex;
     align-items: center;
@@ -157,24 +169,20 @@ body {
 }
 
 .banner .content {
-	position: relative;
+    position: relative;
     max-width: 200px;
-}
-#title .content {
-	padding-top: 60px !important; 
-	font-size: 1.15em;
 }
 
 .banner .content h1 {
     font-size: 3.5em;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
-	-webkit-text-fill-color: white;
+    -webkit-text-fill-color: white;
     animation: fadeIn 1.2s ease-in-out;
 }
 
 .banner .content p {
-	margin-top: 40px;
+    margin-top: 40px;
     line-height: 1.8;
     color: #f0f0f0;
 }
@@ -185,17 +193,26 @@ body {
     border-radius: 10px;
 }
 
-#title .content {
-	max-height: 630px;
-	height: 630px;
-	margin-top: 60px;
-}
-
+/* ---------------------------------
+   Banner Image
+---------------------------------- */
 #banner-image {
     transition: opacity 0.5s ease-in-out;
 }
+
 .hidden {
     opacity: 0;
+}
+
+/* ---------------------------------
+   Title Section
+---------------------------------- */
+#title .content {
+    max-height: 630px;
+    height: 630px;
+    margin-top: 60px;
+    padding-top: 60px !important;
+    font-size: 1.15em;
 }
 
 #title .bottom-image {
@@ -213,29 +230,9 @@ body {
     transform: scale(1.1);
 }
 
-#team .content {
-    max-height: 375px;
-}
-
-#datasets .content {
-    max-height: 700px;
-}
-
-#models-methods .content {
-	max-height: 600px;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
-
+/* ---------------------------------
+   Team Section
+---------------------------------- */
 .team-grid {
     text-align: center;
     padding: 2em 1em;
@@ -244,24 +241,13 @@ body {
 .team-grid .team-images {
     display: flex;
     justify-content: center;
-    gap: 2em; /* Adds space between the images */
+    gap: 2em;
 }
 
 .team-grid .team-images img {
-    max-width: 250px; /* Adjust the size of the images */
+    max-width: 250px;
     height: auto;
     transition: transform 0.3s ease;
-}
-
-.team-grid .content {
-    margin-bottom: 2em;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2em;
-    justify-items: center;
 }
 
 .team-member {
@@ -299,6 +285,104 @@ body {
     color: #555;
 }
 
+/* ---------------------------------
+   Section-Specific Content Heights
+---------------------------------- */
+#team .content {max-height: 375px;}
+
+#datasets .content {max-height: 700px;}
+
+#models-methods .content {max-height: 600px;}
+
+/* ---------------------------------
+   Research Questions Section
+---------------------------------- */
+#research-questions {padding: 0rem 1rem;}
+
+#research-questions .content {padding: 1rem; max-width: 100%;}
+
+/* ---------------------------------
+   Exploratory Data Analysis Section
+---------------------------------- */
+#exploratory-data-analysis {padding: 0rem 0rem 0rem 1rem;}
+
+#exploratory-data-analysis .content {padding: 1rem; max-width: 100%;}
+
+/* ---------------------------------
+   Humor Classification Section
+---------------------------------- */
+#humor-classification {padding: 0rem 1rem 0rem 0rem;}
+
+#humor-classification .content {padding: 1rem; max-width: 100%;}
+
+/* ---------------------------------
+   Call to Action Section
+---------------------------------- */
+#call-to-action {padding: 0rem 0rem 0rem 0rem;}
+
+#call-to-action .content {padding: 0rem; max-width: 100%;}
+
+/* ---------------------------------
+   NYCC Section
+---------------------------------- */
+#nycc {padding: 0rem 1rem 0rem 0rem;}
+
+#nycc .content {padding: 0.5rem; max-width: 100%; margin-left: 20px;}
+
+/* ---------------------------------
+   OHIC Section
+---------------------------------- */
+#ohic {padding: 0rem 0rem 0rem 1rem;}
+
+#ohic .content {padding: 0.5rem; max-width: 100%;}
+
+/* ---------------------------------
+   Preprocessing Section
+---------------------------------- */
+#preprocessing {padding: 0rem 0rem 0rem 0rem;}
+
+#preprocessing .content {padding: 0.5rem; max-width: 100%; margin-left: 20px;}
+
+/* ---------------------------------
+   NLP Section
+---------------------------------- */
+#NLP {padding: 0rem 0rem 0rem 1rem;}
+
+#NLP .content {padding: 0.5rem; max-width: 100%;}
+
+/* ---------------------------------
+   Statistical Analysis Section
+---------------------------------- */
+#statistical-analysis {padding: 0rem 0rem 0rem 0rem;}
+
+#statistical-analysis .content {padding: 0.5rem; max-width: 100%; margin-left: 20px;}
+
+/* ---------------------------------
+   Temporal Trends Section
+---------------------------------- */
+#temporal-trends {padding: 0rem 0rem 0rem 1rem;}
+
+#temporal-trends .content {padding: 0.5rem; max-width: 100%;}
+
+#temporal-trends .image {transform: translateX(-30px);}
+
+/* ---------------------------------
+   Grid Layouts
+---------------------------------- */
+.team-grid .content {
+    margin-bottom: 2em;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    justify-items: center;
+}
+
+/* ---------------------------------
+   Cards and Tools
+---------------------------------- */
 .dataset-cards {
     display: flex;
     gap: 20px;
@@ -336,36 +420,19 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#research-questions {padding: 0rem 1rem;}
-#research-questions .content {padding: 1rem; max-width: 100%;}
-
-#exploratory-data-analysis {padding: 0rem 0rem 0rem 1rem;}
-#exploratory-data-analysis .content {padding: 1rem; max-width: 100%;}
-
-#humor-classification {padding: 0rem 1rem 0rem 0rem;}
-#humor-classification .content {padding: 1rem; max-width: 100%;}
-
-#call-to-action {padding: 0rem 0rem 0rem 0rem;}
-#call-to-action .content {padding: 0rem; max-width: 100%;}
-
-#nycc {padding: 0rem 1rem 0rem 0rem;}
-#nycc .content {padding: 0.5rem; max-width: 100%; margin-left: 20px;}
-
-#ohic {padding: 0rem 0rem 0rem 1rem;}
-#ohic .content {padding: 0.5rem; max-width: 100%;}
-
-#preprocessing {padding: 0rem 0rem 0rem 0rem;}
-#preprocessing .content {padding: 0.5rem; max-width: 100%; margin-left: 20px;}
-
-#NLP {padding: 0rem 0rem 0rem 1rem;}
-#NLP .content {padding: 0.5rem; max-width: 100%;}
-
-#statistical-analysis {padding: 0rem 0rem 0rem 0rem;}
-#statistical-analysis .content {padding: 0.5rem; max-width: 100%; margin-left: 20px;}
-
-#temporal-trends {padding: 0rem 0rem 0rem 1rem;}
-#temporal-trends .content {padding: 0.5rem; max-width: 100%;}
-#temporal-trends .image {transform: translateX(-30px);}
+/* ---------------------------------
+   Animations
+---------------------------------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
 
 /* Spotlight Section */
 .spotlight {
