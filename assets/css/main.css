@@ -97,7 +97,7 @@ body {
 }
 
 #wrapper {
-    padding-top: 80px;
+    padding-top: 88px;
 }
 
 .metrics-container {
@@ -148,12 +148,69 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #eaeaea;
-	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #355436, #eaeaea);
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
 }
 
 .banner .content {
+	position: relative;
     max-width: 200px;
+}
+#title .content {
+	padding-top: 60px !important; 
+	font-size: 1.15em;
+}
+
+.banner .content h1 {
+    font-size: 3.5em;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+	-webkit-text-fill-color: white;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.banner .content p {
+	margin-top: 40px;
+    line-height: 1.8;
+    color: #f0f0f0;
+}
+
+.banner .image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#title .content {
+	max-height: 630px;
+	height: 630px;
+	margin-top: 60px;
+}
+
+#banner-image {
+    transition: opacity 0.5s ease-in-out;
+}
+.hidden {
+    opacity: 0;
+}
+
+#title .bottom-image {
+    text-align: center;
+    margin-top: 60px;
+}
+
+#title .bottom-image img {
+    max-width: 400px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+#title .bottom-image img:hover {
+    transform: scale(1.1);
 }
 
 #team .content {
@@ -166,30 +223,6 @@ body {
 
 #models-methods .content {
 	max-height: 600px;
-}
-
-.banner .content h1 {
-    font-size: 3.5em;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 700;
-	-webkit-text-fill-color: #355436;
-    animation: fadeIn 1.2s ease-in-out;
-}
-
-.banner .content p {
-    font-size: 1.5em;
-    margin-top: 20px;
-    line-height: 1.8;
-}
-
-.banner .image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.banner .actions .button {
-    font-size: 1.1em; /* Slightly larger font size */
 }
 
 @keyframes fadeIn {
