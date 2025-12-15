@@ -201,7 +201,7 @@ body {
 }
 
 .hidden {
-    opacity: 0;
+    display: none;
 }
 
 /* ---------------------------------
@@ -229,6 +229,86 @@ body {
 #title .bottom-image img:hover {
     transform: scale(1.1);
 }
+
+/* ---------------------------------
+   Quiz Section
+---------------------------------- */
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.quiz-option {
+    padding: 10px 20px;
+    background-color: #203023;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-option:hover {
+    background-color: #33432d;
+}
+
+.quiz-option.disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.feedback {
+    font-size: 1em;
+    color: #555;
+    line-height: 3.5em;
+	margin-bottom: -65px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.feedback.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.feedback.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+#data-story-1 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-1 {padding-bottom: 128px;}
+
+#data-story-2 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-2 {padding-bottom: 128px;}
+
+#data-story-3 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-3 {padding-bottom: 128px;}
+
+#data-story-4 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-4 {padding-bottom: 128px;}
+
+#data-story-5 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-5 {padding-bottom: 128px;}
+
+#data-story-6 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-6 {padding-bottom: 128px;}
+
+#data-story-7 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-7 {padding-bottom: 128px;}
+
+#data-story-8 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-8 {padding-bottom: 128px;}
+
+#data-story-9 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-9 {padding-bottom: 128px;}
+
+#data-story-10 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
+#quiz-10 {padding-bottom: 128px;}
 
 /* ---------------------------------
    Team Section
