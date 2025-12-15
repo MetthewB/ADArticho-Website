@@ -166,6 +166,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     position: relative;
+	text-align: center;
 }
 
 .banner .content {
@@ -185,6 +186,21 @@ body {
     margin-top: 40px;
     line-height: 1.8;
     color: #f0f0f0;
+}
+
+#banner-caption {
+    position: absolute;
+    bottom: 0px;
+	left: 50%;
+	width: 100%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Add a semi-transparent background */
+    color: white;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Smooth fade-in and fade-out effect */
 }
 
 .banner .image img {
@@ -336,10 +352,20 @@ body {
 }
 
 #results {
-    position: relative; /* Ensure the emojis are positioned relative to this section */
-    overflow: hidden; /* Prevent emojis from overflowing outside the section */
-    min-height: 300px; /* Ensure the section has enough height */
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+	padding: 25px 20px 0px 20px; /* Order is top right bottom left */
+    background: linear-gradient(135deg, #355436, #a6ceb4);
 }
+
+#results .inner {
+    padding-top: -15px;
+	margin-top: 5px;
+}
+
+#results h2 {color: black; font-weight: bold;}
+#results h3 {color: black !important;}
 
 /* ---------------------------------
    Team Section
