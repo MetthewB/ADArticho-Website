@@ -48,25 +48,70 @@ document.addEventListener('DOMContentLoaded', () => {
         if (score === 10) {
             resultsMessage.innerHTML = "Perfect score! You're <strong>hired</strong>! You have the humor profile that matches New Yorker readers.";
 
-            // Set up the Intersection Observer to trigger confetti when the results section is fully visible
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        triggerConfetti(); // Trigger the confetti animation
-                        observer.disconnect(); // Stop observing after the animation is triggered
+                        triggerConfetti();
+                        observer.disconnect();
                     }
                 });
-            }, { threshold: 1.0 }); // Ensure the entire section is visible
-
+            }, { threshold: 1.0 });
             observer.observe(resultsSection);
+
         } else if (score >= 8) {
             resultsMessage.innerHTML = "Great job! You scored " + score + "/10. You have a strong sense of humor, you're nearly there!";
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        triggerSparkles();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 1.0 });
+            observer.observe(resultsSection);
+
         } else if (score >= 6) {
             resultsMessage.innerHTML = "Great job! You scored " + score + "/10. You're funny, but there's still room for improvement.";
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        console.log('Results section is fully visible'); // Debugging log
+                        triggerLessConfetti();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 1.0 });
+            observer.observe(resultsSection);
+
         } else if (score >= 4) {
             resultsMessage.innerHTML = "You scored " + score + "/10. Not bad, but maybe stick to practicing your jokes on Twitter for now!";
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        console.log('Results section is fully visible'); // Debugging log
+                        triggerThumbsUp();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 1.0 });
+            observer.observe(resultsSection);
+
         } else {
             resultsMessage.innerHTML = "You scored " + score + "/10. Humor might not be your strong suit, but don't give up!";
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        console.log('Results section is fully visible'); // Debugging log
+                        triggerSadEmojis();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 1.0 });
+            observer.observe(resultsSection);
         }
 
         // Show the results section
@@ -107,4 +152,98 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         }, 250);
     }
+
+    function triggerSparkles() {
+        const defaults = {
+            spread: 360,
+            ticks: 10,
+            gravity: 0,
+            decay: 0.98,
+            startVelocity: 30,
+            shapes: ["star"],
+            colors: ["FFE400", "FFBD00", "E89400", "FFCA6C", "FDFFB8"], // Gold and yellow tones
+        };
+    
+        function shoot() {
+            confetti({
+                ...defaults,
+                particleCount: 40,
+                scalar: 1.2,
+                shapes: ["star"], // Star shapes
+            });
+    
+            confetti({
+                ...defaults,
+                particleCount: 10,
+                scalar: 0.75,
+                shapes: ["circle"], // Circle shapes
+            });
+        }
+    
+        // Trigger the sparkles multiple times for a dynamic effect
+        setTimeout(shoot, 0);
+        setTimeout(shoot, 100);
+        setTimeout(shoot, 200);
+    }
+
+    function triggerLessConfetti() {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            });
+    }
+
+    function triggerThumbsUp() {
+        const resultsSection = document.getElementById('results');
+        const sectionWidth = resultsSection.clientWidth;
+        const sectionHeight = resultsSection.clientHeight;
+    
+        for (let i = 0; i < 60; i++) {
+            const thumbsUp = document.createElement('div');
+            thumbsUp.textContent = '👍';
+            thumbsUp.classList.add('thumbs-up');
+    
+            const size = Math.random() * 1.5 + 1;
+            thumbsUp.style.fontSize = `${size}rem`;
+            thumbsUp.style.left = `${Math.random() * (sectionWidth - 50)}px`;
+            thumbsUp.style.top = `${Math.random() * (sectionHeight - 50)}px`;
+    
+            const duration = Math.random() * 4 + 4;
+            thumbsUp.style.animation = `fadeUp ${duration}s ease-out forwards`;
+    
+            resultsSection.appendChild(thumbsUp);
+    
+            setTimeout(() => {
+                thumbsUp.remove();
+            }, (duration + 4) * 1000);
+        }
+    }
+    
+    function triggerSadEmojis() {
+        const resultsSection = document.getElementById('results');
+        const sectionWidth = resultsSection.clientWidth;
+        const sectionHeight = resultsSection.clientHeight;
+    
+        for (let i = 0; i < 60; i++) {
+            const sadEmoji = document.createElement('div');
+            sadEmoji.textContent = '😢';
+            sadEmoji.classList.add('sad-emoji');
+    
+            const size = Math.random() * 1.5 + 1;
+            sadEmoji.style.fontSize = `${size}rem`;
+            sadEmoji.style.left = `${Math.random() * (sectionWidth - 50)}px`;
+            sadEmoji.style.top = `${Math.random() * (sectionHeight - 50)}px`;
+    
+            const duration = Math.random() * 4 + 4;
+            sadEmoji.style.animation = `fadeDown ${duration}s ease-out forwards`;
+    
+            resultsSection.appendChild(sadEmoji);
+    
+            setTimeout(() => {
+                sadEmoji.remove();
+            }, (duration + 4) * 1000);
+        }
+    }
+
 });

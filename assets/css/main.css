@@ -311,6 +311,37 @@ body {
 #quiz-10 {padding-bottom: 128px;}
 
 /* ---------------------------------
+   Animations Section
+---------------------------------- */
+@keyframes fadeUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-50px); }
+}
+
+@keyframes fadeDown {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(50px); }
+}
+
+.thumbs-up {
+    position: absolute; /* Position the emoji absolutely within the #results section */
+    font-size: 2rem; /* Set the size of the emoji */
+    animation: fadeUp 8s ease-out forwards; /* Default animation duration */
+}
+
+.sad-emoji {
+    position: absolute; /* Position the emoji absolutely within the #results section */
+    font-size: 2rem; /* Set the size of the emoji */
+    animation: fadeDown 8s ease-out forwards; /* Apply the fadeDown animation */
+}
+
+#results {
+    position: relative; /* Ensure the emojis are positioned relative to this section */
+    overflow: hidden; /* Prevent emojis from overflowing outside the section */
+    min-height: 300px; /* Ensure the section has enough height */
+}
+
+/* ---------------------------------
    Team Section
 ---------------------------------- */
 .team-grid {
