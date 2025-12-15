@@ -342,13 +342,13 @@ body {
 .thumbs-up {
     position: absolute; /* Position the emoji absolutely within the #results section */
     font-size: 2rem; /* Set the size of the emoji */
-    animation: fadeUp 8s ease-out forwards; /* Default animation duration */
+    /* animation: fadeUp 8s ease-out forwards; Default animation duration */
 }
 
 .sad-emoji {
     position: absolute; /* Position the emoji absolutely within the #results section */
     font-size: 2rem; /* Set the size of the emoji */
-    animation: fadeDown 8s ease-out forwards; /* Apply the fadeDown animation */
+    /* animation: fadeDown 8s ease-out forwards; Apply the fadeDown animation */
 }
 
 #results {
