@@ -68,8 +68,20 @@
 			<section class="wrapper style1" id="data-story-1">
 				<div class="inner">
 					<h2>The Laughter Lens</h2>
-					<p>The New Yorker Caption Contest dataset (NYCC) and Oxford Humor in Context dataset (OHIC) provide a unique opportunity to explore humor through data. Both datasets compile images and captions rated by humans for their funniness.</p>
-					<p>NYCC focuses on cartoons, while OHIC features internet memes. Together, they offer insights into humor across institutional and general contexts.</p>
+					<p>The New Yorker Caption Contest dataset (NYCC) and Oxford Humor in Context dataset (OHIC) provide a unique opportunity to explore humor through data. Both datasets compile images and captions rated by humans for their funniness, offering insights into humor across institutional and general contexts.</p>
+					<p><strong>NYCC:</strong> This dataset focuses on cartoons and contains detailed metadata for each image/contest. It includes:</p>
+					<ul>
+						<li><strong>contests.json:</strong> Metadata such as the number of votes, number of captions, and image descriptions.</li>
+						<li><strong>data/:</strong> CSV files for each image, listing captions and their statistics (e.g., number of votes, funny score, mean score).</li>
+						<li><strong>images/:</strong> The actual cartoon images in JPG format.</li>
+					</ul>
+					<p><strong>OHIC:</strong> This dataset focuses on internet memes and is less detailed than NYCC but still contains the most important information for our project:</p>
+					<ul>
+						<li><strong>oxford_hic_data.csv:</strong> A large CSV file containing all captions for all images along with their funny scores.</li>
+						<li><strong>oxford_hic_image_info.csv:</strong> A CSV file containing links to all images.</li>
+					</ul>
+					<p>While OHIC has fewer metadata fields, it complements NYCC by providing a broader perspective on humor in internet culture. Together, these datasets allow us to analyze humor across different formats and contexts.</p>
+					<p>We implemented helper functions to load captions in a nearly uniform format between the two datasets, ensuring consistency and removing lines with missing values. This preprocessing step was crucial for enabling meaningful comparisons.</p>
 					<h3>Let’s dive into the data and uncover what makes humor tick!</h3>
 				</div>
 
@@ -93,22 +105,25 @@
 					<h2>Exploratory Data Analysis</h2>
 					<p>Our analysis revealed key insights into the datasets:</p>
 					<ul>
-						<li>NYCC has a balanced distribution of captions per image, while OHIC has a few images with many captions.</li>
-						<li>Votes in NYCC are highly correlated, reflecting consistent voting patterns.</li>
+						<li>NYCC has a balanced distribution of captions per image, with 80% of images having between 4,000 and 8,000 captions. Outliers range from a minimum of 1,066 to a maximum of 15,329 captions.</li>
+						<li>OHIC has a few images with many captions, with a maximum of 70,000 captions, but 80% of images have only around 20 captions.</li>
+						<li>Votes in NYCC are highly correlated across categories (e.g., "Funny," "Somewhat Funny," "Not Funny"), with correlation coefficients ranging from 0.8 to 0.98.</li>
+						<li>Rank and mean funniness scores in NYCC are strongly negatively correlated (p ≈ -0.68), meaning higher mean scores correspond to better ranks (lower rank numbers).</li>
+						<li>Normalized features (e.g., "not_funny_norm") are moderately correlated with their raw counterparts, showing that proportions can change even as absolute vote counts rise.</li>
 						<li>Humor perception follows a power-law distribution: a few captions dominate the upper tail, while most receive minimal engagement.</li>
 					</ul>
 					<p>These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
 				</div>
 				<div class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
 					<div class="content">
-						<h2>Exploratory Data Analysis</h2>
-						<p>Our analysis revealed key insights into humor distribution and voting patterns:</p>
+						<p>Our analysis revealed additional insights into humor distribution and voting patterns:</p>
 						<ul>
 							<li>Most captions in both datasets are rated as "Not Funny," with only a small subset receiving high funniness scores.</li>
 							<li>The New Yorker dataset shows a more balanced distribution of captions per image compared to the Oxford dataset.</li>
-							<li>Humor perception follows a power-law distribution: a few captions dominate the upper tail, while most receive minimal engagement.</li>
+							<li>The majority of submitted captions receive only a handful of votes, and those votes tend to be negative ("Not Funny").</li>
+							<li>Only a few exceptional captions succeed in gathering many votes and being judged funny, following a power-law distribution typical of online ratings.</li>
 						</ul>
-						<p>These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
+						<p>These findings emphasize the imbalanced nature of humor perception and the importance of understanding voting dynamics.</p>
 					</div>
 					<div class="image">
 						<img src="images/gazelle.jpg" alt="EDA Summary" />
@@ -135,7 +150,10 @@
 				<div class="inner align-left">
 					<h2>Caption Length and Funniness</h2>
 					<p>Our analysis shows that shorter captions tend to be funnier. The most frequent caption length is around 8 words, representing concise, one-sentence jokes.</p>
-					<p>Longer captions, while occasionally effective, often lose their punch. Brevity is a hallmark of humor in the New Yorker dataset.</p>
+					<p>The distribution of caption lengths is <strong>right-skewed</strong>, with most captions being short. Very few captions exceed 20 words, and those that do are often less effective or overly verbose.</p>
+					<p>This suggests that <strong>brevity is a hallmark of humor</strong> in the New Yorker dataset, where punchy, economical language tends to dominate. The central cluster of captions (5–12 words) likely corresponds to effective, natural jokes, while the short tail (<5 words) represents extremely concise captions (e.g., one-liners).</p>
+					<p>Longer captions, while occasionally effective, often lose their punch. The long tail (>20 words) might represent storytelling or overexplaining, which readers are less likely to find funny.</p>
+					<p>Our scatterplot analysis revealed a <strong>weak negative trend</strong>: as captions get longer, their average funniness tends to decrease slightly. This indicates that shorter captions are generally rated as funnier, as concise, punchy humor works better.</p>
 				</div>
 
 				<!-- Quiz Time 3 -->
@@ -157,8 +175,11 @@
 			<section class="wrapper style1" id="data-story-4">
 				<div class="inner align-left">
 					<h2>What Makes a Winning Caption?</h2>
-					<p>Winning captions attract significantly more votes than average captions, often concentrating around 1% of total votes.</p>
-					<p>Despite their success, winning captions can still polarize readers, with a mix of positive and negative votes.</p>
+					<p>Winning captions attract significantly more votes than average captions, often concentrating around 1% of total votes. This is a striking contrast to the average caption, which receives far fewer votes.</p>
+					<p>Despite their success, winning captions can still polarize readers. They often receive a mix of positive and negative votes, showing that even the most popular captions do not appeal to everyone.</p>
+					<p>Winning captions tend to dominate the voting landscape, gathering around 100 times more votes than the average caption. This highlights their ability to capture the audience's attention and engagement.</p>
+					<p>Interestingly, even though winning captions receive the most votes, they do not always achieve unanimous agreement. Polarization in voting patterns suggests that humor is subjective, and even the best captions can evoke mixed reactions.</p>
+					<p>Our analysis also revealed a clear correlation between the number of votes in each category (e.g., "Funny," "Somewhat Funny," "Not Funny") for winning captions, indicating that they tend to attract attention across all voting categories.</p>
 				</div>
 
 				<!-- Quiz Time 4 -->
@@ -180,8 +201,11 @@
 			<section class="wrapper style1" id="data-story-5">
 				<div class="inner align-left">
 					<h2>Funniness Score Distribution</h2>
-					<p>The distribution of funniness scores is skewed to the left, suggesting that most captions are rated as "not funny."</p>
-					<p>Top-ranked captions have distinctly higher scores, while lower-ranked captions stabilize near the minimum.</p>
+					<p>The distribution of funniness scores is <strong>skewed to the left</strong>, suggesting that most captions are rated as "not funny." This reflects the subjective nature of humor and the difficulty of creating universally appealing captions.</p>
+					<p>Top-ranked captions have distinctly higher funniness scores, while lower-ranked captions stabilize near the minimum. This indicates that the best captions stand out clearly, but the difference between mid- and low-ranked captions becomes less perceptible.</p>
+					<p>The skewness is consistent with the way votes are gathered. Captions that receive low scores early on are less likely to be presented to readers again, leading to a self-reinforcing cycle where poorly rated captions remain at the bottom.</p>
+					<p>Our analysis also revealed a <strong>monotonic relationship</strong> between rank and funniness score. As captions move down the ranking, their average funniness declines roughly linearly when viewed on a logarithmic scale. The steep drop in funniness for top-ranked captions gradually plateaus, suggesting a floor effect where most low-ranked captions are uniformly mediocre.</p>
+					<p>Interestingly, the winning captions, while receiving the highest scores, still show variability in their funniness ratings, highlighting the subjective nature of humor perception.</p>
 				</div>
 
 				<!-- Quiz Time 5 -->
@@ -203,18 +227,20 @@
 			<section class="wrapper style1" id="data-story-6">
 				<div class="inner align-left">
 					<h2>Identifying Humor Types</h2>
-					<p>We classified captions into humor types such as Awkward, Sarcastic, Clever, and more. Using a pre-trained language model and sentence embeddings, we observed similar humor distributions in NYCC and OHIC.</p>
-					<p>Some humor types, like Clever and Friendly, received higher funniness scores than others.</p>
+					<p>We classified captions into humor types such as Awkward, Sarcastic, Clever, Friendly, and more. These categories capture the thematic and stylistic dimensions of humor, ranging from witty wordplay to socially awkward situations.</p>
+					<p>Using a pre-trained language model and sentence embeddings, we observed similar humor distributions in NYCC and OHIC, reflecting shared humor trends across institutional and internet contexts.</p>
+					<p>Some humor types, like Clever and Friendly, received higher funniness scores than others, while types like Dark humor were more polarizing, with mixed reactions from readers.</p>
 				</div>
 				<div class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 					<div class="content">
 						<h2>Humor Classification</h2>
-						<p>We classified captions into humor types using two approaches:</p>
+						<p>We classified captions into humor types using two complementary approaches:</p>
 						<ul>
-							<li><strong>Zero-Shot Classification:</strong> Using a pre-trained language model (BART) to assign humor types based on predefined categories.</li>
-							<li><strong>Sentence Embeddings:</strong> Using sentence-transformers to generate embeddings and cluster captions by humor type.</li>
+							<li><strong>Zero-Shot Classification:</strong> Using a pre-trained language model (BART) to assign humor types based on predefined categories. This approach provided an initial classification framework.</li>
+							<li><strong>Sentence Embeddings:</strong> Using sentence-transformers to generate embeddings and cluster captions by humor type. This method allowed us to refine the classification and validate the results.</li>
 						</ul>
-						<p>These methods provide complementary insights into the thematic and stylistic dimensions of humor.</p>
+						<p>Our analysis revealed that Clever humor, characterized by wit and wordplay, and Friendly humor, which is light-hearted and inclusive, consistently scored higher in funniness. On the other hand, humor types like Dark and Raunchy were more polarizing, with some readers finding them funny while others did not.</p>
+						<p>Word clouds generated for each humor type highlighted recurring themes and vocabulary. For example, words like "baggage" and "pun" were associated with Clever humor, while "care" and "warm" were prominent in Friendly humor.</p>
 					</div>
 					<div class="image">
 						<img src="images/gazelle.jpg" alt="Humor Classification" />
@@ -240,8 +266,32 @@
 			<section class="wrapper style1" id="data-story-7">
 				<div class="inner align-left">
 					<h2>Identifying Topics in Captions</h2>
-					<p>We classified captions into topics such as Love, Family, Work, and Politics. Using sentence embeddings, we achieved strong alignment between captions and topics.</p>
-					<p>Word clouds revealed dominant words for each topic, providing insights into recurring themes.</p>
+					<p>We classified captions into the following topics, capturing the thematic dimensions of humor:</p>
+					<ul>
+						<li><strong>Love:</strong> Captions about romantic relationships, dating, and romantic love.</li>
+						<li><strong>Family:</strong> Captions about family relationships and home life.</li>
+						<li><strong>School:</strong> Captions about school and academic settings.</li>
+						<li><strong>Work:</strong> Captions about work life and corporations.</li>
+						<li><strong>Politics and Social Issues:</strong> Captions about politics, social issues, and society.</li>
+						<li><strong>Nature:</strong> Captions about nature, animals, plants, or weather.</li>
+						<li><strong>Food:</strong> Captions about food and eating.</li>
+						<li><strong>Emotions:</strong> Captions where emotions and personal feelings are expressed.</li>
+						<li><strong>Entertainment and Pop Culture:</strong> Captions related to entertainment such as art, gaming, sports, and pop culture references.</li>
+						<li><strong>Caption Contest:</strong> Captions about the caption contest, creating and rating captions, memes, and jokes.</li>
+						<li><strong>Health:</strong> Captions related to the healthcare system.</li>
+						<li><strong>Law:</strong> Captions related to the judicial system.</li>
+						<li><strong>Other:</strong> Captions that don't belong to any specific topic.</li>
+					</ul>
+					<p>To classify captions, we used a <strong>sentence embedding model</strong> (sentence-transformers/all-MiniLM-L6-v2). For each topic, we created a list of relevant words, and embeddings were generated for both captions and topic word lists. The cosine similarity between a caption's embedding and each topic's embedding was calculated to determine the best match.</p>
+					<p>Our analysis revealed strong alignment between captions and topics, with Love, Family, and Work being the most frequently occurring themes. Captions about relational humor (e.g., Love and Family) were particularly well-aligned, reflecting shared social roles and familiar dynamics.</p>
+					<p>Word clouds generated for each topic highlighted recurring themes and vocabulary. For example:</p>
+					<ul>
+						<li><strong>Love:</strong> Words like "love," "wife," and "husband" dominated, reflecting romantic and relational humor.</li>
+						<li><strong>Work:</strong> Words like "job," "boss," and "office" highlighted professional hierarchies and workplace stressors.</li>
+						<li><strong>Nature:</strong> Words like "trees," "planet," and "global warming" indicated environmental concerns blended with humor.</li>
+						<li><strong>Politics and Social Issues:</strong> Words like "debate," "government," and "climate change" reflected societal critique.</li>
+					</ul>
+					<p>To reduce noise, we filtered matches by retaining only the top 25% highest matching scores per topic. This ensured high-quality semantic alignment and minimized weak or noisy matches.</p>
 				</div>
 
 				<!-- Quiz Time 7 -->
@@ -263,8 +313,11 @@
 			<section class="wrapper style1" id="data-story-8">
 				<div class="inner align-left">
 					<h2>How Humor Evolves Over Time</h2>
-					<p>The number of captions and votes per image varies significantly over time. Images with fewer captions often receive higher engagement.</p>
-					<p>This suggests that both image appeal and caption quality influence voting outcomes.</p>
+					<p>The number of captions and votes per image varies significantly over time. Some images receive substantially more attention or engagement from users, while others remain less popular.</p>
+					<p>The mean number of votes received by each caption per image fluctuates throughout the contest. Most images hover around the overall mean, but a few spikes indicate images where relatively few captions received unusually high voting activity. For example, image 835 received the lowest number of captions but attracted significant engagement.</p>
+					<p>Our analysis revealed a moderate positive correlation (r = 0.41, p < 0.001) between the number of captions submitted and the total votes received per image. This suggests that images with more caption submissions tend to attract more votes overall. However, the relationship is not perfectly linear, as some images with relatively few captions still received many votes, and vice versa.</p>
+					<p>This pattern implies that while user engagement (measured by the number of captions) contributes to higher voting activity, other factors such as the appeal of the image itself or the quality of the top captions also play a significant role in determining overall voting outcomes.</p>
+					<p>The distribution of captions per image follows a roughly unimodal pattern, with most images receiving between 4,000 and 8,000 captions. The total votes per image distribution is slightly right-skewed, with a few images receiving exceptionally high vote counts, hinting at outlier popularity.</p>
 				</div>
 
 				<!-- Quiz Time 8 -->
@@ -286,8 +339,18 @@
 			<section class="wrapper style1" id="data-story-9">
 				<div class="inner align-left">
 					<h2>Word Clouds for Humor Types and Topics</h2>
-					<p>Word clouds reveal the most frequent words associated with each humor type and topic. For example, "love" dominates the Love topic, while "work" is prominent in the Work topic.</p>
-					<p>These visualizations provide a quick overview of recurring themes in the datasets.</p>
+					<p>Word clouds reveal the most frequent words associated with each humor type and topic, providing a quick overview of recurring themes in the datasets. These visualizations help identify the dominant vocabulary and recurring patterns in captions.</p>
+					<p>For example:</p>
+					<ul>
+						<li><strong>Love:</strong> Words like "love," "wife," and "husband" dominate, reflecting romantic and relational humor.</li>
+						<li><strong>Work:</strong> Words like "job," "boss," and "office" highlight professional hierarchies and workplace stressors.</li>
+						<li><strong>Nature:</strong> Words like "trees," "planet," and "global warming" indicate environmental concerns blended with humor.</li>
+						<li><strong>Politics and Social Issues:</strong> Words like "debate," "government," and "climate change" reflect societal critique.</li>
+						<li><strong>Health:</strong> Words like "doctor," "patient," and "hospital" emphasize healthcare-related humor.</li>
+						<li><strong>Entertainment and Pop Culture:</strong> Words like "movie," "show," and "star" highlight media consumption and celebrity culture.</li>
+					</ul>
+					<p>These word clouds illustrate how different topics and humor types are characterized by distinct vocabularies. For instance, relational humor in the Love and Family topics is strongly tied to interpersonal and emotional language, while the Nature topic often blends environmental themes with observational humor.</p>
+					<p>By analyzing these word clouds, we can better understand the thematic focus of captions and the recurring patterns that resonate with readers.</p>
 				</div>
 
 				<!-- Quiz Time 9 -->
@@ -303,13 +366,29 @@
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
+			</section>
 
 			<!-- 10. Comparing NYCC and OHIC -->
 			<section class="wrapper style1" id="data-story-10">
 				<div class="inner align-left">
 					<h2>Comparing NYCC and OHIC</h2>
-					<p>While NYCC and OHIC share similar humor distributions, NYCC leans toward institutional humor, while OHIC reflects internet culture.</p>
-					<p>This comparison highlights how context influences humor preferences.</p>
+					<p>The New Yorker Caption Contest dataset (NYCC) and Oxford Humor in Context dataset (OHIC) share similar humor distributions, but they differ in context and audience preferences:</p>
+					<ul>
+						<li><strong>NYCC:</strong> Leans toward institutional humor, with captions often reflecting witty, clever, and sophisticated humor styles. The dataset is more structured, with detailed metadata and a focus on cartoons.</li>
+						<li><strong>OHIC:</strong> Reflects internet culture, with captions often showcasing trends like memes, absurd humor, and pop culture references. The dataset is less detailed but provides a broader perspective on humor in online contexts.</li>
+					</ul>
+					<p>Despite these differences, both datasets exhibit similar trends in humor perception:</p>
+					<ul>
+						<li>Both datasets follow a <strong>power-law distribution</strong>, where a small subset of captions dominates the upper tail with high funniness scores, while most captions receive minimal engagement.</li>
+						<li>Humor is highly subjective in both datasets, with winning captions often polarizing readers despite their popularity.</li>
+						<li>Shorter captions tend to perform better in both datasets, emphasizing the importance of brevity in humor.</li>
+					</ul>
+					<p>However, there are notable differences in humor styles:</p>
+					<ul>
+						<li>NYCC captions often rely on clever wordplay and institutional themes, appealing to a more niche, sophisticated audience.</li>
+						<li>OHIC captions are more diverse, incorporating internet trends, memes, and pop culture, making them relatable to a broader, younger audience.</li>
+					</ul>
+					<p>This comparison highlights how context influences humor preferences, with NYCC favoring structured, institutional humor and OHIC embracing the dynamic, fast-paced nature of internet culture.</p>
 				</div>
 
 				<!-- Quiz Time 10 -->
