@@ -34,7 +34,7 @@
                     <p class="major">Discover the methodologies and models used to analyze humor in our datasets.</p>
                 </div>
                 <div class="image">
-                    <img src="images/models-methods-banner.jpg" alt="Models and Methods Overview" />
+                    <img src="images/language.png" alt="Models and Methods Overview" />
                 </div>
             </section>
 
@@ -43,18 +43,26 @@
                 <div class="content">
                     <h2>1. Data Integration and Preprocessing</h2>
                     <p><strong>Goal:</strong> Create harmonized, comparable datasets for linguistic and semantic analysis.</p>
+                    <p>We worked with two datasets: the <strong>New Yorker Caption Contest (NYCC)</strong> and the <strong>Oxford Humor in Context (OHIC)</strong>. These datasets compile images and associated captions, where humans have voted to give a score based on how funny the captions are. While both datasets share a similar purpose, they differ in structure and content, requiring preprocessing to align them for analysis.</p>
+
+                    <h3>Data Loading</h3>
+                    <p>To streamline the data loading process, we implemented two helper classes:</p>
                     <ul>
-                        <li>Data loading and standardization: Align OHIC to match the NYCC schema (shared columns: <code>caption</code>, <code>funniness_score</code>, <code>year</code>).</li>
-                        <li>Text Cleaning & Tokenization: Prepare a cleaned version of each caption while preserving the original text (lowercase, remove punctuation and stopwords).</li>
-                        <li>Linguistic and stylometric analysis:
-                            <ul>
-                                <li>Word count and character count</li>
-                                <li>Type-Token Ratio (TTR) for lexical diversity</li>
-                                <li>Formality score: ratio of nouns/adjectives to pronouns/verbs</li>
-                                <li>Sentiment score using NLTK, TextBlob, or VADER</li>
-                            </ul>
+                        <li><strong>NewYorkerDataset:</strong> Loads the NYCC dataset and extracts relevant columns such as <code>image_id</code>, <code>rank</code>, <code>caption</code>, <code>mean</code>, <code>precision</code>, <code>votes</code>, and vote categories (<code>not_funny</code>, <code>somewhat_funny</code>, <code>funny</code>).</li>
+                        <li><strong>OxfordDataset:</strong> Loads the OHIC dataset and extracts columns such as <code>image_id</code>, <code>rank</code>, <code>caption</code>, and <code>funny_score</code>.</li>
+                    </ul>
+
+                    <h3>Preprocessing Steps</h3>
+                    <p>After loading the datasets, we applied the following preprocessing steps:</p>
+                    <ul>
+                        <li><strong>Text Cleaning:</strong> Lowercased text, removed punctuation, and filtered stopwords.</li>
+                        <li><strong>Tokenization:</strong> Prepared captions for downstream analysis.</li>
+                        <li><strong>Feature Engineering:</strong> Extracted word and character counts, and performed sentiment analysis.</li>
                         </li>
                     </ul>
+
+                    <h3>Dataset Validation</h3>
+                    <p>We validated the NYCC dataset by checking for missing caption files and images. This step ensured that the dataset was complete and ready for analysis. We identified a few missing files, which were documented for transparency.</p>
                 </div>
                 <div class="image">
                     <img src="images/preprocessing.png" alt="Data Integration and Preprocessing" />
@@ -62,39 +70,47 @@
             </section>
 
             <!-- Section 2: Thematic NLP and Semantic Modeling -->
-            <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="NLP">
+            <section class="spotlight style1 content-align-left image-position-center onscroll-image-fade-in" id="NLP">
                 <div class="content">
                     <h2>2. Thematic NLP and Semantic Modeling</h2>
-                    <p><strong>Goal 1:</strong> Identify recurring humor types with zero-shot classification.</p>
+                    <p><strong>Goal:</strong> Classify captions into predefined humor types and recurring topic themes to better understand the datasets.</p>
+                    <p>We used advanced NLP techniques to analyze captions from the datasets. Two main tasks were performed:</p>
+                    
+                    <h3>Humor Type Classification</h3>
+                    <p>We classified captions into predefined humor categories (e.g., <strong style="color:red;">Awkward</strong>, <strong style="color:purple;">Sarcastic</strong>, <strong style="color:green;">Clever</strong>, <strong style="color:blue;">Absurd</strong>, <strong style="color:black;">Dark</strong>, <strong style="color:brown;">Raunchy</strong>, <strong style="color:gold;">Corny</strong>, <strong style="color:pink;">Friendly</strong>, <strong style="color:orange;">Goofy</strong>, <strong style="color:grey;">Other</strong>) to explore the different styles of humor present in the datasets.</p>
+                    <p>We used two approaches for humor type classification:</p>
                     <ul>
-                        <li>Define humor categories (awkward, sarcastic, dark, etc.) by describing them and providing examples.</li>
-                        <li>Generate Transformer-based embeddings for each caption and each humor category description.</li>
-                        <li>Compare each caption to the humor categories embeddings (with cosine similarity).</li>
-                        <li>Classify each caption into its closest humor category.</li>
+                        <li><strong>Zero-Shot Classification:</strong> Leveraged <code>facebook/bart-large-mnli</code> to classify captions into humor categories based on cosine similarity with predefined examples.</li>
+                        <li><strong>Sentence Embeddings:</strong> Used <code>sentence-transformers/all-MiniLM-L6-v2</code> to generate embeddings for captions and humor categories, then calculated cosine similarity to assign categories.</li>
                     </ul>
-                    <p><strong>Goal 2:</strong> Identify topic themes with zero-shot classification.</p>
+                    <p>These methods allowed us to analyze the distribution of humor types across the datasets and compare their relationships with funniness scores and ranks.</p>
+
+                    <h3>Topic Classification</h3>
+                    <p>To better understand the thematic content of captions, we classified them into predefined topics (e.g., <strong style="color:red;">Love</strong>, <strong style="color:deeppink;">Family</strong>, <strong style="color:dodgerblue;">School</strong>, <strong style="color:steelblue;">Work</strong>, <strong style="color:palevioletred;">Politics and Social Issues</strong>, <strong style="color:darkgreen;">Nature</strong>, <strong style="color:darkorange;">Food</strong>, <strong style="color:lightseagreen;">Emotions</strong>, <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, <strong style="color:blue;">Caption Contest</strong>, <strong style="color:teal;">Health</strong>, <strong style="color:blueviolet;">Law</strong>, <strong style="color:dimgrey;">Other</strong>).</p>
+                    <p>We used the following methodology for topic classification:</p>
                     <ul>
-                        <li>Repeat the same method as for humor types, by defining topic themes (politics, love, food, work, school, etc.).</li>
+                        <li>Generated embeddings for captions and topic descriptions using <code>sentence-transformers/all-MiniLM-L6-v2</code>.</li>
+                        <li>Calculated cosine similarity between caption embeddings and topic embeddings to assign topics.</li>
+                        <li>Filtered noisy matches by retaining only the top 25% highest matching scores per topic, ensuring high-quality classifications.</li>
                     </ul>
-                </div>
-                <div class="image">
-                    <img src="images/language.png" alt="Thematic NLP and Semantic Modeling" />
+                    <p>This approach allowed us to identify the most recurrent themes in the datasets and analyze their relationships with funniness scores and ranks.</p>
                 </div>
             </section>
 
-            <!-- Section 3: Comparative Statistical and Stylistic Analysis -->
+            <!-- Section 3: Statistical and Stylistic Analysis -->
             <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="statistical-analysis">
                 <div class="content">
-                    <h2>3. Comparative Statistical and Stylistic Analysis</h2>
+                    <h2>3. Statistical and Stylistic Analysis</h2>
                     <p><strong>Goal:</strong> Quantify differences between humor contexts.</p>
                     <ul>
-                        <li><strong>Thematic Comparison:</strong> Use Chi²/ANOVA tests to compare theme frequencies.</li>
-                        <li><strong>Stylistic Comparison:</strong> Conduct t-tests on linguistic features (TTR, formality, sentiment).</li>
-                        <li><strong>Bubble Classification:</strong> Train a logistic regression model predicting a caption’s origin (<em>NYCC</em> vs. <em>OHIC</em>). Interpret coefficients to identify features that define the “New Yorker bubble.”</li>
+                        <li><strong>Thematic Comparison:</strong> Used Chi²/ANOVA tests to compare theme frequencies.</li>
+                        <li><strong>Stylistic Comparison:</strong> Conducted t-tests on linguistic features (TTR, formality, sentiment).</li>
+                        <li><strong>Bubble Classification:</strong> Trained a logistic regression model to predict a caption’s origin (<em>NYCC</em> vs. <em>OHIC</em>).</li>
                     </ul>
+                    <p>These analyses provided insights into the stylistic and thematic differences between the two datasets.</p>
                 </div>
                 <div class="image">
-                    <img src="images/statistics.jpg" alt="Comparative Statistical and Stylistic Analysis" />
+                    <img src="images/statistics.jpg" alt="Statistical and Stylistic Analysis" />
                 </div>
             </section>
 

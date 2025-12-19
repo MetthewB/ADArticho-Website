@@ -51,16 +51,25 @@
 			</section>
 						
 			<!-- Research Questions Section -->
-			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="research-questions">
-				<div class="content">
+			<section class="wrapper style1" id="research-questions">
+				<div class="inner">
 					<h2>Our Big Research Questions</h2>
 					<p>But before diving into the data and quizzes, let's understand the New Yorker and Oxford datasets a bit more. Feel free to explore the details of our datasets on the <a href="datasets.html">Datasets Page</a>! From this, our team started with three major questions about humor:</p>
-					<ul>
-						<li><strong>1. Thematic Structure:</strong> What aspects of their lives do people denounce or joke about most often? Which themes and types of humor recur most frequently in humorous captions?</li>
-						<li><strong>2. Cultural Bubble:</strong> Do the successful captions in the New Yorker dataset exhibit cultural or thematic biases that differ from those in the Oxford dataset?</li>
-						<li><strong>3. Temporal Change:</strong> How do the thematic structures of humor evolve over time, and can major sociopolitical or cultural events be linked to shifts in the popularity of certain humor themes?</li>
-					</ul>
-					<p>These questions guided our exploration of humor across different contexts, cultures, and time periods. Now, let’s try answering these big questions through the following analyses.</p>
+					<div class="question-cards">
+						<div class="card">
+							<h3><strong>Thematic Structure</strong></h3>
+							<p>What aspects of their lives do people denounce or joke about most often? Which themes and types of humor recur most frequently in humorous captions?</p>
+						</div>
+						<div class="card">
+							<h3><strong>Cultural Bubble</strong></h3>
+							<p>Do the successful captions in the New Yorker dataset exhibit cultural or thematic biases that differ from those in the Oxford dataset?</p>
+						</div>
+						<div class="card">
+							<h3><strong>Temporal Change</strong></h3>
+							<p>How do the thematic structures of humor evolve over time, and can major sociopolitical or cultural events be linked to shifts in the popularity of humor themes?</p>
+						</div>
+					</div>
+					<p style="margin-top: 20px;">These questions guided our exploration of humor across different contexts, cultures, and time periods. Now, let’s try answering these big questions through the following analyses.</p>
 				</div>
 			</section>
 
@@ -69,18 +78,28 @@
 				<div class="inner">
 					<h2>The Laughter Lens</h2>
 					<p>The New Yorker Caption Contest dataset (NYCC) and Oxford Humor in Context dataset (OHIC) provide a unique opportunity to explore humor through data. Both datasets compile images and captions rated by humans for their funniness, offering insights into humor across institutional and general contexts.</p>
-					<p><strong>NYCC:</strong> This dataset focuses on cartoons and contains detailed metadata for each image/contest. It includes:</p>
-					<ul>
-						<li><strong>contests.json:</strong> Metadata such as the number of votes, number of captions, and image descriptions.</li>
-						<li><strong>data/:</strong> CSV files for each image, listing captions and their statistics (e.g., number of votes, funny score, mean score).</li>
-						<li><strong>images/:</strong> The actual cartoon images in JPG format.</li>
-					</ul>
-					<p><strong>OHIC:</strong> This dataset focuses on internet memes and is less detailed than NYCC but still contains the most important information for our project:</p>
-					<ul>
-						<li><strong>oxford_hic_data.csv:</strong> A large CSV file containing all captions for all images along with their funny scores.</li>
-						<li><strong>oxford_hic_image_info.csv:</strong> A CSV file containing links to all images.</li>
-					</ul>
-					<p>While OHIC has fewer metadata fields, it complements NYCC by providing a broader perspective on humor in internet culture. Together, these datasets allow us to analyze humor across different formats and contexts.</p>
+					
+					<div class="dataset-cards">
+						<div class="card">
+							<h3><strong>New Yorker Caption Contest (NYCC):</strong></h3>
+							<ul>
+								<li><strong>contests.json:</strong> Metadata such as the number of votes, number of captions, and image descriptions.</li>
+								<li><strong>data/:</strong> CSV files for each image, listing captions and their statistics (e.g., number of votes, funny score, mean score).</li>
+								<li><strong>images/:</strong> The actual cartoon images in JPG format.</li>
+							</ul>
+							<p>This dataset focuses on cartoons and contains detailed metadata for each image/contest.</p>
+						</div>
+						<div class="card">
+							<h3><strong>Oxford Humor in Context (OHIC):</strong></h3>
+							<ul>
+								<li><strong>oxford_hic_data.csv:</strong> A large CSV file containing all captions for all images along with their funny scores.</li>
+								<li><strong>oxford_hic_image_info.csv:</strong> A CSV file containing links to all images.</li>
+							</ul>
+							<p>This dataset focuses on internet memes and is less detailed than NYCC but still contains the most important information for our project.</p>
+						</div>
+					</div>
+
+					<p style="margin-top: 20px;">While OHIC has fewer metadata fields, it complements NYCC by providing a broader perspective on humor in internet culture. Together, these datasets allow us to analyze humor across different formats and contexts.</p>
 					<p>We implemented helper functions to load captions in a nearly uniform format between the two datasets, ensuring consistency and removing lines with missing values. This preprocessing step was crucial for enabling meaningful comparisons.</p>
 					<h3>Let’s dive into the data and uncover what makes humor tick!</h3>
 				</div>
@@ -101,32 +120,40 @@
 
 			<!-- 2. Exploratory Data Analysis -->
 			<section class="wrapper style1" id="data-story-2">
-				<div class="inner align-left">
+				<div class="inner">
 					<h2>Exploratory Data Analysis</h2>
 					<p>Our analysis revealed key insights into the datasets:</p>
-					<ul>
-						<li>NYCC has a balanced distribution of captions per image, with 80% of images having between 4,000 and 8,000 captions. Outliers range from a minimum of 1,066 to a maximum of 15,329 captions.</li>
-						<li>OHIC has a few images with many captions, with a maximum of 70,000 captions, but 80% of images have only around 20 captions.</li>
-						<li>Votes in NYCC are highly correlated across categories (e.g., "Funny," "Somewhat Funny," "Not Funny"), with correlation coefficients ranging from 0.8 to 0.98.</li>
-						<li>Rank and mean funniness scores in NYCC are strongly negatively correlated (p ≈ -0.68), meaning higher mean scores correspond to better ranks (lower rank numbers).</li>
-						<li>Normalized features (e.g., "not_funny_norm") are moderately correlated with their raw counterparts, showing that proportions can change even as absolute vote counts rise.</li>
-						<li>Humor perception follows a power-law distribution: a few captions dominate the upper tail, while most receive minimal engagement.</li>
-					</ul>
-					<p>These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
-				</div>
-				<div class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-					<div class="content">
-						<p>Our analysis revealed additional insights into humor distribution and voting patterns:</p>
-						<ul>
-							<li>Most captions in both datasets are rated as "Not Funny," with only a small subset receiving high funniness scores.</li>
-							<li>The New Yorker dataset shows a more balanced distribution of captions per image compared to the Oxford dataset.</li>
-							<li>The majority of submitted captions receive only a handful of votes, and those votes tend to be negative ("Not Funny").</li>
-							<li>Only a few exceptional captions succeed in gathering many votes and being judged funny, following a power-law distribution typical of online ratings.</li>
-						</ul>
-						<p>These findings emphasize the imbalanced nature of humor perception and the importance of understanding voting dynamics.</p>
-					</div>
-					<div class="image">
-						<img src="images/gazelle.jpg" alt="EDA Summary" />
+					
+					<div class="eda-cards">
+						<div class="card">
+							<h3><strong>NYCC Insights:</strong></h3>
+							<ul>
+								<li>Balanced distribution of captions per image, with 80% of images having between 4,000 and 8,000 captions.</li>
+								<li>Outliers range from a minimum of 1,066 to a maximum of 15,329 captions.</li>
+								<li>Votes are highly correlated across categories (e.g., "Funny," "Somewhat Funny," "Not Funny"), with correlation coefficients ranging from 0.8 to 0.98.</li>
+								<li>Rank and mean funniness scores are strongly negatively correlated (p ≈ -0.68), meaning higher mean scores correspond to better ranks.</li>
+							</ul>
+						</div>
+						<p style="margin-top: 20px;"></p>
+						<div class="card">
+							<h3><strong>OHIC Insights:</strong></h3>
+							<ul>
+								<li>A few images have many captions, with a maximum of 70,000 captions, but 80% of images have only around 20 captions.</li>
+								<li>Humor perception follows a power-law distribution: a few captions dominate the upper tail, while most receive minimal engagement.</li>
+								<li>Normalized features (e.g., "not_funny_norm") are moderately correlated with their raw counterparts, showing that proportions can change even as absolute vote counts rise.</li>
+							</ul>
+						</div>
+						<p style="margin-top: 20px;">These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
+						<div class="content">
+							<h3>Additional Insights:</h3>
+							<ul>
+								<li>Most captions in both datasets are rated as "Not Funny," with only a small subset receiving high funniness scores.</li>
+								<li>The New Yorker dataset shows a more balanced distribution of captions per image compared to the Oxford dataset.</li>
+								<li>The majority of submitted captions receive only a handful of votes, and those votes tend to be negative ("Not Funny").</li>
+								<li>Only a few exceptional captions succeed in gathering many votes and being judged funny, following a power-law distribution typical of online ratings.</li>
+							</ul>
+							<p>These findings emphasize the imbalanced nature of humor perception and the importance of understanding voting dynamics.</p>
+						</div>
 					</div>
 				</div>
 
@@ -436,6 +463,7 @@
         <script src="assets/js/browser.min.js"></script>
         <script src="assets/js/breakpoints.min.js"></script>
         <script src="assets/js/util.js"></script>
+		<script src="assets/js/ha.js"></script>
 		<script src="assets/js/carousel.js"></script>
 		<script src="assets/js/quiz.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
