@@ -64,241 +64,262 @@
 				</div>
 			</section>
 
-			<!-- Cultural Humor Section -->
+			<!-- 1. Introduction Section -->
 			<section class="wrapper style1" id="data-story-1">
-				<!-- Data Story Content -->
-				<div class="inner align-left">
-					<h2>How Does Humor Vary Across Cultures?</h2>
-					<p>Humor is deeply influenced by cultural norms and traditions. What’s funny in one culture might not resonate in another. For example, wordplay and puns are highly appreciated in some cultures, while slapstick humor dominates in others.</p>
-					<p>Our analysis shows that cultural references in jokes often determine their appeal to specific audiences.</p>
+				<div class="inner">
+					<h2>The Laughter Lens</h2>
+					<p>The New Yorker Caption Contest dataset (NYCC) and Oxford Humor in Context dataset (OHIC) provide a unique opportunity to explore humor through data. Both datasets compile images and captions rated by humans for their funniness.</p>
+					<p>NYCC focuses on cartoons, while OHIC features internet memes. Together, they offer insights into humor across institutional and general contexts.</p>
+					<h3>Let’s dive into the data and uncover what makes humor tick!</h3>
 				</div>
 
 				<!-- Quiz Time -->
 				<div class="inner align-center" id="quiz-1">
 					<h2>Quiz Time!</h2>
-					<p>As part of the selection process, you’ll need to answer a series of questions designed to test your humor instincts. Remember, your score will determine if you’re the perfect fit for The New Yorker.</p>
 					<div class="quiz-step" id="question-1">
-						<h3>Question 1: Which cultural reference do you find funniest?</h3>
+						<h3>Question 1: Which dataset do you think focuses on internet memes?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-2" data-feedback="Great choice! British dry humor is witty and clever, and it resonates with many readers.">A British dry humor joke</div>
-							<div class="quiz-option" data-answer="correct" data-next="data-story-2" data-feedback="Well done! American slapstick humor is timeless and appeals to a broad audience.">An American slapstick scene</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-2" data-feedback="Not quite. A joke in a language you don’t understand might not resonate with most audiences.">A joke in a language you don’t understand</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-2" data-feedback="Not quite! The New Yorker Caption Contest dataset focuses on cartoons, not memes.">New Yorker Caption Contest (NYCC)</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-2" data-feedback="Correct! The Oxford Humor in Context dataset focuses on internet memes.">Oxford Humor in Context (OHIC)</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Humor and Wordplay Section -->
+			<!-- 2. Exploratory Data Analysis -->
 			<section class="wrapper style1" id="data-story-2">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>The Art of Wordplay</h2>
-					<p>Wordplay, such as puns and clever turns of phrase, is a timeless form of humor. Our analysis shows that readers appreciate jokes that play with language, especially when the punchline is unexpected.</p>
-					<p>However, not everyone enjoys puns—some find them groan-worthy!</p>
+					<h2>Exploratory Data Analysis</h2>
+					<p>Our analysis revealed key insights into the datasets:</p>
+					<ul>
+						<li>NYCC has a balanced distribution of captions per image, while OHIC has a few images with many captions.</li>
+						<li>Votes in NYCC are highly correlated, reflecting consistent voting patterns.</li>
+						<li>Humor perception follows a power-law distribution: a few captions dominate the upper tail, while most receive minimal engagement.</li>
+					</ul>
+					<p>These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
+				</div>
+				<div class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+					<div class="content">
+						<h2>Exploratory Data Analysis</h2>
+						<p>Our analysis revealed key insights into humor distribution and voting patterns:</p>
+						<ul>
+							<li>Most captions in both datasets are rated as "Not Funny," with only a small subset receiving high funniness scores.</li>
+							<li>The New Yorker dataset shows a more balanced distribution of captions per image compared to the Oxford dataset.</li>
+							<li>Humor perception follows a power-law distribution: a few captions dominate the upper tail, while most receive minimal engagement.</li>
+						</ul>
+						<p>These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
+					</div>
+					<div class="image">
+						<img src="images/gazelle.jpg" alt="EDA Summary" />
+					</div>
 				</div>
 
 				<!-- Quiz Time 2 -->
 				<div class="inner align-center" id="quiz-2">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-2">
-						<h3>Question 2: Which pun makes you laugh the most?</h3>
+						<h3>Question 2: What is the most common rating for captions in both datasets?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-3" data-feedback="Great choice! This pun is clever and unexpected, which makes it a hit with many readers.">"I’m reading a book on anti-gravity. It’s impossible to put down."</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-3" data-feedback="Not quite! While this pun is funny, it’s a bit more predictable and doesn’t resonate as strongly with readers.">"Why don’t skeletons fight each other? They don’t have the guts."</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-3" data-feedback="Not quite! This pun is amusing, but it’s not as clever or unexpected as the top choice.">"I told my wife she was drawing her eyebrows too high. She looked surprised."</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-3" data-feedback="Correct! Most captions are rated as 'Not Funny.'">Not Funny</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-3" data-feedback="Not quite! 'Somewhat Funny' is less common than 'Not Funny.'">Somewhat Funny</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-3" data-feedback="Not quite! Only a small subset of captions are rated as 'Funny.'">Funny</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Visual Humor Section -->
+			<!-- 3. Caption Length and Funniness -->
 			<section class="wrapper style1" id="data-story-3">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>The Power of Visual Humor</h2>
-					<p>Visual humor, such as cartoons, memes, and physical comedy, relies on imagery to deliver the punchline. Our analysis shows that visual humor often transcends language barriers, making it universally appealing.</p>
-					<p>However, the effectiveness of visual humor depends on the context and the audience’s familiarity with the subject.</p>
+					<h2>Caption Length and Funniness</h2>
+					<p>Our analysis shows that shorter captions tend to be funnier. The most frequent caption length is around 8 words, representing concise, one-sentence jokes.</p>
+					<p>Longer captions, while occasionally effective, often lose their punch. Brevity is a hallmark of humor in the New Yorker dataset.</p>
 				</div>
 
 				<!-- Quiz Time 3 -->
 				<div class="inner align-center" id="quiz-3">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-3">
-						<h3>Question 3: Which image caption is the funniest?</h3>
+						<h3>Question 3: What is the most frequent caption length in the New Yorker dataset?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-4" data-feedback="Great choice! Cat memes with clever captions are universally loved and resonate with many readers.">A cat meme with a clever caption</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-4" data-feedback="Not quite! Political cartoons can be funny, but they often require specific context to be appreciated.">A political cartoon</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-4" data-feedback="Not quite! While slapstick scenes from silent films are classic, they may not resonate as strongly with modern audiences.">A slapstick scene from a silent film</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-4" data-feedback="Not quite! Captions shorter than 5 words are less common.">Less than 5 words</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-4" data-feedback="Correct! The most frequent caption length is around 8 words.">8 words</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-4" data-feedback="Not quite! Captions longer than 20 words are rare.">20+ words</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Humor and Timing Section -->
+			<!-- 4. Winning Captions -->
 			<section class="wrapper style1" id="data-story-4">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>The Importance of Timing in Humor</h2>
-					<p>Timing is everything in comedy. A well-timed punchline can turn an average joke into a hilarious one. Our analysis shows that jokes with a delayed punchline or an unexpected twist tend to perform better.</p>
-					<p>However, delivering the punchline too early or too late can ruin the joke entirely.</p>
+					<h2>What Makes a Winning Caption?</h2>
+					<p>Winning captions attract significantly more votes than average captions, often concentrating around 1% of total votes.</p>
+					<p>Despite their success, winning captions can still polarize readers, with a mix of positive and negative votes.</p>
 				</div>
 
 				<!-- Quiz Time 4 -->
 				<div class="inner align-center" id="quiz-4">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-4">
-						<h3>Question 4: When is the best time to deliver a punchline?</h3>
+						<h3>Question 4: What percentage of total votes do winning captions typically attract?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-5" data-feedback="Great choice! Delivering a punchline right after building suspense maximizes its impact.">Right after building suspense</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-5" data-feedback="Not quite! Delivering the punchline immediately after the setup can feel rushed and reduce its impact.">Immediately after the setup</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-5" data-feedback="Not quite! Waiting too long to deliver the punchline can make the joke lose its momentum.">A few minutes after the setup</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-5" data-feedback="Not quite! 0.1% is too low for winning captions.">0.1%</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-5" data-feedback="Correct! Winning captions attract around 1% of total votes.">1%</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-5" data-feedback="Not quite! 10% is too high for winning captions.">10%</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Dark Humor Section -->
+			<!-- 5. Funniness Score Distribution -->
 			<section class="wrapper style1" id="data-story-5">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>The Appeal of Dark Humor</h2>
-					<p>Dark humor often tackles taboo or sensitive topics, making it polarizing. Our analysis shows that while some readers appreciate the boldness of dark humor, others find it offensive or inappropriate.</p>
-					<p>Dark humor is most effective when it balances edginess with cleverness.</p>
+					<h2>Funniness Score Distribution</h2>
+					<p>The distribution of funniness scores is skewed to the left, suggesting that most captions are rated as "not funny."</p>
+					<p>Top-ranked captions have distinctly higher scores, while lower-ranked captions stabilize near the minimum.</p>
 				</div>
 
 				<!-- Quiz Time 5 -->
 				<div class="inner align-center" id="quiz-5">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-5">
-						<h3>Question 5: Do you find this dark joke funny or offensive?</h3>
+						<h3>Question 5: How are funniness scores distributed in the datasets?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-6" data-feedback="Great choice! Dark humor can be funny when it balances edginess with cleverness.">Funny</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-6" data-feedback="Not quite! While dark humor can be offensive to some, it often appeals to those who appreciate boldness.">Offensive</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-6" data-feedback="Not quite! Dark humor tends to evoke strong reactions, whether positive or negative.">Neither</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-6" data-feedback="Not quite! The distribution is not uniform.">Uniform</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-6" data-feedback="Not quite! The distribution is not skewed to the right.">Skewed to the right</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-6" data-feedback="Correct! The distribution is skewed to the left, with most captions rated as 'Not Funny.'">Skewed to the left</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Humor and Age Section -->
+			<!-- 6. Humor Type Classification -->
 			<section class="wrapper style1" id="data-story-6">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>How Does Humor Change with Age?</h2>
-					<p>Humor preferences evolve as we grow older. Younger audiences tend to enjoy absurd or edgy humor, while older audiences prefer wit and subtlety.</p>
-					<p>Our analysis shows that humor reflecting life experiences resonates more with older readers.</p>
+					<h2>Identifying Humor Types</h2>
+					<p>We classified captions into humor types such as Awkward, Sarcastic, Clever, and more. Using a pre-trained language model and sentence embeddings, we observed similar humor distributions in NYCC and OHIC.</p>
+					<p>Some humor types, like Clever and Friendly, received higher funniness scores than others.</p>
+				</div>
+				<div class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+					<div class="content">
+						<h2>Humor Classification</h2>
+						<p>We classified captions into humor types using two approaches:</p>
+						<ul>
+							<li><strong>Zero-Shot Classification:</strong> Using a pre-trained language model (BART) to assign humor types based on predefined categories.</li>
+							<li><strong>Sentence Embeddings:</strong> Using sentence-transformers to generate embeddings and cluster captions by humor type.</li>
+						</ul>
+						<p>These methods provide complementary insights into the thematic and stylistic dimensions of humor.</p>
+					</div>
+					<div class="image">
+						<img src="images/gazelle.jpg" alt="Humor Classification" />
+					</div>
 				</div>
 
 				<!-- Quiz Time 6 -->
 				<div class="inner align-center" id="quiz-6">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-6">
-						<h3>Question 6: Which joke would you tell your grandparents?</h3>
+						<h3>Question 6: Which humor type received the highest funniness scores?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-7" data-feedback="Great choice! Witty one-liners are timeless and appeal to a wide range of audiences, including grandparents.">A witty one-liner</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Dark jokes might not be the best choice for grandparents, as they can be polarizing.">A dark joke</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Memes might not resonate as well with older audiences who may not be familiar with internet humor.">A meme</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Dark humor is polarizing and does not receive the highest scores.">Dark</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-7" data-feedback="Correct! Clever and Friendly humor types received the highest scores.">Clever and Friendly</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Awkward humor is not the highest-rated type.">Awkward</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Humor in Pop Culture Section -->
+			<!-- 7. Topic Classification -->
 			<section class="wrapper style1" id="data-story-7">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>Humor in Pop Culture</h2>
-					<p>Pop culture humor draws from movies, TV shows, and music. Our analysis shows that references to popular media often resonate with audiences, especially when they are timely and relevant.</p>
-					<p>However, obscure references may alienate some readers.</p>
+					<h2>Identifying Topics in Captions</h2>
+					<p>We classified captions into topics such as Love, Family, Work, and Politics. Using sentence embeddings, we achieved strong alignment between captions and topics.</p>
+					<p>Word clouds revealed dominant words for each topic, providing insights into recurring themes.</p>
 				</div>
 
 				<!-- Quiz Time 7 -->
 				<div class="inner align-center" id="quiz-7">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-7">
-						<h3>Question 7: Which pop culture reference makes you laugh?</h3>
+						<h3>Question 7: Which topic is most associated with relational humor?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-8" data-feedback="Great choice! Lines from popular sitcoms are often relatable and widely appreciated.">A line from a popular sitcom</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-8" data-feedback="Not quite! Quotes from classic movies can be funny, but they may not resonate as strongly with modern audiences.">A quote from a classic movie</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-8" data-feedback="Not quite! Song lyrics can be humorous, but they often require specific context to be funny.">A lyric from a song</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-8" data-feedback="Not quite! Politics is more associated with social critique.">Politics</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-8" data-feedback="Not quite! Work is more associated with professional humor.">Work</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-8" data-feedback="Correct! Love and Family are strongly associated with relational humor.">Love and Family</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Humor and Gender Section -->
+			<!-- 8. Temporal Analysis -->
 			<section class="wrapper style1" id="data-story-8">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>Gender Differences in Humor</h2>
-					<p>Our analysis shows that humor preferences can vary by gender. While some jokes appeal universally, others resonate more with specific audiences based on shared experiences or perspectives.</p>
-					<p>Understanding these differences can help tailor humor to diverse audiences.</p>
+					<h2>How Humor Evolves Over Time</h2>
+					<p>The number of captions and votes per image varies significantly over time. Images with fewer captions often receive higher engagement.</p>
+					<p>This suggests that both image appeal and caption quality influence voting outcomes.</p>
 				</div>
 
 				<!-- Quiz Time 8 -->
 				<div class="inner align-center" id="quiz-8">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-8">
-						<h3>Question 8: Which joke resonates with you the most?</h3>
+						<h3>Question 8: What influences voting outcomes over time?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-9" data-feedback="Great choice! Jokes about everyday struggles are highly relatable and resonate with a broad audience.">A joke about everyday struggles</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-9" data-feedback="Not quite! Jokes about sports can be funny, but they often appeal to a niche audience.">A joke about sports</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-9" data-feedback="Not quite! Jokes about relationships can be humorous, but they may not resonate with everyone.">A joke about relationships</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-9" data-feedback="Correct! Both image appeal and caption quality influence voting outcomes.">Image appeal and caption quality</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-9" data-feedback="Not quite! Caption length alone does not determine voting outcomes.">Caption length</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-9" data-feedback="Not quite! Voting outcomes are not random.">Random chance</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Humor and Social Media Section -->
+			<!-- 9. Word Clouds -->
 			<section class="wrapper style1" id="data-story-9">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>Humor in the Age of Social Media</h2>
-					<p>Social media platforms like Twitter and TikTok have revolutionized humor. Memes, short videos, and viral trends dominate the landscape, making humor more accessible and shareable.</p>
-					<p>Our analysis shows that humor on social media is often fast-paced and highly visual.</p>
+					<h2>Word Clouds for Humor Types and Topics</h2>
+					<p>Word clouds reveal the most frequent words associated with each humor type and topic. For example, "love" dominates the Love topic, while "work" is prominent in the Work topic.</p>
+					<p>These visualizations provide a quick overview of recurring themes in the datasets.</p>
 				</div>
 
 				<!-- Quiz Time 9 -->
 				<div class="inner align-center" id="quiz-9">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-9">
-						<h3>Question 9: Which viral meme do you find funniest?</h3>
+						<h3>Question 9: Based on the word clouds, which topic is most associated with the word "global warming"?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-10" data-feedback="Great choice! Relatable memes are universally appreciated and often go viral for a reason.">A relatable meme</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! Political memes can be divisive and may not appeal to everyone.">A political meme</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! Absurd memes can be funny, but they often require a specific sense of humor to appreciate.">A random absurd meme</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-10" data-feedback="Correct! 'Global warming' is strongly associated with the Nature topic.">Nature</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! While 'Politics' may involve environmental issues, 'global warming' is more directly tied to Nature.">Politics</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! 'Health' is not the primary topic associated with 'global warming.'">Health</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
-			</section>
 
-			<!-- Humor and Satire Section -->
+			<!-- 10. Comparing NYCC and OHIC -->
 			<section class="wrapper style1" id="data-story-10">
-				<!-- Data Story Content -->
 				<div class="inner align-left">
-					<h2>The Role of Satire in Humor</h2>
-					<p>Satire uses humor to critique societal issues, making it both entertaining and thought-provoking. Our analysis shows that satire is most effective when it strikes a balance between humor and insight.</p>
-					<p>However, overly harsh satire can alienate some readers.</p>
+					<h2>Comparing NYCC and OHIC</h2>
+					<p>While NYCC and OHIC share similar humor distributions, NYCC leans toward institutional humor, while OHIC reflects internet culture.</p>
+					<p>This comparison highlights how context influences humor preferences.</p>
 				</div>
 
 				<!-- Quiz Time 10 -->
 				<div class="inner align-center" id="quiz-10">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-10">
-						<h3>Question 10: Which satirical headline is the most clever?</h3>
+						<h3>Question 10: Which dataset leans toward institutional humor?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="results" data-feedback="Great choice! This headline is clever and highlights the irony in a humorous way.">"Local Man Wins Lottery, Immediately Regrets It"</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="results" data-feedback="Not quite! While this headline is amusing, it’s less clever and more predictable.">"Politician Promises Change, Delivers Same Old Speech"</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="results" data-feedback="Not quite! This headline is funny, but it lacks the sharp wit of the top choice.">"Tech Company Solves Problem No One Had"</div>
+							<div class="quiz-option" data-answer="correct" data-next="results" data-feedback="Correct! NYCC leans toward institutional humor.">New Yorker Caption Contest (NYCC)</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="results" data-feedback="Not quite! OHIC reflects internet culture.">Oxford Humor in Context (OHIC)</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
@@ -312,39 +333,6 @@
 					<h3 id="results-message"></h3>
 				</div>
 			</section>		
-
-            <!-- Exploratory Data Analysis -->
-            <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="exploratory-data-analysis">
-                <div class="content">
-                    <h2>Exploratory Data Analysis</h2>
-                    <p>Our analysis revealed key insights into humor distribution and voting patterns:</p>
-                    <ul>
-                        <li>Most captions in both datasets are rated as "Not Funny," with only a small subset receiving high funniness scores.</li>
-                        <li>The New Yorker dataset shows a more balanced distribution of captions per image compared to the Oxford dataset.</li>
-                        <li>Humor perception follows a power-law distribution: a few captions dominate the upper tail, while most receive minimal engagement.</li>
-                    </ul>
-                    <p>These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
-                </div>
-                <div class="image">
-                    <img src="images/gazelle.jpg" alt="EDA Summary" />
-                </div>
-            </section>
-
-            <!-- Humor Classification -->
-            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="humor-classification">
-                <div class="content">
-                    <h2>Humor Classification</h2>
-                    <p>We classified captions into humor types using two approaches:</p>
-                    <ul>
-                        <li><strong>Zero-Shot Classification:</strong> Using a pre-trained language model (BART) to assign humor types based on predefined categories.</li>
-                        <li><strong>Sentence Embeddings:</strong> Using sentence-transformers to generate embeddings and cluster captions by humor type.</li>
-                    </ul>
-                    <p>These methods provide complementary insights into the thematic and stylistic dimensions of humor.</p>
-                </div>
-                <div class="image">
-                    <img src="images/gazelle.jpg" alt="Humor Classification" />
-                </div>
-            </section>
 
 			<!-- Call-to-Action -->
 			<section class="wrapper style1 align-center" id="call-to-action">
