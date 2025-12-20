@@ -295,6 +295,19 @@ body {
 #data-story-10 p {margin-bottom: 15px;}
 #data-story-10 ul {margin-bottom: 15px;}
 
+/* ---------------------------------
+   Datasets Section
+---------------------------------- */
+#nycc p {margin-bottom: 10px;}
+#nycc ul {margin-bottom: 15px;}
+#nycc ol {margin-bottom: 15px;}
+#nycc h3 {margin-bottom: 10px;}
+
+#ohic p {margin-bottom: 10px;}
+#ohic ul {margin-bottom: 15px;}
+#ohic ol {margin-bottom: 15px;}
+#ohic h3 {margin-bottom: 10px;}
+
 
 /* ---------------------------------
    Models & Methods Section
@@ -306,6 +319,22 @@ body {
 #NLP p {margin-bottom: 10px;}
 #NLP ul {margin-bottom: 15px;}
 #NLP h3 {margin-bottom: 10px;}
+
+#statistical-analysis p {margin-bottom: 10px;}
+#statistical-analysis ul {margin-bottom: 15px;}
+#statistical-analysis h3 {margin-bottom: 10px;}
+
+#temporal-trends p {margin-bottom: 10px;}
+#temporal-trends ul {margin-bottom: 15px;}
+#temporal-trends h3 {margin-bottom: 10px;}
+
+/* ---------------------------------
+   Sources Section
+---------------------------------- */
+#source-datasets h2 {margin-top: -50px; padding-top: -50px;}
+#source-tools h2 {margin-top: -50px; padding-top: -50px;}
+#references h2 {margin-top: -50px; padding-top: -50px;}
+#references p {margin-bottom: -20px; padding-bottom: -20px;}
 
 /* ---------------------------------
    Quiz Section
