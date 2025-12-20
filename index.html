@@ -87,7 +87,7 @@
 								<li><strong>data/:</strong> CSV files for each image, listing captions and their statistics (e.g., number of votes, funny score, mean score).</li>
 								<li><strong>images/:</strong> The actual cartoon images in JPG format.</li>
 							</ul>
-							<p>This dataset focuses on cartoons and contains detailed metadata for each image/contest.</p>
+							<p>This dataset focuses on cartoons and contains detailed metadata for each image/contest. Learn more on the <a href="https://www.newyorker.com/cartoons/contest" target="_blank">New Yorker Caption Contest Website</a>.</p>
 						</div>
 						<div class="card ohic-card">
 							<h3><strong>Oxford Humor in Context (OHIC):</strong></h3>
@@ -95,13 +95,12 @@
 								<li><strong>oxford_hic_data.csv:</strong> A large CSV file containing all captions for all images along with their funny scores.</li>
 								<li><strong>oxford_hic_image_info.csv:</strong> A CSV file containing links to all images.</li>
 							</ul>
-							<p>This dataset focuses on internet memes and is less detailed than NYCC but still contains the most important information for our project.</p>
+							<p>This dataset focuses on internet memes and is less detailed than NYCC but still contains the most important information for our project. Learn more in the <a href="https://arxiv.org/pdf/2307.11636" target="_blank">OHIC Research Paper</a>.</p>
 						</div>
 					</div>
 
 					<p style="margin-top: 20px;">While OHIC has fewer metadata fields, it complements NYCC by providing a broader perspective on humor in internet culture. Together, these datasets allow us to analyze humor across different formats and contexts.</p>
-					<p>We implemented helper functions to load captions in a nearly uniform format between the two datasets, ensuring consistency and removing lines with missing values. This preprocessing step was crucial for enabling meaningful comparisons.</p>
-					<h3>Let’s dive into the data and uncover what makes humor tick!</h3>
+					<p>We implemented helper functions to load captions in a nearly uniform format between the two datasets, ensuring consistency and removing lines with missing values. Now, let’s dive into the data and uncover what makes humor tick!</h3>
 				</div>
 
 				<!-- Quiz Time -->
@@ -122,39 +121,61 @@
 			<section class="wrapper style1" id="data-story-2">
 				<div class="inner">
 					<h2>Exploratory Data Analysis</h2>
-					<p>Our analysis revealed key insights into the datasets:</p>
+					<p>Our analysis revealed key insights into the datasets, focusing on the distribution of captions, voting patterns, and the relationship between caption rank and funniness scores. Below, we highlight three key visualizations, while also summarizing other analyses conducted during this study.</p>
 					
+					<!-- Distribution of Captions per Image -->
+					<h3><strong>1. Distribution of Captions per Image:</strong></h3>
+					<div class="plot-container">
+						<img src="images/eda-distribution-captions.png" alt="Distribution of Captions per Image" />
+					</div>
+					<p>In the NYCC dataset, 80% of images have between 4,000 and 8,000 captions, with outliers ranging from 1,066 to 15,329 captions. In contrast, the OHIC dataset shows a power-law distribution, where a few images have many captions (up to 70,000), but 80% of images have only around 20 captions.</p>
+
+					<!-- Normalized Distribution of Votes by Humor Category -->
+					<h3><strong>2. Normalized Distribution of Votes by Humor Category:</strong></h3>
+					<div class="plot-container">
+						<img src="images/eda-votes-distribution.png" alt="Normalized Distribution of Votes by Humor Category" />
+					</div>
+					<p>The distribution of votes across humor categories reveals that "Not Funny" dominates, especially in the mid-range (50–150 votes). "Somewhat Funny" peaks at lower vote counts (10–40), while "Funny" is heavily concentrated near 0–10 votes, reflecting the rarity of universally funny captions.</p>
+
+					<!-- Caption Rank vs. Mean Funniness Score -->
+					<h3><strong>3. Caption Rank vs. Mean Funniness Score:</strong></h3>
+					<div class="plot-container">
+						<img src="images/eda-rank-vs-funniness.png" alt="Caption Rank vs. Mean Funniness Score" />
+					</div>
+					<p>Captions with the best ranks (1–10) have distinctly higher mean funniness scores, averaging around 1.9. Beyond rank 10, the scores drop sharply and stabilize near the minimum, indicating that most low-ranked captions are uniformly mediocre.</p>
+
+					<!-- Summary of Other Analyses -->
+					<h3><strong>Additional Analyses Conducted:</strong></h3>
+					<ul>
+						<li><strong>Correlation Heatmap (NYCC Features):</strong> Explored the relationships between numeric features, revealing strong correlations between vote categories (e.g., "Funny," "Somewhat Funny," "Not Funny").</li>
+						<li><strong>Evolution of Captions and Votes Over Time:</strong> Analyzed how the total number of captions and votes evolved throughout the contest, showing significant variability in engagement across images.</li>
+						<li><strong>Caption Rank vs. Votes:</strong> Investigated the relationship between caption rank and the number of votes received, highlighting that higher-ranked captions tend to receive more votes.</li>
+						<li><strong>Boxplot of Mean Scores for Top-Ranked Captions:</strong> Visualized the variability in mean scores for top-ranked captions, showing that winning captions can vary significantly in their funniness scores.</li>
+					</ul>
+					<p>These additional analyses provide a deeper understanding of the datasets and the dynamics of humor perception, even though they are not visualized here.</p>
+
+					<!-- NYCC vs OHIC Insights -->
 					<div class="eda-cards">
 						<div class="card nycc-card">
 							<h3><strong>NYCC Insights:</strong></h3>
 							<ul>
-								<li>Balanced distribution of captions per image, with 80% of images having between 4,000 and 8,000 captions.</li>
-								<li>Outliers range from a minimum of 1,066 to a maximum of 15,329 captions.</li>
-								<li>Votes are highly correlated across categories (e.g., "Funny," "Somewhat Funny," "Not Funny"), with correlation coefficients ranging from 0.8 to 0.98.</li>
-								<li>Rank and mean funniness scores are strongly negatively correlated (p ≈ -0.68), meaning higher mean scores correspond to better ranks.</li>
+								<li>The NYCC dataset has a more uniform distribution of captions per image, with most images receiving a moderate number of captions. This suggests a relatively balanced engagement across contests.</li>
+								<li>Higher-ranked captions tend to receive more votes across all categories ("Funny," "Somewhat Funny," and "Not Funny"), indicating that visibility plays a significant role in voting dynamics.</li>
+								<li>The audience for NYCC appears to be highly critical, with the majority of votes falling into the "Not Funny" category, reflecting the subjective nature of humor.</li>
 							</ul>
 						</div>
 						<p style="margin-top: 20px;"></p>
 						<div class="card ohic-card">
 							<h3><strong>OHIC Insights:</strong></h3>
 							<ul>
-								<li>A few images have many captions, with a maximum of 70,000 captions, but 80% of images have only around 20 captions.</li>
-								<li>Humor perception follows a power-law distribution: a few captions dominate the upper tail, while most receive minimal engagement.</li>
-								<li>Normalized features (e.g., "not_funny_norm") are moderately correlated with their raw counterparts, showing that proportions can change even as absolute vote counts rise.</li>
+								<li>The OHIC dataset is highly unbalanced, with a few images receiving a disproportionately large number of captions, while most images receive very few. This highlights the uneven engagement in this dataset.</li>
+								<li>Humor perception in OHIC follows a power-law distribution, where a small subset of captions dominates the "Funny" category, while the majority are rated as "Not Funny."</li>
+								<li>The dataset's focus on internet memes may contribute to its variability, as memes often rely on niche cultural references that may not resonate universally.</li>
 							</ul>
-						</div>
-						<p style="margin-top: 20px;">These findings highlight the subjective nature of humor and the challenges of analyzing it quantitatively.</p>
-						<div class="content">
-							<h3>Additional Insights:</h3>
-							<ul>
-								<li>Most captions in both datasets are rated as "Not Funny," with only a small subset receiving high funniness scores.</li>
-								<li>The New Yorker dataset shows a more balanced distribution of captions per image compared to the Oxford dataset.</li>
-								<li>The majority of submitted captions receive only a handful of votes, and those votes tend to be negative ("Not Funny").</li>
-								<li>Only a few exceptional captions succeed in gathering many votes and being judged funny, following a power-law distribution typical of online ratings.</li>
-							</ul>
-							<p>These findings emphasize the imbalanced nature of humor perception and the importance of understanding voting dynamics.</p>
 						</div>
 					</div>
+					<p style="margin-top: 20px;">Then, we observe that humor is highly subjective, with most captions receiving low funniness scores. Captions with higher visibility tend to attract more votes across all categories, highlighting the role of exposure in voting dynamics. The NYCC dataset shows more balanced engagement due to its structured contests, while OHIC's meme-based content results in greater variability and imbalanced participation. These findings underscore the challenges of analyzing humor quantitatively and the importance of considering context and audience dynamics.</p>
+				
 				</div>
 
 				<!-- Quiz Time 2 -->
@@ -176,11 +197,21 @@
 			<section class="wrapper style1" id="data-story-3">
 				<div class="inner align-left">
 					<h2>Caption Length and Funniness</h2>
-					<p>Our analysis shows that shorter captions tend to be funnier. The most frequent caption length is around 8 words, representing concise, one-sentence jokes.</p>
-					<p>The distribution of caption lengths is <strong>right-skewed</strong>, with most captions being short. Very few captions exceed 20 words, and those that do are often less effective or overly verbose.</p>
-					<p>This suggests that <strong>brevity is a hallmark of humor</strong> in the New Yorker dataset, where punchy, economical language tends to dominate. The central cluster of captions (5–12 words) likely corresponds to effective, natural jokes, while the short tail (<5 words) represents extremely concise captions (e.g., one-liners).</p>
-					<p>Longer captions, while occasionally effective, often lose their punch. The long tail (>20 words) might represent storytelling or overexplaining, which readers are less likely to find funny.</p>
-					<p>Our scatterplot analysis revealed a <strong>weak negative trend</strong>: as captions get longer, their average funniness tends to decrease slightly. This indicates that shorter captions are generally rated as funnier, as concise, punchy humor works better.</p>
+					<p>Our analysis shows that shorter captions tend to be funnier. The most frequent caption length is around 8 words, representing concise, one-sentence jokes. Longer captions, while occasionally effective, often lose their punch and are less likely to be rated as funny.</p>
+					
+					<!-- Distribution of Caption Lengths -->
+					<h3><strong>1. Distribution of Caption Lengths:</strong></h3>
+					<div class="plot-container">
+						<img src="images/caption-length-distribution.png" alt="Distribution of Caption Lengths (in Words)" />
+					</div>
+					<p>The distribution of caption lengths is <strong>right-skewed</strong>, with most captions being short. The most frequent length is around 8 words, while very few captions exceed 20 words. This suggests that brevity is a hallmark of humor, as punchy, economical language tends to dominate.</p>
+
+					<!-- Caption Length vs. Mean Funniness Votes -->
+					<h3><strong>2. Caption Length vs. Mean Funniness Votes:</strong></h3>
+					<div class="plot-container">
+						<img src="images/caption-length-vs-funniness.png" alt="Caption Length vs. Mean Funniness Votes" />
+					</div>
+					<p>Our scatterplot analysis, which focuses on captions below 50 words, revealed a <strong>weak negative trend</strong>: as captions get longer, their average funniness tends to decrease slightly. Shorter captions (under 20 words) are generally rated as funnier, as concise, punchy humor tends to perform better. This trend suggests that brevity might play a role in crafting more effective jokes, though the relationship is not very strong.</p>
 				</div>
 
 				<!-- Quiz Time 3 -->
@@ -202,11 +233,21 @@
 			<section class="wrapper style1" id="data-story-4">
 				<div class="inner align-left">
 					<h2>What Makes a Winning Caption?</h2>
-					<p>Winning captions attract significantly more votes than average captions, often concentrating around 1% of total votes. This is a striking contrast to the average caption, which receives far fewer votes.</p>
-					<p>Despite their success, winning captions can still polarize readers. They often receive a mix of positive and negative votes, showing that even the most popular captions do not appeal to everyone.</p>
-					<p>Winning captions tend to dominate the voting landscape, gathering around 100 times more votes than the average caption. This highlights their ability to capture the audience's attention and engagement.</p>
-					<p>Interestingly, even though winning captions receive the most votes, they do not always achieve unanimous agreement. Polarization in voting patterns suggests that humor is subjective, and even the best captions can evoke mixed reactions.</p>
-					<p>Our analysis also revealed a clear correlation between the number of votes in each category (e.g., "Funny," "Somewhat Funny," "Not Funny") for winning captions, indicating that they tend to attract attention across all voting categories.</p>
+					<p>Winning captions attract significantly more votes than average captions. This is a striking contrast to the average caption, which receives far fewer votes. Despite their success, winning captions can still polarize readers. They often receive a mix of positive and negative votes, showing that even the most popular captions do not appeal to everyone.</p>
+					
+					<!-- Total Votes vs. Winning Votes -->
+					<h3><strong>1. Total Votes vs. Winning Votes:</strong></h3>
+					<div class="plot-container">
+						<img src="images/winning-votes-log.png" alt="Total Votes vs. Winning Votes (Log Scale)" />
+					</div>
+					<p>Winning captions dominate the voting landscape, gathering around 100 times more votes than the average caption. This dominance is evident in the log-scale plot, where winning captions consistently attract a significant share of total votes. On average, they concentrate around 1% of all votes, highlighting their ability to capture the audience's attention and engagement.</p>
+
+					<!-- Correlation Between Vote Categories -->
+					<h3><strong>2. Correlation Between Vote Categories:</strong></h3>
+					<div class="plot-container">
+						<img src="images/winning-votes-correlation.png" alt="Correlation Between Vote Categories" />
+					</div>
+					<p>Our analysis revealed a clear correlation between the number of votes in each category ("Funny," "Somewhat Funny," "Not Funny") for winning captions. This indicates that winning captions tend to attract attention across all voting categories, further emphasizing their polarizing nature. Even the most popular captions evoke mixed reactions, reflecting the subjective nature of humor.</p>
 				</div>
 
 				<!-- Quiz Time 4 -->

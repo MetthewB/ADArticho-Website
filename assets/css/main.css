@@ -258,6 +258,7 @@ body {
 #data-story-1 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
 #data-story-1 p {margin-bottom: 15px;}
 #data-story-1 ul {margin-bottom: 15px;}
+#data-story-1 .dataset-cards a:hover {color: white !important;}
 
 #data-story-2 .inner {margin-top: 0; padding-top: 20px; margin-bottom: -60px;}
 #data-story-2 p {margin-bottom: 15px;}
@@ -296,6 +297,22 @@ body {
 #data-story-10 ul {margin-bottom: 15px;}
 
 /* ---------------------------------
+   Plots Section
+---------------------------------- */
+.plot-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.plot-container img {
+    max-width: 100%; /* Ensure the image scales responsively */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------------------
    Datasets Section
 ---------------------------------- */
 #nycc p {margin-bottom: 10px;}
@@ -332,6 +349,7 @@ body {
    Sources Section
 ---------------------------------- */
 #source-datasets h2 {margin-top: -50px; padding-top: -50px;}
+#source-datasets a:hover {color: white !important;}
 #source-tools h2 {margin-top: -50px; padding-top: -50px;}
 #references h2 {margin-top: -50px; padding-top: -50px;}
 #references p {margin-bottom: -20px; padding-bottom: -20px;}
@@ -353,7 +371,6 @@ body {
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .quiz-option:hover {
@@ -361,7 +378,7 @@ body {
 }
 
 .quiz-option.disabled {
-    background-color: #ccc;
+    background: #ccc !important;
     color: #888;
     cursor: not-allowed;
 }
