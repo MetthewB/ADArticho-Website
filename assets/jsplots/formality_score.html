@@ -1,0 +1,100 @@
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+
+
+    const ctx = document.getElementById('myChart');
+
+    xs = [14.50381679, 17.25699746, 20.01017812, 22.76335878, 25.51653944,
+        28.2697201 , 31.02290076, 33.77608142, 36.52926209, 39.28244275,
+        42.03562341, 44.78880407, 47.54198473, 50.29516539, 53.04834606,
+        55.80152672, 58.55470738, 61.30788804, 64.0610687 , 66.81424936,
+        69.56743003, 72.32061069, 75.07379135, 77.82697201, 80.58015267,
+        83.33333333]
+
+
+
+    y_ny = [0.        , 0.        , 0.        , 0.        , 0.     ,
+         0.        , 0.        , 0.        , 0.00167919, 0.02518791,
+         0.06213017, 0.11754356, 0.10243082, 0.07220533, 0.02350871,
+         0.01175436, 0.00335839, 0.        , 0.        , 0.        ,
+         0.        , 0.        , 0.        , 0.        , 0.        ]
+    
+    y_ox = [0.00721717, 0.00842003, 0.00962289, 0.01323147, 0.01804291,
+         0.02646294, 0.0276658 , 0.04450585, 0.03728869, 0.04089727,
+         0.03728869, 0.04210013, 0.02526008, 0.0276658 , 0.0216515 ,
+         0.00842003, 0.01202861, 0.0060143 , 0.00120286, 0.00120286,
+         0.00120286, 0.00120286, 0.        , 0.        , 0.00120286]
+
+
+    let data_1 = []
+    let data_2 = []
+    for(let i = 0; i < xs.length; i++){
+        data_1.push({'x' : xs[i], 'y' : y_ny[i]*2.75, 'note' : Math.round(y_ny[i]*2.75 * 100).toString() + '%'})
+        data_2.push({'x' : xs[i], 'y' : y_ox[i]*2.75, 'note' : Math.round(y_ox[i]*2.75 * 100).toString() + '%'})
+    }
+
+
+    console.log(data_1)
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+          datasets: [
+              {
+                  label: 'NewYorker',
+                  data: data_1,
+                  backgroundColor: 'rgba(255, 99, 132, 0.6)'
+              },
+              {
+                  label: 'Oxford',
+                  data: data_2,
+                  backgroundColor: 'rgba(0, 150, 200, 0.6)'
+              },
+          ]
+
+          
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    title: {
+                        display: true,
+                        text: 'Formality score'
+                    }
+                },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Density in %'
+              }
+            }
+          }, 
+          
+          plugins: {
+                title: {
+                  display: true,
+                  text: 'Formality score distributions'
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function (context) {
+                            return `${context[0].dataset.label}`
+                        },  
+                        label: function (context) {
+                            const data = context.raw;
+                            return `F-score: ${Math.round(data.x)} (${data.note})`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>

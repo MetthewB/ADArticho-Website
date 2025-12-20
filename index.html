@@ -135,14 +135,14 @@
 					<div class="plot-container">
 						<img src="images/eda-votes-distribution.png" alt="Normalized Distribution of Votes by Humor Category" />
 					</div>
-					<p>The distribution of votes across humor categories reveals that "Not Funny" dominates, especially in the mid-range (50–150 votes). "Somewhat Funny" peaks at lower vote counts (10–40), while "Funny" is heavily concentrated near 0–10 votes, reflecting the rarity of universally funny captions.</p>
+					<p>The distribution of votes across humor categories reveals that "Not Funny" dominates, especially in the mid-range (50–150 votes). "Somewhat Funny" peaks at lower vote counts (10–40), while "Funny" is heavily concentrated near 0–10 votes. This reflects the subjective nature of humor and the difficulty of creating universally appealing captions.</p>
 
 					<!-- Caption Rank vs. Mean Funniness Score -->
 					<h3><strong>3. Caption Rank vs. Mean Funniness Score:</strong></h3>
 					<div class="plot-container">
 						<img src="images/eda-rank-vs-funniness.png" alt="Caption Rank vs. Mean Funniness Score" />
 					</div>
-					<p>Captions with the best ranks (1–10) have distinctly higher mean funniness scores, averaging around 1.9. Beyond rank 10, the scores drop sharply and stabilize near the minimum, indicating that most low-ranked captions are uniformly mediocre.</p>
+					<p>Captions with the best ranks (1–10) have distinctly higher mean funniness scores, averaging around 1.9. Beyond rank 10, the scores drop sharply and stabilize near the minimum. Captions that stand out tend to receive higher funniness scores, but the majority remain at the lower end of the scale, most low-ranked captions are uniformly mediocre.</p></p>
 
 					<!-- Summary of Other Analyses -->
 					<h3><strong>Additional Analyses Conducted:</strong></h3>
@@ -151,10 +151,11 @@
 						<li><strong>Evolution of Captions and Votes Over Time:</strong> Analyzed how the total number of captions and votes evolved throughout the contest, showing significant variability in engagement across images.</li>
 						<li><strong>Caption Rank vs. Votes:</strong> Investigated the relationship between caption rank and the number of votes received, highlighting that higher-ranked captions tend to receive more votes.</li>
 						<li><strong>Boxplot of Mean Scores for Top-Ranked Captions:</strong> Visualized the variability in mean scores for top-ranked captions, showing that winning captions can vary significantly in their funniness scores.</li>
+						<li><strong>Monotonic Relationship Between Rank and Funniness:</strong> Found that top-ranked captions have distinctly higher funniness scores, while lower-ranked captions stabilize near the minimum. The difference between mid- and low-ranked captions becomes less perceptible.</li>
 					</ul>
-					<p>These additional analyses provide a deeper understanding of the datasets and the dynamics of humor perception, even though they are not visualized here.</p>
 
 					<!-- NYCC vs OHIC Insights -->
+					<p style="margin-top: 30px;"></p>
 					<div class="eda-cards">
 						<div class="card nycc-card">
 							<h3><strong>NYCC Insights:</strong></h3>
@@ -248,6 +249,7 @@
 						<img src="images/winning-votes-correlation.png" alt="Correlation Between Vote Categories" />
 					</div>
 					<p>Our analysis revealed a clear correlation between the number of votes in each category ("Funny," "Somewhat Funny," "Not Funny") for winning captions. This indicates that winning captions tend to attract attention across all voting categories, further emphasizing their polarizing nature. Even the most popular captions evoke mixed reactions, reflecting the subjective nature of humor.</p>
+					<p>Interestingly, even winning captions, while receiving the highest scores, still show variability in their funniness ratings. This highlights the subjective nature of humor perception, where even the most popular captions do not appeal to everyone.</p>
 				</div>
 
 				<!-- Quiz Time 4 -->
@@ -265,120 +267,182 @@
 				</div>
 			</section>
 
-			<!-- 5. Funniness Score Distribution -->
+			<!-- 5. Humor Type Classification -->
 			<section class="wrapper style1" id="data-story-5">
 				<div class="inner align-left">
-					<h2>Funniness Score Distribution</h2>
-					<p>The distribution of funniness scores is <strong>skewed to the left</strong>, suggesting that most captions are rated as "not funny." This reflects the subjective nature of humor and the difficulty of creating universally appealing captions.</p>
-					<p>Top-ranked captions have distinctly higher funniness scores, while lower-ranked captions stabilize near the minimum. This indicates that the best captions stand out clearly, but the difference between mid- and low-ranked captions becomes less perceptible.</p>
-					<p>The skewness is consistent with the way votes are gathered. Captions that receive low scores early on are less likely to be presented to readers again, leading to a self-reinforcing cycle where poorly rated captions remain at the bottom.</p>
-					<p>Our analysis also revealed a <strong>monotonic relationship</strong> between rank and funniness score. As captions move down the ranking, their average funniness declines roughly linearly when viewed on a logarithmic scale. The steep drop in funniness for top-ranked captions gradually plateaus, suggesting a floor effect where most low-ranked captions are uniformly mediocre.</p>
-					<p>Interestingly, the winning captions, while receiving the highest scores, still show variability in their funniness ratings, highlighting the subjective nature of humor perception.</p>
+					<h2>Identifying Humor Types</h2>
+					<p>We classified captions into predefined humor categories (e.g., <strong style="color:red;">Awkward</strong>, <strong style="color:purple;">Sarcastic</strong>, <strong style="color:green;">Clever</strong>, <strong style="color:blue;">Absurd</strong>, <strong style="color:black;">Dark</strong>, <strong style="color:brown;">Raunchy</strong>, <strong style="color:gold;">Corny</strong>, <strong style="color:pink;">Friendly</strong>, <strong style="color:orange;">Goofy</strong>, <strong style="color:grey;">Other</strong>) to explore the different styles of humor present in the datasets. These categories capture the thematic and stylistic dimensions of humor, ranging from witty wordplay to socially awkward situations.</p>
+					<p>We used two complementary approaches for humor type classification: zero-shot classification and sentence embeddings. For a detailed explanation of the classification process and the models used, please refer to the <a href="models-methods.html#NLP" target="_blank">Models & Methods: Humor Type Classification</a> section.</p>
+
+					<!-- Humor Type Distributions -->
+					<h3><strong>1. Humor Type Distributions:</strong></h3>
+					<div class="plot-container">
+						<img src="images/humor-type-distributions.png" alt="Humor Type Distributions (NYCC vs. OHIC)" />
+					</div>
+					<p>The distribution of humor types in NYCC and OHIC shows both similarities and differences. <strong style="color:red;">Satirical</strong> and <strong style="color:gold;">Corny</strong> humor types are more prevalent in NYCC, reflecting its institutional context, while <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong> humor types are more common in OHIC, aligning with the internet's edgier humor trends.</p>
+
+					<!-- Humor Type vs. Funniness Scores -->
+					<h3><strong>2. Humor Type vs. Funniness Scores:</strong></h3>
+					<div class="plot-container">
+						<img src="images/humor-type-vs-funniness.png" alt="Humor Type vs. Funniness Scores" />
+					</div>
+					<p>Different humor types vary significantly in their funniness scores. <strong style="color:green;">Clever</strong> humor, characterized by wit and wordplay, and <strong style="color:pink;">Friendly</strong> humor, which is light-hearted and inclusive, consistently scored higher. In contrast, humor types like <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong> were more polarizing, with some readers finding them funny while others did not.</p>
+
+					<!-- Humor Type vs. Rank -->
+					<h3><strong>3. Humor Type vs. Rank:</strong></h3>
+					<div class="plot-container">
+						<img src="images/humor-type-vs-rank.png" alt="Humor Type vs. Rank" />
+					</div>
+					<p>Our analysis of humor type vs. rank revealed that <strong style="color:green;">Clever</strong> and <strong style="color:pink;">Friendly</strong> humor types tend to achieve better ranks, reflecting their broad appeal. In contrast, humor types like <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong>, while polarizing, often rank lower due to their niche appeal. This suggests that humor types with broader, more inclusive themes are more likely to succeed in contests.</p>
+					<p style="margin-top: 40px">Using these approaches, we observed similar humor distributions in NYCC and OHIC, reflecting shared humor trends across institutional and internet contexts. However, some humor types, like <strong style="color:red;">Satirical</strong> and <strong style="color:gold;">Corny</strong>, were more prevalent in NYCC, while others, like <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong>, were more common in OHIC. Our analysis revealed that <strong style="color:green;">Clever</strong> humor, characterized by wit and wordplay, and <strong style="color:pink;">Friendly</strong> humor, which is light-hearted and inclusive, consistently scored higher in funniness. On the other hand, humor types like <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong> were more polarizing, with mixed reactions from readers.</p>
 				</div>
 
 				<!-- Quiz Time 5 -->
 				<div class="inner align-center" id="quiz-5">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-5">
-						<h3>Question 5: How are funniness scores distributed in the datasets?</h3>
+						<h3>Question 5: Which humor type received the highest funniness scores?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-6" data-feedback="Not quite! The distribution is not uniform.">Uniform</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-6" data-feedback="Not quite! The distribution is not skewed to the right.">Skewed to the right</div>
-							<div class="quiz-option" data-answer="correct" data-next="data-story-6" data-feedback="Correct! The distribution is skewed to the left, with most captions rated as 'Not Funny.'">Skewed to the left</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-6" data-feedback="Not quite! Dark humor is polarizing and does not receive the highest scores.">Dark</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-6" data-feedback="Correct! Clever and Friendly humor types received the highest scores.">Clever and Friendly</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-6" data-feedback="Not quite! Awkward humor is not the highest-rated type.">Awkward</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- 6. Humor Type Classification -->
+			<!-- 6. Topic Classification -->
 			<section class="wrapper style1" id="data-story-6">
 				<div class="inner align-left">
-					<h2>Identifying Humor Types</h2>
-					<p>We classified captions into humor types such as Awkward, Sarcastic, Clever, Friendly, and more. These categories capture the thematic and stylistic dimensions of humor, ranging from witty wordplay to socially awkward situations.</p>
-					<p>Using a pre-trained language model and sentence embeddings, we observed similar humor distributions in NYCC and OHIC, reflecting shared humor trends across institutional and internet contexts.</p>
-					<p>Some humor types, like Clever and Friendly, received higher funniness scores than others, while types like Dark humor were more polarizing, with mixed reactions from readers.</p>
-				</div>
-				<div class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-					<div class="content">
-						<h2>Humor Classification</h2>
-						<p>We classified captions into humor types using two complementary approaches:</p>
-						<ul>
-							<li><strong>Zero-Shot Classification:</strong> Using a pre-trained language model (BART) to assign humor types based on predefined categories. This approach provided an initial classification framework.</li>
-							<li><strong>Sentence Embeddings:</strong> Using sentence-transformers to generate embeddings and cluster captions by humor type. This method allowed us to refine the classification and validate the results.</li>
-						</ul>
-						<p>Our analysis revealed that Clever humor, characterized by wit and wordplay, and Friendly humor, which is light-hearted and inclusive, consistently scored higher in funniness. On the other hand, humor types like Dark and Raunchy were more polarizing, with some readers finding them funny while others did not.</p>
-						<p>Word clouds generated for each humor type highlighted recurring themes and vocabulary. For example, words like "baggage" and "pun" were associated with Clever humor, while "care" and "warm" were prominent in Friendly humor.</p>
+					<h2>Identifying Topics in Captions</h2>
+					<p>We classified captions into predefined topics (e.g., <strong style="color:red;">Love</strong>, <strong style="color:deeppink;">Family</strong>, <strong style="color:dodgerblue;">School</strong>, <strong style="color:steelblue;">Work</strong>, <strong style="color:palevioletred;">Politics and Social Issues</strong>, <strong style="color:darkgreen;">Nature</strong>, <strong style="color:darkorange;">Food</strong>, <strong style="color:lightseagreen;">Emotions</strong>, <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, <strong style="color:blue;">Caption Contest</strong>, <strong style="color:teal;">Health</strong>, <strong style="color:blueviolet;">Law</strong>, <strong style="color:dimgrey;">Other</strong>) to explore the thematic dimensions of humor in the datasets.</p>
+					<p>We used a sentence embedding approach to classify captions into topics. For a detailed explanation of the classification process, see the <a href="models-methods.html#NLP" target="_blank">Models & Methods: Topic Classification</a> section.</p>
+					
+					<!-- Topic Distributions -->
+					<h3><strong>1. Topic Distributions:</strong></h3>
+					<div class="plot-container">
+						<img src="images/topic-distributions.png" alt="Topic Distributions (NYCC vs. OHIC)" />
 					</div>
-					<div class="image">
-						<img src="images/gazelle.jpg" alt="Humor Classification" />
+					<p>The distribution of topics in NYCC and OHIC revealed both shared and unique trends. Topics like <strong style="color:red;">Love</strong>, <strong style="color:deeppink;">Family</strong>, and <strong style="color:steelblue;">Work</strong> were the most frequently occurring, reflecting shared social roles, domestic life, and workplace dynamics. In contrast, topics like <strong style="color:palevioletred;">Politics and Social Issues</strong> were more prominent in OHIC, aligning with its internet-based context and focus on societal critique. Other topics, such as <strong style="color:darkgreen;">Nature</strong>, <strong style="color:darkorange;">Food</strong>, and <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, highlighted environmental concerns, cultural rituals, and media consumption, while institutional topics like <strong style="color:teal;">Health</strong> and <strong style="color:blueviolet;">Law</strong> critiqued societal structures and professional roles.</p>
+
+					<!-- Topic vs. Funniness Scores -->
+					<h3><strong>2. Humor Type vs. Funniness Scores:</strong></h3>
+					<div class="plot-container">
+						<img src="images/topic-vs-funniness.png" alt="Topic vs. Funniness Scores" />
 					</div>
+					<p>Our analysis revealed that topics like <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> consistently scored higher in funniness, reflecting their broad appeal and relatability. These topics often draw on shared experiences and interpersonal dynamics, making them universally engaging. In contrast, topics like <strong style="color:palevioletred;">Politics and Social Issues</strong> were more polarizing, with mixed reactions from readers. This polarization may stem from the abstract and institutional language used in these captions, which focus on collective or systemic concepts rather than individual experiences.</p>
+
+					<!-- Topic vs. Rank -->
+					<h3><strong>3. Humor Type vs. Rank:</strong></h3>
+					<div class="plot-container">
+						<img src="images/topic-vs-rank.png" alt="Topic vs. Rank" />
+					</div>
+					<p>When analyzing topic vs. rank, relational topics like <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> tended to achieve better ranks, reflecting their broad appeal and universal relatability. In contrast, topics like <strong style="color:palevioletred;">Politics and Social Issues</strong> and <strong style="color:darkgreen;">Nature</strong> often ranked lower, possibly due to their niche appeal or reliance on commentary and critique. Topics like <strong style="color:steelblue;">Work</strong> and <strong style="color:darkorange;">Food</strong> achieved moderate ranks, blending humor with shared cultural experiences and professional dynamics.</p>
+					<p style="margin-top: 40px">Overall, the topic classification highlights the diverse thematic dimensions of humor in the datasets. Relational topics like <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> resonate broadly with audiences, while institutional topics like <strong style="color:teal;">Health</strong> and <strong style="color:blueviolet;">Law</strong> provide humor rooted in societal critique. The prominence of topics like <strong style="color:darkgreen;">Nature</strong> and <strong style="color:palevioletred;">Politics and Social Issues</strong> in OHIC reflects its internet-based context, where commentary and critique are more prevalent. These findings underscore the role of context and audience in shaping the thematic content of humor.</p>
 				</div>
 
 				<!-- Quiz Time 6 -->
 				<div class="inner align-center" id="quiz-6">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-6">
-						<h3>Question 6: Which humor type received the highest funniness scores?</h3>
+						<h3>Question 6: Which topic is most associated with relational humor?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Dark humor is polarizing and does not receive the highest scores.">Dark</div>
-							<div class="quiz-option" data-answer="correct" data-next="data-story-7" data-feedback="Correct! Clever and Friendly humor types received the highest scores.">Clever and Friendly</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Awkward humor is not the highest-rated type.">Awkward</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Politics is more associated with social critique.">Politics</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Work is more associated with professional humor.">Work</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-7" data-feedback="Correct! Love and Family are strongly associated with relational humor.">Love and Family</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- 7. Topic Classification -->
+			<!-- 7. Word Clouds -->
 			<section class="wrapper style1" id="data-story-7">
 				<div class="inner align-left">
-					<h2>Identifying Topics in Captions</h2>
-					<p>We classified captions into the following topics, capturing the thematic dimensions of humor:</p>
+					<h2>Word Clouds for Humor Types and Topics</h2>
+					<p>Word clouds reveal the most frequent words associated with each humor type and topic, providing a quick overview of recurring themes in the datasets. These visualizations help identify the dominant vocabulary and recurring patterns in captions.</p>
+					<p>For humor types, the word clouds highlight the distinct vocabulary used in different styles of humor:</p>
+					<div class="plot-container">
+						<img src="images/humor-types-word-clouds.png" alt="Word Clouds for Humor Types" />
+					</div>
 					<ul>
-						<li><strong>Love:</strong> Captions about romantic relationships, dating, and romantic love.</li>
-						<li><strong>Family:</strong> Captions about family relationships and home life.</li>
-						<li><strong>School:</strong> Captions about school and academic settings.</li>
-						<li><strong>Work:</strong> Captions about work life and corporations.</li>
-						<li><strong>Politics and Social Issues:</strong> Captions about politics, social issues, and society.</li>
-						<li><strong>Nature:</strong> Captions about nature, animals, plants, or weather.</li>
-						<li><strong>Food:</strong> Captions about food and eating.</li>
-						<li><strong>Emotions:</strong> Captions where emotions and personal feelings are expressed.</li>
-						<li><strong>Entertainment and Pop Culture:</strong> Captions related to entertainment such as art, gaming, sports, and pop culture references.</li>
-						<li><strong>Caption Contest:</strong> Captions about the caption contest, creating and rating captions, memes, and jokes.</li>
-						<li><strong>Health:</strong> Captions related to the healthcare system.</li>
-						<li><strong>Law:</strong> Captions related to the judicial system.</li>
-						<li><strong>Other:</strong> Captions that don't belong to any specific topic.</li>
+						<li><strong style="color:green;">Clever:</strong> Words like "pun," "wit," and "wordplay" dominate, reflecting humor based on intelligent observations and linguistic creativity.</li>
+						<li><strong style="color:pink;">Friendly:</strong> Words like "smile," "happy," and "kind" emphasize light-hearted and inclusive humor.</li>
+						<li><strong style="color:black;">Dark:</strong> Words like "death," "grave," and "disease" highlight humor that makes light of grim or taboo topics.</li>
+						<li><strong style="color:brown;">Raunchy:</strong> Words like "sexy," "bold," and "explicit" reflect humor that is risqué and adult-oriented.</li>
+						<li><strong style="color:gold;">Corny:</strong> Words like "joke," "dad," and "cheesy" emphasize humor that is predictable yet endearing.</li>
 					</ul>
-					<p>To classify captions, we used a <strong>sentence embedding model</strong> (sentence-transformers/all-MiniLM-L6-v2). For each topic, we created a list of relevant words, and embeddings were generated for both captions and topic word lists. The cosine similarity between a caption's embedding and each topic's embedding was calculated to determine the best match.</p>
-					<p>Our analysis revealed strong alignment between captions and topics, with Love, Family, and Work being the most frequently occurring themes. Captions about relational humor (e.g., Love and Family) were particularly well-aligned, reflecting shared social roles and familiar dynamics.</p>
-					<p>Word clouds generated for each topic highlighted recurring themes and vocabulary. For example:</p>
+					<p>For topics, the word clouds illustrate the thematic focus of captions:</p>
+					<div class="plot-container">
+						<img src="images/topic-word-clouds.png" alt="Word Clouds for Topics" />
+					</div>
 					<ul>
-						<li><strong>Love:</strong> Words like "love," "wife," and "husband" dominated, reflecting romantic and relational humor.</li>
-						<li><strong>Work:</strong> Words like "job," "boss," and "office" highlighted professional hierarchies and workplace stressors.</li>
-						<li><strong>Nature:</strong> Words like "trees," "planet," and "global warming" indicated environmental concerns blended with humor.</li>
-						<li><strong>Politics and Social Issues:</strong> Words like "debate," "government," and "climate change" reflected societal critique.</li>
+						<li><strong style="color:red;">Love:</strong> Words like "love," "kiss," and "heart" dominate, reflecting romantic and relational humor.</li>
+						<li><strong style="color:steelblue;">Work:</strong> Words like "job," "boss," and "office" highlight professional hierarchies and workplace stressors.</li>
+						<li><strong style="color:darkgreen;">Nature:</strong> Words like "trees," "planet," and "global warming" indicate environmental concerns blended with humor.</li>
+						<li><strong style="color:palevioletred;">Politics and Social Issues:</strong> Words like "debate," "government," and "climate change" reflect societal critique.</li>
+						<li><strong style="color:teal;">Health:</strong> Words like "doctor," "patient," and "hospital" emphasize healthcare-related humor.</li>
+						<li><strong style="color:mediumorchid;">Entertainment and Pop Culture:</strong> Words like "movie," "show," and "star" highlight media consumption and celebrity culture.</li>
 					</ul>
-					<p>To reduce noise, we filtered matches by retaining only the top 25% highest matching scores per topic. This ensured high-quality semantic alignment and minimized weak or noisy matches.</p>
+					<p>These word clouds illustrate how different humor types and topics are characterized by distinct vocabularies. For instance, relational humor in the <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> topics is strongly tied to interpersonal and emotional language, while the <strong style="color:darkgreen;">Nature</strong> topic often blends environmental themes with observational humor.</p>
+					<p>By analyzing these word clouds, we can better understand the thematic focus of captions and the recurring patterns that resonate with readers. These insights provide a qualitative understanding of how humor is expressed across different styles and themes.</p>
 				</div>
 
 				<!-- Quiz Time 7 -->
 				<div class="inner align-center" id="quiz-7">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-7">
-						<h3>Question 7: Which topic is most associated with relational humor?</h3>
+						<h3>Question 7: Based on the word clouds, which topic is most associated with the word "global warming"?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-8" data-feedback="Not quite! Politics is more associated with social critique.">Politics</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-8" data-feedback="Not quite! Work is more associated with professional humor.">Work</div>
-							<div class="quiz-option" data-answer="correct" data-next="data-story-8" data-feedback="Correct! Love and Family are strongly associated with relational humor.">Love and Family</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-8" data-feedback="Correct! 'Global warming' is strongly associated with the Nature topic.">Nature</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-8" data-feedback="Not quite! While 'Politics' may involve environmental issues, 'global warming' is more directly tied to Nature.">Politics</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-8" data-feedback="Not quite! 'Health' is not the primary topic associated with 'global warming.'">Health</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
 				</div>
 			</section>
 
-			<!-- 8. Temporal Analysis -->
+			<!-- 8. Stylistic Analysis -->
 			<section class="wrapper style1" id="data-story-8">
+				<div class="inner align-left">
+					<h2>Stylistic Analysis</h2>
+					<p>Our stylistic analysis focused on two key aspects of the captions: formality scores and part-of-speech distributions. These metrics provide insights into the linguistic characteristics of captions in the NYCC and OHIC datasets, highlighting differences in tone, structure, and word usage.</p>
+					
+					<!-- Formality Score Distributions -->
+					<h3><strong>1. Formality Score Distributions:</strong></h3>
+					<div class="plot-container">
+						<canvas id="formalityScoreChart"></canvas>
+					</div>
+					<p>The formality score distributions reveal distinct patterns between the two datasets. Captions in the NYCC dataset tend to have higher formality scores, with a peak in the mid-range, reflecting a balance between conversational and formal tones. In contrast, captions in the OHIC dataset exhibit a broader distribution, with a higher density of lower formality scores, indicating a more casual and internet-driven tone. This difference aligns with the institutional context of NYCC and the internet-based, meme-driven nature of OHIC.</p>
+					
+					<!-- Part-of-Speech Distributions -->
+					<h3><strong>2. Part-of-Speech Distributions:</strong></h3>
+					<div class="plot-container">
+						<canvas id="posDistributionChart"></canvas>
+					</div>
+					<p>The part-of-speech distributions highlight differences in word usage between the two datasets. NYCC captions feature a higher density of nouns, adjectives, and verbs, reflecting a more descriptive and action-oriented style. OHIC captions, on the other hand, show a higher density of interjections and unknown words, indicative of a more casual and expressive tone. The higher proportion of interjections in OHIC aligns with its internet-based context, where captions often rely on exaggerated expressions and slang.</p>
+					
+					<p>These stylistic differences underscore the influence of context and audience on the linguistic characteristics of captions. While NYCC captions balance formality and descriptive language to appeal to a broader audience, OHIC captions embrace a more casual and expressive style, resonating with internet culture.</p>
+				</div>
+
+				<!-- Quiz Time 8 -->
+				<div class="inner align-center" id="quiz-8">
+					<h2>Quiz Time!</h2>
+					<div class="quiz-step" id="question-8">
+						<h3>Which dataset shows a higher density of interjections?</h3>
+						<div class="quiz-options">
+							<div class="quiz-option" data-answer="correct" data-next="data-story-9" data-feedback="Correct! OHIC captions have a higher density of interjections, reflecting their casual and expressive tone.">OHIC</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-9" data-feedback="Not quite! NYCC captions have fewer interjections and a more balanced tone.">NYCC</div>
+						</div>
+						<p class="feedback hidden"></p>
+					</div>
+				</div>
+			</section>
+
+			<!-- 9. Temporal Analysis -->
+			<section class="wrapper style1" id="data-story-9">
 				<div class="inner align-left">
 					<h2>How Humor Evolves Over Time</h2>
 					<p>The number of captions and votes per image varies significantly over time. Some images receive substantially more attention or engagement from users, while others remain less popular.</p>
@@ -388,48 +452,15 @@
 					<p>The distribution of captions per image follows a roughly unimodal pattern, with most images receiving between 4,000 and 8,000 captions. The total votes per image distribution is slightly right-skewed, with a few images receiving exceptionally high vote counts, hinting at outlier popularity.</p>
 				</div>
 
-				<!-- Quiz Time 8 -->
-				<div class="inner align-center" id="quiz-8">
-					<h2>Quiz Time!</h2>
-					<div class="quiz-step" id="question-8">
-						<h3>Question 8: What influences voting outcomes over time?</h3>
-						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-9" data-feedback="Correct! Both image appeal and caption quality influence voting outcomes.">Image appeal and caption quality</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-9" data-feedback="Not quite! Caption length alone does not determine voting outcomes.">Caption length</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-9" data-feedback="Not quite! Voting outcomes are not random.">Random chance</div>
-						</div>
-						<p class="feedback hidden"></p>
-					</div>
-				</div>
-			</section>
-
-			<!-- 9. Word Clouds -->
-			<section class="wrapper style1" id="data-story-9">
-				<div class="inner align-left">
-					<h2>Word Clouds for Humor Types and Topics</h2>
-					<p>Word clouds reveal the most frequent words associated with each humor type and topic, providing a quick overview of recurring themes in the datasets. These visualizations help identify the dominant vocabulary and recurring patterns in captions.</p>
-					<p>For example:</p>
-					<ul>
-						<li><strong>Love:</strong> Words like "love," "wife," and "husband" dominate, reflecting romantic and relational humor.</li>
-						<li><strong>Work:</strong> Words like "job," "boss," and "office" highlight professional hierarchies and workplace stressors.</li>
-						<li><strong>Nature:</strong> Words like "trees," "planet," and "global warming" indicate environmental concerns blended with humor.</li>
-						<li><strong>Politics and Social Issues:</strong> Words like "debate," "government," and "climate change" reflect societal critique.</li>
-						<li><strong>Health:</strong> Words like "doctor," "patient," and "hospital" emphasize healthcare-related humor.</li>
-						<li><strong>Entertainment and Pop Culture:</strong> Words like "movie," "show," and "star" highlight media consumption and celebrity culture.</li>
-					</ul>
-					<p>These word clouds illustrate how different topics and humor types are characterized by distinct vocabularies. For instance, relational humor in the Love and Family topics is strongly tied to interpersonal and emotional language, while the Nature topic often blends environmental themes with observational humor.</p>
-					<p>By analyzing these word clouds, we can better understand the thematic focus of captions and the recurring patterns that resonate with readers.</p>
-				</div>
-
 				<!-- Quiz Time 9 -->
 				<div class="inner align-center" id="quiz-9">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-9">
-						<h3>Question 9: Based on the word clouds, which topic is most associated with the word "global warming"?</h3>
+						<h3>Question 9: What influences voting outcomes over time?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-10" data-feedback="Correct! 'Global warming' is strongly associated with the Nature topic.">Nature</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! While 'Politics' may involve environmental issues, 'global warming' is more directly tied to Nature.">Politics</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! 'Health' is not the primary topic associated with 'global warming.'">Health</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-10" data-feedback="Correct! Both image appeal and caption quality influence voting outcomes.">Image appeal and caption quality</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! Caption length alone does not determine voting outcomes.">Caption length</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! Voting outcomes are not random.">Random chance</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
@@ -504,9 +535,10 @@
         <script src="assets/js/browser.min.js"></script>
         <script src="assets/js/breakpoints.min.js"></script>
         <script src="assets/js/util.js"></script>
-		<script src="assets/js/ha.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="assets/js/carousel.js"></script>
 		<script src="assets/js/quiz.js"></script>
+		<script src="assets/js/stylistic-analysis.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
 		<script src="assets/js/results.js"></script>
         <script src="assets/js/main.js"></script>

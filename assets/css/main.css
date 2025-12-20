@@ -395,6 +395,21 @@ body {
     transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
+.feedback {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5em; /* Adjusted for better readability */
+    visibility: hidden;
+    opacity: 0;
+    position: relative; /* Changed from absolute to relative */
+    margin-top: 20px; /* Add spacing between the quiz options and feedback */
+    text-align: center; /* Center-align the text */
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    max-width: 100%; /* Ensure it takes up the full width of the parent container */
+    white-space: normal; /* Allow text to wrap naturally */
+    word-wrap: break-word; /* Ensure long words break properly */
+}
+
 .feedback.hidden {
     visibility: hidden;
     opacity: 0;
@@ -403,6 +418,7 @@ body {
 .feedback.visible {
     visibility: visible;
     opacity: 1;
+	margin-bottom: -48px !important;
 }
 
 #quiz-1 {padding-bottom: 128px;}

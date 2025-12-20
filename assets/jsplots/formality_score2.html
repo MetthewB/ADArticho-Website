@@ -1,0 +1,120 @@
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+
+
+    const ctx = document.getElementById('myChart');
+
+    xs = [     
+        'noun',  
+        'adjective',
+        'preposition',
+        'article',
+        'pronoun',
+        'verb',
+        'adverb',
+        'interjection',
+        'conjunction',
+        'unknown'
+    ]
+
+    y_ny = [
+        0.184151,
+        0.051607,
+        0.066795,
+        0.080722,
+        0.130687,
+        0.210694,
+        0.071761,
+        0.011317,
+        0.016431,
+        0.175834,
+    ]
+    
+    y_ox = [
+        0.132794,
+        0.040719,
+        0.055679,
+        0.066587,
+        0.137841,
+        0.202050,
+        0.053237,
+        0.048253,
+        0.013160,
+        0.249679
+    ]
+
+    let data_1 = []
+    let data_2 = []
+    for(let i = 0; i < xs.length; i++){
+        data_1.push({'x' : 1+i, 'y' : y_ny[i], 'note' : Math.round(y_ny[i] * 100).toString() + '%'})
+        data_2.push({'x' : 1+i, 'y' : y_ox[i], 'note' : Math.round(y_ox[i] * 100).toString() + '%'})
+    }
+
+
+    console.log(data_1)
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+          datasets: [
+              {
+                  label: 'NewYorker',
+                  data: data_1,
+                  backgroundColor: 'rgba(255, 99, 132, 0.6)'
+              },
+              {
+                  label: 'Oxford',
+                  data: data_2,
+                  backgroundColor: 'rgba(0, 150, 200, 0.6)'
+              },
+          ]
+
+          
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    title: {
+                        display: true,
+                        text: 'Part of speech'
+                    },
+                    ticks: {
+                        callback: (val, index) => xs[index]
+                    }
+                },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Density in %'
+              }
+            }
+          }, 
+          
+          plugins: {
+                title: {
+                  display: true,
+                  text: 'Distribution of words by part of speech'
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function (context) {
+                            return `${context[0].dataset.label}`
+                        },  
+                        label: function (context) {
+                            const data = context.raw;
+                            return `F-score: ${Math.round(data.x)} (${data.note})`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
