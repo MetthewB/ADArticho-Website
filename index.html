@@ -57,15 +57,15 @@
 					<p>But before diving into the data and quizzes, let's understand the New Yorker and Oxford datasets a bit more. Feel free to explore the details of our datasets on the <a href="datasets.html">Datasets Page</a>! From this, our team started with three major questions about humor:</p>
 					<div class="question-cards">
 						<div class="card">
-							<h3><strong>Thematic Structure</strong></h3>
+							<h3><strong>1. Thematic Structure</strong></h3>
 							<p>What aspects of their lives do people denounce or joke about most often? Which themes and types of humor recur most frequently in humorous captions?</p>
 						</div>
 						<div class="card">
-							<h3><strong>Cultural Bubble</strong></h3>
+							<h3><strong>2. Cultural Bubble</strong></h3>
 							<p>Do the successful captions in the New Yorker dataset exhibit cultural or thematic biases that differ from those in the Oxford dataset?</p>
 						</div>
 						<div class="card">
-							<h3><strong>Temporal Change</strong></h3>
+							<h3><strong>3. Temporal Change</strong></h3>
 							<p>How do the thematic structures of humor evolve over time, and can major sociopolitical or cultural events be linked to shifts in the popularity of humor themes?</p>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 					<p>The New Yorker Caption Contest dataset (NYCC) and Oxford Humor in Context dataset (OHIC) provide a unique opportunity to explore humor through data. Both datasets compile images and captions rated by humans for their funniness, offering insights into humor across institutional and general contexts.</p>
 					
 					<div class="dataset-cards">
-						<div class="card">
+						<div class="card nycc-card">
 							<h3><strong>New Yorker Caption Contest (NYCC):</strong></h3>
 							<ul>
 								<li><strong>contests.json:</strong> Metadata such as the number of votes, number of captions, and image descriptions.</li>
@@ -89,7 +89,7 @@
 							</ul>
 							<p>This dataset focuses on cartoons and contains detailed metadata for each image/contest.</p>
 						</div>
-						<div class="card">
+						<div class="card ohic-card">
 							<h3><strong>Oxford Humor in Context (OHIC):</strong></h3>
 							<ul>
 								<li><strong>oxford_hic_data.csv:</strong> A large CSV file containing all captions for all images along with their funny scores.</li>
@@ -125,7 +125,7 @@
 					<p>Our analysis revealed key insights into the datasets:</p>
 					
 					<div class="eda-cards">
-						<div class="card">
+						<div class="card nycc-card">
 							<h3><strong>NYCC Insights:</strong></h3>
 							<ul>
 								<li>Balanced distribution of captions per image, with 80% of images having between 4,000 and 8,000 captions.</li>
@@ -135,7 +135,7 @@
 							</ul>
 						</div>
 						<p style="margin-top: 20px;"></p>
-						<div class="card">
+						<div class="card ohic-card">
 							<h3><strong>OHIC Insights:</strong></h3>
 							<ul>
 								<li>A few images have many captions, with a maximum of 70,000 captions, but 80% of images have only around 20 captions.</li>

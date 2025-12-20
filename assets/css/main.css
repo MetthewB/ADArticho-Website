@@ -645,12 +645,19 @@ body {
 }
 
 .dataset-cards .card {
-	background: linear-gradient(150deg, #5d905d, #203023);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dataset-cards .card.nycc-card {
+    background: linear-gradient(150deg, #c67f7f, #7d0606);
+}
+
+.dataset-cards .card.ohic-card {
+    background: linear-gradient(150deg, #a9b5cd, #022471);
 }
 
 .dataset-cards .card h3 strong {
@@ -689,6 +696,14 @@ body {
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eda-cards .card.nycc-card {
+    background: linear-gradient(150deg, #cb6464, #7d0606);
+}
+
+.eda-cards .card.ohic-card {
+    background: linear-gradient(150deg, #8da6d9, #022471);
 }
 
 .eda-cards .card h3 strong {
