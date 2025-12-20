@@ -271,7 +271,7 @@
 			<section class="wrapper style1" id="data-story-5">
 				<div class="inner align-left">
 					<h2>Identifying Humor Types</h2>
-					<p>We classified captions into predefined humor categories (e.g., <strong style="color:red;">Awkward</strong>, <strong style="color:purple;">Sarcastic</strong>, <strong style="color:green;">Clever</strong>, <strong style="color:blue;">Absurd</strong>, <strong style="color:black;">Dark</strong>, <strong style="color:brown;">Raunchy</strong>, <strong style="color:gold;">Corny</strong>, <strong style="color:pink;">Friendly</strong>, <strong style="color:orange;">Goofy</strong>, <strong style="color:grey;">Other</strong>) to explore the different styles of humor present in the datasets. These categories capture the thematic and stylistic dimensions of humor, ranging from witty wordplay to socially awkward situations.</p>
+					<p>We classified captions into predefined humor categories (e.g., <strong style="color:red;">Satirical</strong>, <strong style="color:deeppink;">Sarcastic</strong>, <strong style="color:dodgerblue;">Absurd</strong>, <strong style="color:steelblue;">Dark</strong>, <strong style="color:palevioletred;">Raunchy</strong>, <strong style="color:darkgreen;">Offensive</strong>, <strong style="color:darkorange;">Motivational</strong>, <strong style="color:lightseagreen;">Clever</strong>, <strong style="color:mediumorchid;">Corny</strong>, <strong style="color:blue;">Friendly</strong>, <strong style="color:teal;">Goofy</strong>) to explore the different styles of humor present in the datasets. These categories capture the thematic and stylistic dimensions of humor, ranging from witty wordplay to socially awkward situations.</p>
 					<p>We used two complementary approaches for humor type classification: zero-shot classification and sentence embeddings. For a detailed explanation of the classification process and the models used, please refer to the <a href="models-methods.html#NLP" target="_blank">Models & Methods: Humor Type Classification</a> section.</p>
 
 					<!-- Humor Type Distributions -->
@@ -279,22 +279,26 @@
 					<div class="plot-container">
 						<img src="images/humor-type-distributions.png" alt="Humor Type Distributions (NYCC vs. OHIC)" />
 					</div>
-					<p>The distribution of humor types in NYCC and OHIC shows both similarities and differences. <strong style="color:red;">Satirical</strong> and <strong style="color:gold;">Corny</strong> humor types are more prevalent in NYCC, reflecting its institutional context, while <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong> humor types are more common in OHIC, aligning with the internet's edgier humor trends.</p>
+					<p>The distribution of humor types in NYCC and OHIC reveals both similarities and differences. In both datasets, <strong style="color:red;">Satirical</strong>, <strong style="color:darkgreen;">Offensive</strong>, and <strong style="color:mediumorchid;">Corny</strong> humor types dominate, reflecting their broad appeal and frequent use. However, the least common humor types differ between the two datasets:</p>
+					<ul>
+						<li><strong>NYCC:</strong> <strong style="color:steelblue;">Dark</strong>, <strong style="color:palevioletred;">Raunchy</strong>, and <strong style="color:lightseagreen;">Clever</strong> humor types are the least prevalent, suggesting that the New Yorker audience prefers humor with a more sophisticated or institutional tone.</li>
+						<li><strong>OHIC:</strong> <strong style="color:deeppink;">Sarcastic</strong>, <strong style="color:lightseagreen;">Clever</strong>, and <strong style="color:blue;">Friendly</strong> humor types are the least prevalent, indicating that internet-based humor leans more toward absurdity and edgier themes.</li>
+					</ul>
 
 					<!-- Humor Type vs. Funniness Scores -->
 					<h3><strong>2. Humor Type vs. Funniness Scores:</strong></h3>
 					<div class="plot-container">
 						<img src="images/humor-type-vs-funniness.png" alt="Humor Type vs. Funniness Scores" />
 					</div>
-					<p>Different humor types vary significantly in their funniness scores. <strong style="color:green;">Clever</strong> humor, characterized by wit and wordplay, and <strong style="color:pink;">Friendly</strong> humor, which is light-hearted and inclusive, consistently scored higher. In contrast, humor types like <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong> were more polarizing, with some readers finding them funny while others did not.</p>
+					<p>Different humor types vary significantly in their funniness scores. <strong style="color:lightseagreen;">Clever</strong> humor, characterized by wit and wordplay, and <strong style="color:blue;">Friendly</strong> humor, which is light-hearted and inclusive, consistently scored higher. In contrast, humor types like <strong style="color:steelblue;">Dark</strong> and <strong style="color:palevioletred;">Raunchy</strong> were more polarizing, with some readers finding them funny while others did not.</p>
 
 					<!-- Humor Type vs. Rank -->
 					<h3><strong>3. Humor Type vs. Rank:</strong></h3>
 					<div class="plot-container">
 						<img src="images/humor-type-vs-rank.png" alt="Humor Type vs. Rank" />
 					</div>
-					<p>Our analysis of humor type vs. rank revealed that <strong style="color:green;">Clever</strong> and <strong style="color:pink;">Friendly</strong> humor types tend to achieve better ranks, reflecting their broad appeal. In contrast, humor types like <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong>, while polarizing, often rank lower due to their niche appeal. This suggests that humor types with broader, more inclusive themes are more likely to succeed in contests.</p>
-					<p style="margin-top: 40px">Using these approaches, we observed similar humor distributions in NYCC and OHIC, reflecting shared humor trends across institutional and internet contexts. However, some humor types, like <strong style="color:red;">Satirical</strong> and <strong style="color:gold;">Corny</strong>, were more prevalent in NYCC, while others, like <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong>, were more common in OHIC. Our analysis revealed that <strong style="color:green;">Clever</strong> humor, characterized by wit and wordplay, and <strong style="color:pink;">Friendly</strong> humor, which is light-hearted and inclusive, consistently scored higher in funniness. On the other hand, humor types like <strong style="color:black;">Dark</strong> and <strong style="color:brown;">Raunchy</strong> were more polarizing, with mixed reactions from readers.</p>
+					<p>Our analysis of humor type vs. rank revealed that <strong style="color:lightseagreen;">Clever</strong> and <strong style="color:blue;">Friendly</strong> humor types tend to achieve better ranks, reflecting their broad appeal. In contrast, humor types like <strong style="color:steelblue;">Dark</strong> and <strong style="color:palevioletred;">Raunchy</strong>, while polarizing, often rank lower due to their niche appeal. This suggests that humor types with broader, more inclusive themes are more likely to succeed in contests.</p>
+					<p style="margin-top: 40px">Using these approaches, we observed similar humor distributions in NYCC and OHIC, reflecting shared humor trends across institutional and internet contexts. However, some humor types, like <strong style="color:red;">Satirical</strong> and <strong style="color:mediumorchid;">Corny</strong>, were more prevalent in NYCC, while others, like <strong style="color:steelblue;">Dark</strong> and <strong style="color:palevioletred;">Raunchy</strong>, were more common in OHIC. Our analysis revealed that <strong style="color:lightseagreen;">Clever</strong> humor, characterized by wit and wordplay, and <strong style="color:blue;">Friendly</strong> humor, which is light-hearted and inclusive, consistently scored higher in funniness. On the other hand, humor types like <strong style="color:steelblue;">Dark</strong> and <strong style="color:palevioletred;">Raunchy</strong> were more polarizing, with mixed reactions from readers.</p>
 				</div>
 
 				<!-- Quiz Time 5 -->
@@ -364,7 +368,8 @@
 					<p>Word clouds reveal the most frequent words associated with each humor type and topic, providing a quick overview of recurring themes in the datasets. These visualizations help identify the dominant vocabulary and recurring patterns in captions.</p>
 					<p>For humor types, the word clouds highlight the distinct vocabulary used in different styles of humor:</p>
 					<div class="plot-container">
-						<img src="images/humor-types-word-clouds.png" alt="Word Clouds for Humor Types" />
+						<img src="images/humor-types-word-clouds-nycc.png" alt="Word Clouds for Humor Types (NYCC)" />
+						<img src="images/humor-types-word-clouds-ohic.png" alt="Word Clouds for Humor Types (OHIC)" />
 					</div>
 					<ul>
 						<li><strong style="color:green;">Clever:</strong> Words like "pun," "wit," and "wordplay" dominate, reflecting humor based on intelligent observations and linguistic creativity.</li>
@@ -375,7 +380,8 @@
 					</ul>
 					<p>For topics, the word clouds illustrate the thematic focus of captions:</p>
 					<div class="plot-container">
-						<img src="images/topic-word-clouds.png" alt="Word Clouds for Topics" />
+						<img src="images/topic-word-clouds-nycc.png" alt="Word Clouds for Topics (NYCC)" />
+						<img src="images/topic-word-clouds-ohic.png" alt="Word Clouds for Topics (OHIC)" />
 					</div>
 					<ul>
 						<li><strong style="color:red;">Love:</strong> Words like "love," "kiss," and "heart" dominate, reflecting romantic and relational humor.</li>
@@ -445,22 +451,34 @@
 			<section class="wrapper style1" id="data-story-9">
 				<div class="inner align-left">
 					<h2>How Humor Evolves Over Time</h2>
-					<p>The number of captions and votes per image varies significantly over time. Some images receive substantially more attention or engagement from users, while others remain less popular.</p>
-					<p>The mean number of votes received by each caption per image fluctuates throughout the contest. Most images hover around the overall mean, but a few spikes indicate images where relatively few captions received unusually high voting activity. For example, image 835 received the lowest number of captions but attracted significant engagement.</p>
-					<p>Our analysis revealed a moderate positive correlation (r = 0.41, p < 0.001) between the number of captions submitted and the total votes received per image. This suggests that images with more caption submissions tend to attract more votes overall. However, the relationship is not perfectly linear, as some images with relatively few captions still received many votes, and vice versa.</p>
-					<p>This pattern implies that while user engagement (measured by the number of captions) contributes to higher voting activity, other factors such as the appeal of the image itself or the quality of the top captions also play a significant role in determining overall voting outcomes.</p>
-					<p>The distribution of captions per image follows a roughly unimodal pattern, with most images receiving between 4,000 and 8,000 captions. The total votes per image distribution is slightly right-skewed, with a few images receiving exceptionally high vote counts, hinting at outlier popularity.</p>
+					<p>The evolution of humor topics in the New Yorker captions reveals significant trends over time, reflecting societal events and cultural shifts. By analyzing the proportions of topics across years, we can observe how external factors influence the thematic focus of captions.</p>
+					
+					<!-- Topic Proportions Over Time -->
+					<h3><strong>1. Topic Proportions Over Time:</strong></h3>
+					<div class="plot-container">
+						<img src="images/topic-proportions-over-time.png" alt="Topic Proportions Over Time" />
+					</div>
+					<p>The topic proportions over time highlight the dominance of certain themes, such as <strong style="color:darkorange;">Food</strong> and <strong style="color:blue;">Caption Contest</strong>, which consistently maintain high proportions across the years. These topics reflect universal and timeless themes that resonate broadly with audiences. Additionally, the overall stability of the curves suggests that the thematic focus of captions remains relatively consistent over time, with each topic maintaining a steady presence in the dataset.</p>
+					
+					<!-- Topic Variation Heatmap -->
+					<h3><strong>2. Topic Variation Heatmap:</strong></h3>
+					<div class="plot-container">
+						<img src="images/topic-variation-heatmap.png" alt="Topic Variation Heatmap" />
+					</div>
+					<p>The heatmap of topic variation (z-scores) provides a deeper look at deviations from the mean topic proportions. Notable spikes in specific years highlight the influence of external events on humor. For instance, in <strong>2016</strong>, captions related to <strong style="color:blueviolet;">Law</strong> and <strong style="color:palevioletred;">Politics and Social Issues</strong> peaked, coinciding with the U.S. presidential election and the rise of Trump. Similarly, in <strong>2022</strong> and <strong>2024</strong>, there is a noticeable rise in captions about <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, possibly reflecting the growing influence of media consumption, celebrity culture, and the resurgence of major global events like the Oscars or the World Cup.</p>
+					
+					<p>These analyses demonstrate how external events and societal changes shape the thematic focus of humor over time. By examining these trends, we gain insights into the dynamic interplay between cultural context and humor.</p>
 				</div>
 
 				<!-- Quiz Time 9 -->
 				<div class="inner align-center" id="quiz-9">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-9">
-						<h3>Question 9: What influences voting outcomes over time?</h3>
+						<h3>Question 9: What influenced the rise in captions about politics and law in 2016?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="correct" data-next="data-story-10" data-feedback="Correct! Both image appeal and caption quality influence voting outcomes.">Image appeal and caption quality</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! Caption length alone does not determine voting outcomes.">Caption length</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! Voting outcomes are not random.">Random chance</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-10" data-feedback="Correct! The 2016 U.S. presidential election and the rise of Trump influenced this trend.">The U.S. presidential election</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! The global pandemic occurred later, in 2019 and 2020.">The global pandemic</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-10" data-feedback="Not quite! The Brexit occured later, in 2020.">Brexit</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
@@ -471,23 +489,57 @@
 			<section class="wrapper style1" id="data-story-10">
 				<div class="inner align-left">
 					<h2>Comparing NYCC and OHIC</h2>
-					<p>The New Yorker Caption Contest dataset (NYCC) and Oxford Humor in Context dataset (OHIC) share similar humor distributions, but they differ in context and audience preferences:</p>
-					<ul>
-						<li><strong>NYCC:</strong> Leans toward institutional humor, with captions often reflecting witty, clever, and sophisticated humor styles. The dataset is more structured, with detailed metadata and a focus on cartoons.</li>
-						<li><strong>OHIC:</strong> Reflects internet culture, with captions often showcasing trends like memes, absurd humor, and pop culture references. The dataset is less detailed but provides a broader perspective on humor in online contexts.</li>
-					</ul>
-					<p>Despite these differences, both datasets exhibit similar trends in humor perception:</p>
-					<ul>
-						<li>Both datasets follow a <strong>power-law distribution</strong>, where a small subset of captions dominates the upper tail with high funniness scores, while most captions receive minimal engagement.</li>
-						<li>Humor is highly subjective in both datasets, with winning captions often polarizing readers despite their popularity.</li>
-						<li>Shorter captions tend to perform better in both datasets, emphasizing the importance of brevity in humor.</li>
-					</ul>
-					<p>However, there are notable differences in humor styles:</p>
-					<ul>
-						<li>NYCC captions often rely on clever wordplay and institutional themes, appealing to a more niche, sophisticated audience.</li>
-						<li>OHIC captions are more diverse, incorporating internet trends, memes, and pop culture, making them relatable to a broader, younger audience.</li>
-					</ul>
-					<p>This comparison highlights how context influences humor preferences, with NYCC favoring structured, institutional humor and OHIC embracing the dynamic, fast-paced nature of internet culture.</p>
+					<p>The New Yorker Caption Contest dataset (NYCC) and Oxford Humor in Context dataset (OHIC) share similar humor distributions, but they differ in context, audience preferences, and humor styles. Below is a comparison of the two datasets:</p>
+					
+					<!-- Comparison Table -->
+					<table class="comparison-table">
+						<thead>
+							<tr>
+								<th>Aspect</th>
+								<th>NYCC</th>
+								<th>OHIC</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Context</strong></td>
+								<td>Institutional humor, focused on cartoons.</td>
+								<td>Internet culture, focused on memes and pop culture.</td>
+							</tr>
+							<tr>
+								<td><strong>Audience</strong></td>
+								<td>Niche, sophisticated audience.</td>
+								<td>Broader, younger, internet-savvy audience.</td>
+							</tr>
+							<tr>
+								<td><strong>Humor Style</strong></td>
+								<td>Clever wordplay, witty, and sophisticated humor.</td>
+								<td>Absurd humor, memes, and pop culture references.</td>
+							</tr>
+							<tr>
+								<td><strong>Structure</strong></td>
+								<td>Highly structured, with detailed metadata and a focus on cartoons.</td>
+								<td>Less structured, with fewer metadata fields but broader coverage of internet humor.</td>
+							</tr>
+							<tr>
+								<td><strong>Engagement</strong></td>
+								<td>More balanced engagement across contests.</td>
+								<td>Highly uneven engagement, with a few images dominating in captions and votes.</td>
+							</tr>
+							<tr>
+								<td><strong>Caption Length</strong></td>
+								<td>Shorter captions (around 8 words) perform better.</td>
+								<td>Shorter captions also perform better, emphasizing brevity in humor.</td>
+							</tr>
+							<tr>
+								<td><strong>Humor Distribution</strong></td>
+								<td>Follows a power-law distribution, with a small subset of captions dominating funniness scores.</td>
+								<td>Also follows a power-law distribution, with a few captions dominating the "Funny" category.</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<p>This comparison highlights how context influences humor preferences. NYCC leans toward structured, institutional humor, appealing to a niche audience, while OHIC embraces the dynamic, fast-paced nature of internet culture, resonating with a broader audience.</p>
 				</div>
 
 				<!-- Quiz Time 10 -->
