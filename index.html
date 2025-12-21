@@ -335,6 +335,12 @@
 					<div class="plot-container">
 						<img src="images/topic-distributions.png" alt="Topic Distributions (NYCC vs. OHIC)" />
 					</div>
+					<p style="margin-top: 20px;">We also created an interactive pie chart to visualize the topic distributions in both datasets. You can explore it below:</p>
+					<p style="margin-top: -30px;"></p>
+					<div class="plot-container">
+						<iframe src="topic_distribution_piechart.html" width="100%" height="600" frameborder="0"></iframe>
+					</div>
+					<p style="margin-top: -30px;"></p>
 					<p>The distribution of topics in NYCC and OHIC revealed both shared and unique trends. Topics like <strong style="color:red;">Love</strong>, <strong style="color:deeppink;">Family</strong>, and <strong style="color:steelblue;">Work</strong> were the most frequently occurring, reflecting shared social roles, domestic life, and workplace dynamics. In contrast, topics like <strong style="color:palevioletred;">Politics and Social Issues</strong> were more prominent in OHIC, aligning with its internet-based context and focus on societal critique. Other topics, such as <strong style="color:darkgreen;">Nature</strong>, <strong style="color:darkorange;">Food</strong>, and <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, highlighted environmental concerns, cultural rituals, and media consumption, while institutional topics like <strong style="color:teal;">Health</strong> and <strong style="color:blueviolet;">Law</strong> critiqued societal structures and professional roles.</p>
 
 					<!-- Topic vs. Funniness Scores -->
@@ -470,17 +476,19 @@
 					
 					<!-- Topic Proportions Over Time -->
 					<h3><strong>1. Topic Proportions Over Time:</strong></h3>
+					<p>The interactive plot below illustrates the proportions of various topics in captions over time. You can explore the trends by hovering over the lines to see specific values for each year and topic.</p>
+					<p style="margin-top: -20px;"></p>
 					<div class="plot-container">
-						<img src="images/topic-proportions-over-time.png" alt="Topic Proportions Over Time" />
+						<iframe src="http://127.0.0.1:8060" style="width: 100%; height: 600px; border: none;"></iframe>
 					</div>
 					<p>The topic proportions over time highlight the dominance of certain themes, such as <strong style="color:darkorange;">Food</strong> and <strong style="color:blue;">Caption Contest</strong>, which consistently maintain high proportions across the years. These topics reflect universal and timeless themes that resonate broadly with audiences. Additionally, the overall stability of the curves suggests that the thematic focus of captions remains relatively consistent over time, with each topic maintaining a steady presence in the dataset.</p>
 					
 					<!-- Topic Variation Heatmap -->
 					<h3><strong>2. Topic Variation Heatmap:</strong></h3>
 					<div class="plot-container">
-						<img src="images/topic-variation-heatmap.png" alt="Topic Variation Heatmap" />
+						<iframe src="topic_variation_heatmap.html" style="width: 100%; height: 600px; border: none;"></iframe>
 					</div>
-					<p>The heatmap of topic variation (z-scores) provides a deeper look at deviations from the mean topic proportions. Notable spikes in specific years highlight the influence of external events on humor. For instance, in <strong>2016</strong>, captions related to <strong style="color:blueviolet;">Law</strong> and <strong style="color:palevioletred;">Politics and Social Issues</strong> peaked, coinciding with the U.S. presidential election and the rise of Trump. Similarly, in <strong>2022</strong> and <strong>2024</strong>, there is a noticeable rise in captions about <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, possibly reflecting the growing influence of media consumption, celebrity culture, and the resurgence of major global events like the Oscars or the World Cup.</p>
+					<p style="margin-top: -20px;">The heatmap of topic variation (z-scores) provides a deeper look at deviations from the mean topic proportions. Notable spikes in specific years highlight the influence of external events on humor. For instance, in <strong>2016</strong>, captions related to <strong style="color:blueviolet;">Law</strong> and <strong style="color:palevioletred;">Politics and Social Issues</strong> peaked, coinciding with the U.S. presidential election and the rise of Trump. Similarly, in <strong>2022</strong> and <strong>2024</strong>, there is a noticeable rise in captions about <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, possibly reflecting the growing influence of media consumption, celebrity culture, and the resurgence of major global events like the Oscars or the World Cup.</p>
 					
 					<p>These analyses demonstrate how external events and societal changes shape the thematic focus of humor over time. By examining these trends, we gain insights into the dynamic interplay between cultural context and humor.</p>
 				</div>

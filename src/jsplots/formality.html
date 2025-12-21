@@ -1,0 +1,379 @@
+
+<div style="width:1000px; height:500px; display:flex;">
+    <div style="flex:3">  
+        <canvas id="chart1"></canvas>
+    </div>
+    <div style="flex:2; ">
+        <canvas id="chart2"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    ny_color = 'rgba(255, 99, 132, 1)'
+    ox_color = 'rgba(0, 150, 200, 1)'
+
+    const crosshairPlugin = {
+        id: 'crosshair',
+        afterDraw(chart) {
+            const crosshair = chart.options.plugins.crosshair;
+            if (!crosshair || crosshair.value == null) return;
+                
+            const ctx = chart.ctx;
+            const scale = chart.scales[crosshair.scale];
+
+            let min = 0;
+            let max = 1;
+
+            if(crosshair.orientation === 'vertical'){
+                min = scale.getValueForPixel(scale.left);
+                max = scale.getValueForPixel(scale.right);
+            }else{
+                min = scale.getValueForPixel(scale.bottom);
+                max = scale.getValueForPixel(scale.top);
+            }
+
+            if(crosshair.value >= min && crosshair.value <= max){
+                const pixel = scale.getPixelForValue(crosshair.value);
+                
+                ctx.save();
+                ctx.strokeStyle = 'rgba(0,0,0,0.6)';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([4, 4]);
+                
+                ctx.beginPath();
+                if (crosshair.orientation === 'vertical') {
+                    ctx.moveTo(pixel, chart.chartArea.top);
+                    ctx.lineTo(pixel, chart.chartArea.bottom);
+                } else {
+                    ctx.moveTo(chart.chartArea.left, pixel);
+                    ctx.lineTo(chart.chartArea.right, pixel);
+                }
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+    };
+
+    const boxplotPlugin = {
+        id: 'boxplot',
+        afterDraw(chart) {
+            const boxplot = chart.options.plugins.boxplot;
+            if (!boxplot) return;
+                
+            const ctx = chart.ctx;
+            const xscale = chart.scales['x'];
+            const yscale = chart.scales['y'];
+
+            const cap11 = yscale.getPixelForValue(boxplot.box1.cap1);
+            const cap13 = yscale.getPixelForValue(boxplot.box1.cap3);
+            const cap21 = yscale.getPixelForValue(boxplot.box2.cap1);
+            const cap23 = yscale.getPixelForValue(boxplot.box2.cap3);
+            const q11 = yscale.getPixelForValue(boxplot.box1.q1);
+            const q13 = yscale.getPixelForValue(boxplot.box1.q3);
+            const q21 = yscale.getPixelForValue(boxplot.box2.q1);
+            const q23 = yscale.getPixelForValue(boxplot.box2.q3);
+            const min1 = xscale.getPixelForValue(0.85);
+            const max1 = xscale.getPixelForValue(1.15);
+            const min2 = xscale.getPixelForValue(2.35);
+            const max2 = xscale.getPixelForValue(2.65);
+            const vert1 = xscale.getPixelForValue(1);
+            const vert2 = xscale.getPixelForValue(2.5);
+            const med1 = yscale.getPixelForValue(boxplot.box1.median)
+            const med2 = yscale.getPixelForValue(boxplot.box2.median)
+
+
+            
+            ctx.save();
+            ctx.strokeStyle = 'rgba(0,0,0,1)';
+            ctx.lineWidth = 1.5;
+                
+            ctx.beginPath();
+            
+            ctx.moveTo(min1, cap11);
+            ctx.lineTo(max1, cap11);
+
+            ctx.moveTo(min1, cap13);
+            ctx.lineTo(max1, cap13);
+
+            ctx.moveTo(min2, cap21);
+            ctx.lineTo(max2, cap21);
+
+            ctx.moveTo(min2, cap23);
+            ctx.lineTo(max2, cap23);
+               
+            ctx.moveTo(vert1, cap11);
+            ctx.lineTo(vert1, q11);
+
+            ctx.moveTo(vert1, cap13);
+            ctx.lineTo(vert1, q13);
+
+            ctx.moveTo(vert2, cap21);
+            ctx.lineTo(vert2, q21);
+
+            ctx.moveTo(vert2, cap23);
+            ctx.lineTo(vert2, q23);
+
+            ctx.moveTo(min1, med1);
+            ctx.lineTo(max1, med1);
+
+            ctx.moveTo(min2, med2);
+            ctx.lineTo(max2, med2);
+
+            ctx.stroke();
+            ctx.restore();
+        } 
+    };
+
+    xs = [12.5       , 15.33333333, 18.16666667, 21.        , 23.83333333,
+       26.66666667, 29.5       , 32.33333333, 35.16666667, 38.        ,
+       40.83333333, 43.66666667, 46.5       , 49.33333333, 52.16666667,
+       55.        , 57.83333333, 60.66666667, 63.5       , 66.33333333,
+       69.16666667, 72.        , 74.83333333, 77.66666667, 80.5       ,
+       83.33333333]
+
+    y_ny = [0.        , 0.        , 0.        , 0.        , 0.        ,
+        0.        , 0.        , 0.        , 0.        , 0.01552941,
+        0.03529412, 0.09035294, 0.10447059, 0.06494118, 0.02541176,
+        0.01129412, 0.00564706, 0.        , 0.        , 0.        ,
+        0.        , 0.        , 0.        , 0.        , 0.        ]
+    
+    y_ox = [0.00153453, 0.00076726, 0.00076726, 0.00383632, 0.00537084,
+        0.01304348, 0.01150895, 0.01841432, 0.02992327, 0.03299233,
+        0.03375959, 0.03529412, 0.03836317, 0.03913043, 0.02685422,
+        0.02071611, 0.00920716, 0.01534527, 0.00460358, 0.00537084,
+        0.00230179, 0.        , 0.00076726, 0.        , 0.00306905]
+
+    let data_1 = []
+    let data_2 = []
+    for(let i = 0; i < xs.length; i++){
+        data_1.push({'x' : xs[i], 'y' : y_ny[i]*2.80, 'note' : Math.round(y_ny[i]*2.80 * 100).toString() + '%'})
+        data_2.push({'x' : xs[i], 'y' : y_ox[i]*2.80, 'note' : Math.round(y_ox[i]*2.80 * 100).toString() + '%'})
+    }
+
+    ctx1 = document.getElementById("chart1")
+
+    chart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          datasets: [
+              {
+                  label: 'NewYorker',
+                  data: data_1,
+                  backgroundColor: ny_color,
+              },
+              {
+                  label: 'Oxford',
+                  data: data_2,
+                  backgroundColor: ox_color,
+              },
+          ]
+
+          
+        },
+        options: {
+            aspectRatio:1.5,
+            scales: {
+                x: {
+                    type: 'linear',
+                    title: {
+                        display: true,
+                        text: 'Formality score'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Density in %'
+                    }
+                }
+            }, 
+          
+            plugins: {
+                title: {
+                  display: true,
+                  text: 'Formality score distributions'
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function (context) {
+                            return `${context[0].dataset.label}`
+                        },  
+                        label: function (context) {
+                            const data = context.raw;
+                            return `F-score: ${Math.round(data.x)} (${data.note})`;
+                        }
+                    }
+                },
+                crosshair: {
+                    scale: 'x',
+                    orientation: 'vertical',
+                    value: null
+                }
+            }
+        },
+        plugins: [crosshairPlugin]
+    });
+
+    ctx2 = document.getElementById("chart2")
+
+    box1 = [
+        {'x' : 1.25, 'y' : 50.076, 'median' : 47.391, 'cap1': 38.081, 'q1': 44.433,  'q3' : 50.076,'cap3': 58.421},
+    ]
+    box2 = [
+        {'x' : 2.25, 'y' : 52.150, 'median' : 45.436, 'cap1' : 17.272, 'q1': 38.171, 'q3': 52.150, 'cap3' : 70.588},
+    ]
+
+    ny_article_line = [{'x': -1, 'y': 66.432}, {'x': 4, 'y':66.432}]
+    trump_speech_line = [{'x': -1, 'y': 44.977}, {'x': 4, 'y':44.977}]
+    simpsons_line = [{'x': -1, 'y': 43.220}, {'x': 4, 'y':43.220}]
+
+
+    chart2 = new Chart(ctx2, {
+        
+        data: {
+            datasets: [
+                {   
+                    type: 'bar',
+                    label: 'NewYorker',
+                    data: box1,
+                    backgroundColor: ny_color,
+                    base: box1[0]['q1'],
+                    barThickness: 50, 
+                },
+                {
+                    type: 'bar',
+                    label: 'Oxford',
+                    data: box2,
+                    backgroundColor: ox_color,
+                    base: box2[0]['q1'],
+                    barThickness: 50, 
+
+                },
+                {
+                    type: 'line',
+                    label: 'NewYorker Article',
+                    data: ny_article_line,
+                    borderColor: 'rgb(0,0,0,0.9)',
+                    borderWidth: 1,
+                },
+                {
+                    type: 'line',
+                    label: 'US President Speech',
+                    data: trump_speech_line,
+                    borderColor: 'rgba(0,0,0,0.9)',
+                    borderDash: [6,4],
+                    borderWidth: 1,
+
+                },
+                {
+                    type: 'line',
+                    label: 'The Simpsons Script',
+                    data: simpsons_line,
+                    borderColor: 'rgba(0,0,0,0.9)',
+                    borderDash: [5,1],
+                    borderWidth: 1,
+                }
+            ]
+        },
+        options: {
+            aspectRatio:1,
+            scales: {
+                x: {
+                    min:0,
+                    max:3,
+                    type: 'linear',
+                    title: {
+                        display: true,
+                        text: ' '
+                    },
+                    ticks:{
+                        callback: function(value, index, ticks) {return ' '}
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Formality score'
+                    },
+                    suggestedMax: 90,
+                }
+            }, 
+          
+          plugins: {
+                title: {
+                  display: true,
+                  text: 'Formality score distributions'
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function (context) {
+                            return `${context[0].dataset.label}`
+                        },  
+                        label: function (context) {
+                            const data = context.raw;
+                            return `Median: ${Math.round(data.median)}, Q1: ${Math.round(data.q1)}, Q3: ${Math.round(data.q3)})`;
+                        }
+                    }
+                },
+                crosshair: {
+                    scale: 'y',
+                    orientation: 'horizontal',
+                    value: null
+                },
+
+                boxplot: {
+                    'box1': box1[0],
+                    'box2': box2[0]
+                }
+            }
+        },
+        plugins: [crosshairPlugin, boxplotPlugin]
+    });
+
+    ctx1.addEventListener('mousemove', (event) => {
+
+        // Vertical line on chart 1 (x-axis)
+        const xValue = chart1.scales.x.getValueForPixel(event.offsetX);
+
+        chart1.options.plugins.crosshair.value = xValue;
+        // Horizontal line on chart 2 (mapped to y-axis)
+        chart2.options.plugins.crosshair.value = xValue;
+        chart1.update('none');
+        chart2.update('none');
+        
+        
+    });
+
+    ctx1.addEventListener('mouseleave', () => {
+        chart1.options.plugins.crosshair.value = null;
+        chart2.options.plugins.crosshair.value = null;
+        chart1.update('none');
+        chart2.update('none');  
+    });
+
+    ctx2.addEventListener('mousemove', (event) => {
+
+        // Vertical line on chart 1 (x-axis)
+        const yValue = chart2.scales.y.getValueForPixel(event.offsetY);
+        const top = chart2.scales.y.getValueForPixel(chart2.scales.y.top)
+        const bottom = chart2.scales.y.getValueForPixel(chart2.scales.y.bottom)
+        chart1.options.plugins.crosshair.value = yValue;
+        // Horizontal line on chart 2 (mapped to y-axis)
+        chart2.options.plugins.crosshair.value = yValue;
+        chart1.update('none');
+        chart2.update('none');
+        
+    });
+
+    ctx2.addEventListener('mouseleave', () => {
+        chart1.options.plugins.crosshair.value = null;
+        chart2.options.plugins.crosshair.value = null;
+        chart1.update('none');
+        chart2.update('none');  
+    });
+
+</script>
