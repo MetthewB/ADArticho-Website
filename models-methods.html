@@ -97,20 +97,21 @@
                 </div>
             </section>
 
-            <!-- Section 3: Statistical and Stylistic Analysis -->
-            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="statistical-analysis">
+            <!-- Section 3: Stylistic Analysis -->
+            <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="stylistic-analysis">
                 <div class="content">
-                    <h2>3. Statistical and Stylistic Analysis</h2>
-                    <p><strong>Goal:</strong> Quantify differences between humor contexts.</p>
+                    <h2>3. Stylistic Analysis</h2>
+                    <p><strong>Goal:</strong> Analyze linguistic characteristics to highlight differences in tone, structure, and word usage between NYCC and OHIC captions.</p>
                     <ul>
-                        <li><strong>Thematic Comparison:</strong> Used Chi²/ANOVA tests to compare theme frequencies.</li>
-                        <li><strong>Stylistic Comparison:</strong> Conducted t-tests on linguistic features (TTR, formality, sentiment).</li>
-                        <li><strong>Bubble Classification:</strong> Trained a logistic regression model to predict a caption’s origin (<em>NYCC</em> vs. <em>OHIC</em>).</li>
+                        <li><strong>Data Preprocessing:</strong> Filtered captions to remove excessively long entries and cleaned text by removing unnecessary characters.</li>
+                        <li><strong>Word Length Analysis:</strong> Computed caption lengths in characters and words, and visualized distributions using histograms and boxplots.</li>
+                        <li><strong>Part-of-Speech Analysis:</strong> Tagged captions with part-of-speech categories and compared their densities across datasets.</li>
+                        <li><strong>Formality Score Analysis:</strong> Calculated formality scores using the F-score metric and compared them across datasets using visualizations.</li>
                     </ul>
-                    <p>These analyses provided insights into the stylistic and thematic differences between the two datasets.</p>
+                    <p>This methodology provided a detailed framework for analyzing stylistic differences between NYCC and OHIC captions.</p>
                 </div>
                 <div class="image">
-                    <img src="images/statistics.jpg" alt="Statistical and Stylistic Analysis" />
+                    <img src="images/stylistic_analysis.jpg" alt="Stylistic Analysis" />
                 </div>
             </section>
 
@@ -119,24 +120,14 @@
                 <div class="content">
                     <h2>4. Temporal and Cultural Trend Analysis</h2>
                     <p><strong>Goal:</strong> Analyze how humor themes evolve over time and correlate with major sociopolitical and cultural events.</p>
-                    <p><strong>Methodology:</strong></p>
                     <ul>
-                        <li>Group captions by year and compute the normalized proportions of topics.</li>
-                        <li>Visualize topic trends over time using interactive line plots.</li>
-                        <li>Analyze deviations from the mean topic proportions using z-scores and visualize them with heatmaps.</li>
-                        <li>Identify and interpret notable spikes or declines in topic proportions in relation to external events.</li>
+                        <li><strong>Data Grouping:</strong> Grouped captions by year and computed the normalized proportions of topics to track trends over time.</li>
+                        <li><strong>Interactive Line Plots:</strong> Visualized topic proportions over time using interactive line plots to explore year-by-year changes.</li>
+                        <li><strong>Z-Score Analysis:</strong> Calculated deviations from the mean topic proportions using z-scores to identify significant variations.</li>
+                        <li><strong>Heatmap Visualization:</strong> Created heatmaps to highlight periods of overrepresentation or underrepresentation for each topic.</li>
+                        <li><strong>Contextual Interpretation:</strong> Interpreted notable spikes or declines in topic proportions in relation to external sociopolitical and cultural events.</li>
                     </ul>
-                    <p><strong>Key Findings:</strong></p>
-                    <ul>
-                        <li><strong style="color:darkorange;">Food</strong> and <strong style="color:blue;">Caption Contest</strong> consistently dominate the dataset, reflecting universal and timeless themes.</li>
-                        <li><strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> remain steady over time, with occasional spikes reflecting cultural or societal moments.</li>
-                        <li><strong style="color:palevioletred;">Politics and Social Issues</strong> peaked in 2016 and 2019, aligning with the U.S. presidential election and Trump impeachment proceedings, before declining post-2020.</li>
-                        <li><strong style="color:steelblue;">Work</strong> showed renewed interest in 2023, reflecting post-pandemic work reorganization and burnout discussions.</li>
-                        <li><strong style="color:darkgreen;">Nature</strong> peaked in 2024, reflecting increased public concern over climate change and environmental issues.</li>
-                        <li><strong style="color:lightseagreen;">Emotions</strong> rose steadily post-2017, capturing post-pandemic emotional reflection and a broader openness to discussing mental health.</li>
-                    </ul>
-                    <p>These analyses demonstrate how external events and societal changes shape the thematic focus of humor over time.</p>
-                    <p>By examining these trends, we gain insights into the dynamic interplay between cultural context and humor.</p>
+                    <p>This methodology provided a robust framework for understanding how external events and societal changes influence the thematic focus of humor over time.</p>
                 </div>
                 <div class="image">
                     <img src="images/trend.png" alt="Temporal and Cultural Trend Analysis" />
