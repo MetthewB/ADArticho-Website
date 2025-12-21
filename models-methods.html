@@ -77,13 +77,21 @@
                     <p>We used advanced NLP techniques to analyze captions from the datasets. Two main tasks were performed:</p>
                     
                     <h3>Humor Type Classification</h3>
-                    <p>We classified captions into predefined humor categories (e.g., <strong style="color:red;">Satirical</strong>, <strong style="color:deeppink;">Sarcastic</strong>, <strong style="color:dodgerblue;">Absurd</strong>, <strong style="color:steelblue;">Dark</strong>, <strong style="color:palevioletred;">Raunchy</strong>, <strong style="color:darkgreen;">Offensive</strong>, <strong style="color:darkorange;">Motivational</strong>, <strong style="color:lightseagreen;">Clever</strong>, <strong style="color:mediumorchid;">Corny</strong>, <strong style="color:blue;">Friendly</strong>, <strong style="color:teal;">Goofy</strong>) to explore the different styles of humor present in the datasets. These categories capture the thematic and stylistic dimensions of humor, ranging from witty wordplay to absurd or socially provocative humor.</p>
-                    <p>We used two approaches for humor type classification:</p>
+                    <p>We categorized captions into six predefined humor types: 
+                        <strong style="color:#54abe5;">Affiliative</strong>, 
+                        <strong style="color:#e91ec0;">Sexual</strong>, 
+                        <strong style="color:#e9402e;">Offensive</strong>, 
+                        <strong style="color:#f69802;">Irony/Satire</strong>, 
+                        <strong style="color:#9141b1;">Absurdist</strong>, and 
+                        <strong style="color:#34495e;">Dark</strong>. 
+                        These categories were chosen to ensure clear distinctions and reduce ambiguity.
+                    </p>
+                    <p>We used the following methods for humor type classification:</p>
                     <ul>
-                        <li><strong>Zero-Shot Classification:</strong> Leveraged <code>facebook/bart-large-mnli</code> to classify captions into humor categories. This model calculates the cosine similarity between captions and predefined examples for each humor type, allowing us to assign categories without additional training.</li>
-                        <li><strong>Sentence Embeddings:</strong> Used <code>sentence-transformers/all-MiniLM-L6-v2</code> to generate embeddings for captions and humor categories. By calculating cosine similarity between embeddings, we assigned the most relevant humor type to each caption.</li>
+                        <li><strong>Zero-Shot Classification:</strong> Used <code>facebook/bart-large-mnli</code> to assign humor types based on cosine similarity with predefined examples.</li>
+                        <li><strong>Sentence Embeddings:</strong> Used <code>sentence-transformers/all-MiniLM-L6-v2</code> to generate embeddings and calculate similarity scores for humor type assignment.</li>
                     </ul>
-                    <p>These methods enabled us to analyze the distribution of humor types across the datasets and compare their relationships with funniness scores and ranks. The combination of zero-shot classification and sentence embeddings ensured robust and consistent humor type assignments, even for captions with ambiguous or overlapping humor styles.</p>
+                    <p>These methods enabled robust and consistent humor type assignments, even for captions with ambiguous or overlapping styles.</p>
 
                     <h3>Topic Classification</h3>
                     <p>To better understand the thematic content of captions, we classified them into predefined topics (e.g., <strong style="color:red;">Love</strong>, <strong style="color:deeppink;">Family</strong>, <strong style="color:dodgerblue;">School</strong>, <strong style="color:steelblue;">Work</strong>, <strong style="color:palevioletred;">Politics and Social Issues</strong>, <strong style="color:darkgreen;">Nature</strong>, <strong style="color:darkorange;">Food</strong>, <strong style="color:lightseagreen;">Emotions</strong>, <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, <strong style="color:blue;">Caption Contest</strong>, <strong style="color:teal;">Health</strong>, <strong style="color:blueviolet;">Law</strong>, <strong style="color:dimgrey;">Other</strong>).</p>
@@ -119,15 +127,15 @@
             <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="temporal-trends">
                 <div class="content">
                     <h2>4. Temporal and Cultural Trend Analysis</h2>
-                    <p><strong>Goal:</strong> Analyze how humor themes evolve over time and correlate with major sociopolitical and cultural events.</p>
+                    <p><strong>Goal:</strong> Analyze how humor types and topics evolve over time and correlate with major sociopolitical and cultural events.</p>
                     <ul>
-                        <li><strong>Data Grouping:</strong> Grouped captions by year and computed the normalized proportions of topics to track trends over time.</li>
-                        <li><strong>Interactive Line Plots:</strong> Visualized topic proportions over time using interactive line plots to explore year-by-year changes.</li>
-                        <li><strong>Z-Score Analysis:</strong> Calculated deviations from the mean topic proportions using z-scores to identify significant variations.</li>
-                        <li><strong>Heatmap Visualization:</strong> Created heatmaps to highlight periods of overrepresentation or underrepresentation for each topic.</li>
-                        <li><strong>Contextual Interpretation:</strong> Interpreted notable spikes or declines in topic proportions in relation to external sociopolitical and cultural events.</li>
+                        <li><strong>Data Grouping:</strong> Grouped captions by year and computed the normalized proportions of humor types and topics to track trends over time.</li>
+                        <li><strong>Proportion Analysis:</strong> Visualized yearly proportions of humor types and topics using line plots to identify dominant trends and shifts.</li>
+                        <li><strong>Z-Score Analysis:</strong> Calculated deviations from the mean topic proportions using z-scores to highlight significant variations over time.</li>
+                        <li><strong>Heatmap Visualization:</strong> Created heatmaps to visualize periods of overrepresentation or underrepresentation for each topic, aligning with external events.</li>
+                        <li><strong>Contextual Interpretation:</strong> Interpreted trends in humor types and topics in relation to key sociopolitical and cultural events, such as the U.S. presidential elections, the Covid pandemic, and the rise of internet culture.</li>
                     </ul>
-                    <p>This methodology provided a robust framework for understanding how external events and societal changes influence the thematic focus of humor over time.</p>
+                    <p>This methodology provided a comprehensive framework for understanding how external events and societal changes influence the thematic and stylistic focus of humor over time. By combining proportion analysis, z-score calculations, and heatmap visualizations, we captured both the macro-level trends and the nuanced shifts in humor styles and topics.</p>
                 </div>
                 <div class="image">
                     <img src="images/trend.png" alt="Temporal and Cultural Trend Analysis" />

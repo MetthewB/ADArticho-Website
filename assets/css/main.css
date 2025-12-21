@@ -615,13 +615,36 @@ body {
 ---------------------------------- */
 #temporal-trends {
     padding: 0rem 0rem 0rem 1rem;
-    display: flex; /* Ensure the parent container is a flex container */
+    display: flex;
 }
 
 #temporal-trends .content {
     padding: 0.5rem;
-    max-width: 120%;
-    padding-right: -140px;
+    max-width: 200%;
+    padding-right: -200px;
+}
+
+#temporal-trends .image {
+	transform: translateX(0px);
+}
+
+/* ---------------------------------
+   Comparison Table Section
+---------------------------------- */
+.comparison-table th {
+    text-align: center; /* Center the text */
+    font-size: 2em; /* Make the text bigger */
+    padding: 10px; /* Add spacing around the text */
+}
+
+.comparison-table th:nth-child(2) {
+    color: #D10000; /* NYCC header color */
+	font-family: 'Playfair Display', serif;
+}
+
+.comparison-table th:nth-child(3) {
+    color: #002147; /* OHIC header color */
+	font-family: 'Playfair Display', serif;
 }
 
 /* ---------------------------------
