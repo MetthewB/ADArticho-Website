@@ -773,7 +773,6 @@ def topic_distribution_piechart_plotly(
         legend=dict(
             orientation="h",  # Horizontal legend
             yanchor="bottom",
-            y=-0.2,  # Position below the pie charts
             xanchor="center",
             x=0.5,
         ),
