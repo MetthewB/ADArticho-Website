@@ -766,7 +766,7 @@ def topic_distribution_piechart_plotly(
     )
 
     fig.update_layout(
-        height=550,
+        height=600,
         title_text=f"{dataset1_name} vs. {dataset2_name} Captions' Topic Distribution",
         title_x=0.5,
         title_font=dict(size=18),
@@ -774,10 +774,12 @@ def topic_distribution_piechart_plotly(
             orientation="h",  # Horizontal legend
             yanchor="bottom",
             xanchor="center",
+            y=-0.3,
             x=0.5,
         ),
     )
 
+    fig.show()
     return fig
 
 
