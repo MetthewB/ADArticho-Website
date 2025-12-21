@@ -334,33 +334,32 @@
 						<iframe src="topic_distribution_piechart.html" width="100%" height="600" frameborder="0"></iframe>
 					</div>
 					<p style="margin-top: -30px;"></p>
-					<p>The distribution of topics in NYCC and OHIC revealed both shared and unique trends. Topics like <strong style="color:red;">Love</strong>, <strong style="color:deeppink;">Family</strong>, and <strong style="color:steelblue;">Work</strong> were the most frequently occurring, reflecting shared social roles, domestic life, and workplace dynamics. In contrast, topics like <strong style="color:palevioletred;">Politics and Social Issues</strong> were more prominent in OHIC, aligning with its internet-based context and focus on societal critique. Other topics, such as <strong style="color:darkgreen;">Nature</strong>, <strong style="color:darkorange;">Food</strong>, and <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, highlighted environmental concerns, cultural rituals, and media consumption, while institutional topics like <strong style="color:teal;">Health</strong> and <strong style="color:blueviolet;">Law</strong> critiqued societal structures and professional roles.</p>
+					<p>This figure compares the normalized topic distributions of captions from NYCC and OHIC. While both datasets cover a similar range of themes, clear differences emerge in their relative emphasis across topics.</p>
+					<p>NYCC captions show a stronger concentration in <strong style="color:darkorange;">Food</strong>, <strong style="color:steelblue;">Work</strong>, <strong style="color:darkgreen;">Nature</strong>, and <strong style="color:teal;">Health</strong>. <strong style="color:darkorange;">Food</strong> is the most prominent topic, reflecting shared cultural experiences around eating, while <strong style="color:steelblue;">Work</strong> and <strong style="color:darkgreen;">Nature</strong> highlight professional life and environmental humor.</p>
+					<p>In contrast, OHIC captions are dominated by <strong style="color:blue;">Caption Contest</strong>, reflecting its self-referential and meme-driven nature. OHIC also emphasizes <strong style="color:blueviolet;">School</strong>, <strong style="color:red;">Emotions</strong>, <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, <strong style="color:blueviolet;">Law</strong>, and <strong style="color:deeppink;">Love</strong>, showcasing a more expressive and pop-culture-oriented humor style.</p>
+					<p><strong style="color:palevioletred;">Politics and Social Issues</strong> are limited in both datasets but slightly more represented in OHIC. These differences highlight contrasting humor strategies: NYCC favors situational and observational humor, while OHIC leans toward self-referential and emotionally expressive humor. A limitation of this analysis is that the content of the images, which could heavily influence caption themes, is not considered.</p>
 
 					<!-- Topic vs. Funniness Scores -->
-					<h3><strong>2. Humor Type vs. Funniness Scores:</strong></h3>
+					<h3><strong>2. Topic vs. Funniness Scores:</strong></h3>
 					<div class="plot-container">
 						<img src="images/topic-vs-funniness.png" alt="Topic vs. Funniness Scores" />
 					</div>
-					<p>Our analysis revealed that topics like <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> consistently scored higher in funniness, reflecting their broad appeal and relatability. These topics often draw on shared experiences and interpersonal dynamics, making them universally engaging. In contrast, topics like <strong style="color:palevioletred;">Politics and Social Issues</strong> were more polarizing, with mixed reactions from readers. This polarization may stem from the abstract and institutional language used in these captions, which focus on collective or systemic concepts rather than individual experiences.</p>
-
-					<!-- Topic vs. Rank -->
-					<h3><strong>3. Humor Type vs. Rank:</strong></h3>
-					<div class="plot-container">
-						<img src="images/topic-vs-rank.png" alt="Topic vs. Rank" />
-					</div>
-					<p>When analyzing topic vs. rank, relational topics like <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> tended to achieve better ranks, reflecting their broad appeal and universal relatability. In contrast, topics like <strong style="color:palevioletred;">Politics and Social Issues</strong> and <strong style="color:darkgreen;">Nature</strong> often ranked lower, possibly due to their niche appeal or reliance on commentary and critique. Topics like <strong style="color:steelblue;">Work</strong> and <strong style="color:darkorange;">Food</strong> achieved moderate ranks, blending humor with shared cultural experiences and professional dynamics.</p>
-					<p style="margin-top: 40px">Overall, the topic classification highlights the diverse thematic dimensions of humor in the datasets. Relational topics like <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> resonate broadly with audiences, while institutional topics like <strong style="color:teal;">Health</strong> and <strong style="color:blueviolet;">Law</strong> provide humor rooted in societal critique. The prominence of topics like <strong style="color:darkgreen;">Nature</strong> and <strong style="color:palevioletred;">Politics and Social Issues</strong> in OHIC reflects its internet-based context, where commentary and critique are more prevalent. These findings underscore the role of context and audience in shaping the thematic content of humor.</p>
+					<p>This figure shows the distribution of funny scores across topics for both NYCC and OHIC captions. While the distributions reveal substantial overlap, humor appreciation is influenced more by caption quality, phrasing, and context than by topic alone.</p>
+					<p>For most topics, including <strong style="color:darkorange;">Food</strong>, <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, <strong style="color:blue;">Caption Contest</strong>, and <strong style="color:blueviolet;">Law</strong>, NYCC and OHIC captions achieve similar median funny scores, indicating comparable humorous effectiveness. However, <strong style="color:palevioletred;">Politics and Social Issues</strong> is the only topic where OHIC captions outperform NYCC, likely due to a more direct engagement with contemporary political content. In contrast, NYCC captions score higher for topics like <strong style="color:red;">Love</strong>, <strong style="color:deeppink;">Family</strong>, <strong style="color:blueviolet;">School</strong>, <strong style="color:darkgreen;">Nature</strong>, and <strong style="color:teal;">Health</strong>, suggesting more consistent humor in these themes.</p>				
+					<p>The high variance in funny scores across all topics, as shown by wide interquartile ranges and long whiskers, highlights that humor effectiveness depends on execution rather than thematic category. The <strong style="color:rgb(91, 91, 91);">Other</strong> category, as expected, shows the widest and most uneven distribution due to its heterogeneous nature.</p>			
+					
+					<p style="margin-top: 40px">Overall, the topic classification highlights the diverse thematic dimensions of humor in the datasets. Relational topics like <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> resonate broadly with audiences, with NYCC captions achieving higher funniness scores in these themes. Institutional topics like <strong style="color:teal;">Health</strong> and <strong style="color:blueviolet;">Law</strong> provide humor rooted in societal critique, with both datasets showing comparable effectiveness in <strong style="color:blueviolet;">Law</strong>. The prominence of topics like <strong style="color:darkgreen;">Nature</strong> in NYCC reflects its focus on observational humor, while the higher representation of <strong style="color:palevioletred;">Politics and Social Issues</strong> in OHIC highlights its engagement with contemporary political content. These findings underscore the role of context, stylistic choices, and audience preferences in shaping the thematic content and reception of humor.</p>
 				</div>
 
 				<!-- Quiz Time 6 -->
 				<div class="inner align-center" id="quiz-6">
 					<h2>Quiz Time!</h2>
 					<div class="quiz-step" id="question-6">
-						<h3>Question 6: Which topic is most associated with relational humor?</h3>
+						<h3>Question 6: Which topic is the only one where OHIC captions outperform NYCC in funniness scores?</h3>
 						<div class="quiz-options">
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Politics is more associated with social critique.">Politics</div>
-							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Work is more associated with professional humor.">Work</div>
-							<div class="quiz-option" data-answer="correct" data-next="data-story-7" data-feedback="Correct! Love and Family are strongly associated with relational humor.">Love and Family</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Love is more strongly associated with NYCC captions.">Love</div>
+							<div class="quiz-option" data-answer="incorrect" data-next="data-story-7" data-feedback="Not quite! Nature is more strongly associated with NYCC captions.">Nature</div>
+							<div class="quiz-option" data-answer="correct" data-next="data-story-7" data-feedback="Correct! Politics and Social Issues is the only topic where OHIC captions outperform NYCC.">Politics</div>
 						</div>
 						<p class="feedback hidden"></p>
 					</div>
@@ -370,8 +369,10 @@
 			<!-- 7. Word Clouds -->
 			<section class="wrapper style1" id="data-story-7">
 				<div class="inner align-left">
-					<h2>Word Clouds for Humor Types and Topics</h2>
+					<h2>Word Clouds</h2>
 					<p>Word clouds reveal the most frequent words associated with each humor type and topic, providing a quick overview of recurring themes in the datasets. These visualizations help identify the dominant vocabulary and recurring patterns in captions.</p>
+					
+					<h3><strong>1. Word Clouds for Humor Type:</strong></h3>
 					<p>For humor types, the word clouds highlight the distinct vocabulary used in different styles of humor:</p>
 					<div class="plot-container">
 						<img src="images/humor-types-word-clouds-nycc.png" alt="Word Clouds for Humor Types (NYCC)" />
@@ -384,21 +385,45 @@
 						<li><strong style="color:brown;">Raunchy:</strong> Words like "sexy," "bold," and "explicit" reflect humor that is risqué and adult-oriented.</li>
 						<li><strong style="color:gold;">Corny:</strong> Words like "joke," "dad," and "cheesy" emphasize humor that is predictable yet endearing.</li>
 					</ul>
+
+					<h3><strong>2. Word Clouds for Topics:</strong></h3>
 					<p>For topics, the word clouds illustrate the thematic focus of captions:</p>
 					<div class="plot-container">
 						<img src="images/topic-word-clouds-nycc.png" alt="Word Clouds for Topics (NYCC)" />
 						<img src="images/topic-word-clouds-ohic.png" alt="Word Clouds for Topics (OHIC)" />
 					</div>
+					<p><b>NYCC Caption Dataset:</b></p>
 					<ul>
-						<li><strong style="color:red;">Love:</strong> Words like "love," "kiss," and "heart" dominate, reflecting romantic and relational humor.</li>
-						<li><strong style="color:steelblue;">Work:</strong> Words like "job," "boss," and "office" highlight professional hierarchies and workplace stressors.</li>
-						<li><strong style="color:darkgreen;">Nature:</strong> Words like "trees," "planet," and "global warming" indicate environmental concerns blended with humor.</li>
-						<li><strong style="color:palevioletred;">Politics and Social Issues:</strong> Words like "debate," "government," and "climate change" reflect societal critique.</li>
-						<li><strong style="color:teal;">Health:</strong> Words like "doctor," "patient," and "hospital" emphasize healthcare-related humor.</li>
-						<li><strong style="color:mediumorchid;">Entertainment and Pop Culture:</strong> Words like "movie," "show," and "star" highlight media consumption and celebrity culture.</li>
+						<li><b style="color:red">Love:</b> Dominated by words like <i>kiss</i>, <i>heart</i>, <i>marriage</i>, and <i>sex</i>, reflecting interpersonal relationships and modern dating life.</li>
+						<li><b style="color:deeppink">Family:</b> Features terms like <i>home</i>, <i>Mom</i>, and <i>kid</i>, emphasizing domestic life and parental relationships.</li>
+						<li><b style="color:dodgerblue">School:</b> Includes <i>school</i>, <i>class</i>, and <i>college</i>, highlighting educational settings and recurring routines.</li>
+						<li><b style="color:steelblue">Work:</b> Words like <i>job</i>, <i>boss</i>, and <i>office</i> point to workplace stress and corporate culture.</li>
+						<li><b style="color:palevioletred">Politics and Social Issues:</b> Focuses on <i>politics</i>, <i>debate</i>, and <i>climate change</i>, emphasizing systemic critique.</li>
+						<li><b style="color:darkgreen">Nature:</b> Includes <i>trees</i>, <i>planet</i>, and <i>global warming</i>, blending environmental concerns with humor.</li>
+						<li><b style="color:darkorange">Food:</b> Features <i>restaurant</i>, <i>pizza</i>, and <i>menu</i>, reflecting shared cultural experiences around eating.</li>
+						<li><b style="color:lightseagreen">Emotions:</b> Marked by introspective terms like <i>feel</i>, <i>cry</i>, and <i>therapy</i>, emphasizing emotional vulnerability.</li>
+						<li><b style="color:mediumorchid">Entertainment and Pop Culture:</b> Includes <i>movie</i>, <i>TV</i>, and <i>star</i>, reflecting humor grounded in media and celebrity culture.</li>
+						<li><b style="color:blue">Caption Contest:</b> Self-referential terms like <i>caption</i>, <i>joke</i>, and <i>funny</i> dominate.</li>
+						<li><b style="color:teal">Health</b> and <b style="color:blueviolet">Law:</b> Specialized vocabularies focus on <i>doctor</i>, <i>hospital</i>, <i>lawyer</i>, and <i>court</i>.</li>
+						<li><b style="color:dimgrey">Other:</b> Generic terms like <i>thing</i> and <i>people</i>, serving as a residual category.</li>
 					</ul>
-					<p>These word clouds illustrate how different humor types and topics are characterized by distinct vocabularies. For instance, relational humor in the <strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong> topics is strongly tied to interpersonal and emotional language, while the <strong style="color:darkgreen;">Nature</strong> topic often blends environmental themes with observational humor.</p>
-					<p>By analyzing these word clouds, we can better understand the thematic focus of captions and the recurring patterns that resonate with readers. These insights provide a qualitative understanding of how humor is expressed across different styles and themes.</p>
+					
+					<p><b>OHIC Caption Dataset:</b></p>
+					<ul>
+						<li><b style="color:red">Love:</b> Words like <i>relationship</i>, <i>crush</i>, and <i>friend</i> emphasize modern dating culture and youth-oriented humor.</li>
+						<li><b style="color:deeppink">Family:</b> Informal terms like <i>mom</i>, <i>dad</i>, and <i>house</i> focus on everyday domestic situations.</li>
+						<li><b style="color:dodgerblue">School:</b> Includes <i>teacher</i>, <i>homework</i>, and <i>exam</i>, reflecting shared student struggles.</li>
+						<li><b style="color:steelblue">Work:</b> Words like <i>job</i>, <i>boss</i>, and <i>money</i> highlight time pressure and compensation.</li>
+						<li><b style="color:palevioletred">Politics and Social Issues:</b> Features <i>government</i>, <i>election</i>, and <i>freedom</i>, with explicit references to contemporary figures like <i>Trump</i>.</li>
+						<li><b style="color:darkgreen">Nature:</b> Focuses on <i>tree</i>, <i>sky</i>, and <i>rain</i>, emphasizing situational contrasts over climate discourse.</li>
+						<li><b style="color:darkorange">Food:</b> Includes <i>chicken</i>, <i>Taco Bell</i>, and <i>pizza</i>, reflecting humor tied to pop culture and consumption habits.</li>
+						<li><b style="color:lightseagreen">Emotions:</b> Words like <i>sad</i>, <i>happy</i>, and <i>anxiety</i> emphasize explicit emotional expression.</li>
+						<li><b style="color:mediumorchid">Entertainment and Pop Culture:</b> Features <i>anime</i>, <i>Fortnite</i>, and <i>Disney</i>, relying on internet culture and fandoms.</li>
+						<li><b style="color:blue">Caption Contest:</b> Includes <i>meme</i>, <i>post</i>, and <i>funny</i>, highlighting meta-awareness of captioning as a social activity.</li>
+						<li><b style="color:teal">Health:</b> Pandemic-related terms like <i>covid</i> and <i>vaccine</i> dominate.</li>
+						<li><b style="color:blueviolet">Law:</b> Includes <i>lawyer</i>, <i>court</i>, and <i>crime</i>, framed through dialogue and interpersonal tension.</li>
+						<li><b style="color:dimgrey">Other:</b> Generic conversational tokens like <i>day</i> and <i>thing</i>.</li>
+					</ul>
 				</div>
 
 				<!-- Quiz Time 7 -->
@@ -469,21 +494,34 @@
 					
 					<!-- Topic Proportions Over Time -->
 					<h3><strong>1. Topic Proportions Over Time:</strong></h3>
-					<p>The interactive plot below illustrates the proportions of various topics in captions over time. You can explore the trends by hovering over the lines to see specific values for each year and topic.</p>
+					<p>This figure presents a line plot of normalized topic distributions in NYCC captions over time. The interactive plot below allows you to explore the proportions of various topics by hovering over the lines to see specific values for each year and topic.</p>
 					<p style="margin-top: -20px;"></p>
 					<div class="plot-container">
 						<iframe src="http://127.0.0.1:8060" style="width: 100%; height: 600px; border: none;"></iframe>
 					</div>
-					<p>The topic proportions over time highlight the dominance of certain themes, such as <strong style="color:darkorange;">Food</strong> and <strong style="color:blue;">Caption Contest</strong>, which consistently maintain high proportions across the years. These topics reflect universal and timeless themes that resonate broadly with audiences. Additionally, the overall stability of the curves suggests that the thematic focus of captions remains relatively consistent over time, with each topic maintaining a steady presence in the dataset.</p>
-					
+					<p>The topic proportions over time highlight the dominance of certain themes, such as <strong style="color:darkorange;">Food</strong> and <strong style="color:blue;">Caption Contest</strong>, which consistently maintain high proportions across the years. These topics reflect universal and timeless themes that resonate broadly with audiences. Other topics, such as <strong style="color:red;">Love</strong>, <strong style="color:deeppink;">Family</strong>, and <strong style="color:darkgreen;">Nature</strong>, remain steady over time, with occasional spikes reflecting specific cultural or societal moments.</p>
+
 					<!-- Topic Variation Heatmap -->
 					<h3><strong>2. Topic Variation Heatmap:</strong></h3>
+					<p>This figure presents a heatmap of the standardized variation (z-scores) of topic proportions in NYCC captions over time. Deviations from the mean highlight periods during which certain themes became unusually prominent or marginal, often aligning with major social, political, and global events.</p>
 					<div class="plot-container">
 						<iframe src="topic_variation_heatmap.html" style="width: 100%; height: 600px; border: none;"></iframe>
 					</div>
-					<p style="margin-top: -20px;">The heatmap of topic variation (z-scores) provides a deeper look at deviations from the mean topic proportions. Notable spikes in specific years highlight the influence of external events on humor. For instance, in <strong>2016</strong>, captions related to <strong style="color:blueviolet;">Law</strong> and <strong style="color:palevioletred;">Politics and Social Issues</strong> peaked, coinciding with the U.S. presidential election and the rise of Trump. Similarly, in <strong>2022</strong> and <strong>2024</strong>, there is a noticeable rise in captions about <strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>, possibly reflecting the growing influence of media consumption, celebrity culture, and the resurgence of major global events like the Oscars or the World Cup.</p>
-					
-					<p>These analyses demonstrate how external events and societal changes shape the thematic focus of humor over time. By examining these trends, we gain insights into the dynamic interplay between cultural context and humor.</p>
+					<p style="margin-top: -20px;">The heatmap reveals several notable trends:</p>
+					<ul>
+						<li><strong style="color:red;">Love</strong> and <strong style="color:deeppink;">Family</strong>: These themes remain steady over the years, with sharp rises in 2019 for Love and 2022 for Family, possibly reflecting cultural shifts or societal well-being.</li>
+						<li><strong style="color:dodgerblue;">School</strong>: Mentions of School increase substantially in 2021 and 2023, aligning with Covid’s long-term impact on education and the launch of ChatGPT, which affected university students.</li>
+						<li><strong style="color:steelblue;">Work</strong>: Overrepresented in 2016, reflecting pre-pandemic concerns about corporate culture, with renewed interest in 2023 linked to post-pandemic work reorganization.</li>
+						<li><strong style="color:palevioletred;">Politics and Social Issues</strong>: Peaks in 2016 and 2019 align with the U.S. presidential election and Trump impeachment proceedings, followed by a decline after 2020 as political satire gave way to more personal themes.</li>
+						<li><strong style="color:darkgreen;">Nature</strong>: Peaked in 2024, reflecting increased public concern over climate change and environmental issues.</li>
+						<li><strong style="color:darkorange;">Food</strong>: Consistently the most prominent topic, reflecting its universal appeal and cultural significance.</li>
+						<li><strong style="color:lightseagreen;">Emotions</strong>: Declined in 2017 but rose steadily afterward, capturing post-pandemic emotional reflection and a broader openness to discussing mental health.</li>
+						<li><strong style="color:mediumorchid;">Entertainment and Pop Culture</strong>: Steady over the years, with a slight increase from 2022, reflecting the rise of TikTok, Instagram reels, and global events like the Oscars and World Cup.</li>
+						<li><strong style="color:blue;">Caption Contest</strong>: Dominates NYCC captions alongside Food, with a sharp rise in 2024, possibly due to increased audience familiarity with the contest format.</li>
+						<li><strong style="color:teal;">Health</strong>: Peaked in 2020 and 2023 due to the Covid pandemic and its aftermath, with a decline in 2024 reflecting pandemic fatigue.</li>
+						<li><strong style="color:blueviolet;">Law</strong>: Peaked in 2016 during election-related legal disputes, with a decline in 2022–2024 as media focus on high-profile court cases waned.</li>
+					</ul>
+					<p>Overall, these analyses demonstrate how external events and societal changes shape the thematic focus of humor over time. By examining these trends, we gain insights into the dynamic interplay between cultural context and humor.</p>
 				</div>
 
 				<!-- Quiz Time 9 -->
